@@ -106,9 +106,11 @@ export class CliController {
       const userId = userIdFor(session);
       groups.set(userId, [...(groups.get(userId) ?? []), session]);
     }
-    const outputRoot = path.join(this.config.homeDir, 'companion', 'users');
+    const companionRoot = path.join(this.config.homeDir, 'companion');
+    const outputRoot = path.join(companionRoot, 'users');
+    const singleDefaultUser = groups.size === 1 && groups.has('default');
     const plans = [...groups.entries()].map(([userId, userSessions]) => {
-      const outputDir = path.join(outputRoot, userId);
+      const outputDir = singleDefaultUser ? companionRoot : path.join(outputRoot, userId);
       const snapshotPath = path.join(outputDir, 'companion-model.json');
       const cached = canReuseSnapshots && fs.existsSync(snapshotPath)
         ? JSON.parse(fs.readFileSync(snapshotPath, 'utf8')) as FullCompanionSnapshot
@@ -156,6 +158,7 @@ export class CliController {
       users
     }, null, 2)}\n`);
     console.log(`Longitudinal companion scan: ${users.length} users, ${sessions.length} sessions; ingested=${ingestion.sessionsProcessed}, skipped=${ingestion.sessionsSkipped}, projected=${plans.reduce((sum, plan) => sum + plan.sessionsToScan.length, 0)}`);
+    console.log(`Models: ${singleDefaultUser ? companionRoot : outputRoot}`);
     console.log(`Index: ${indexPath}`);
 
     if (manifest) {

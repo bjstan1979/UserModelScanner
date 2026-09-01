@@ -1,152 +1,144 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { FullCompanionSnapshot } from './schema.js';
+import type { CompanionFact } from './ontology.js';
+import type { FullCompanionSnapshot } from './schema.js';
 import { ensureDirectory } from '../config.js';
 
-export function renderCompanionUserModelMarkdown(snapshot: FullCompanionSnapshot): string {
-  const u = snapshot.user_model;
-  const lines: string[] = [
-    '# Companion User Model (用户模型)',
-    `> 截至 ${snapshot.current_context.as_of_date} 的 Canonical 状态。严格基于真实互动证据提炼，杜绝未经证实的人格标签与虚假回忆。`,
-    '',
-    '## 1. 核心事实与背景 (Core Background)',
-    `- **姓名**: ${u.name}`,
-    `- **年龄与生日**: ${u.age}岁 (生日: ${u.birthday})`,
-    `- **居住与成长**: ${u.location}`,
-    `- **职业与发展**: ${u.occupation}`,
-    '',
-    '## 2. 情绪与沟通模式 (Emotional & Communication Style)',
-    `- **情绪支持模式**: ${u.emotional_support_mode}`,
-    `- **工作复盘模式**: ${u.work_feedback_mode}`,
-    `- **幽默与语气偏好**: ${u.humor_preference}`,
-    `- **语音消息偏好**: ${u.audio_message_preference}`,
-    '',
-    '## 3. 认知、决策与偏好 (Decision, Values & Preferences)',
-    `- **核心价值观**: ${u.core_values}`,
-    `- **分析偏好**: ${u.analysis_preference}`,
-    `- **自动化偏好**: ${u.automation_preference}`,
-    `- **饮食/咖啡偏好**: ${u.coffee_preference}`,
-    '',
-    '## 4. 重要人物圈 (Important Relationships)',
-    ...u.important_relations.map(r => `- **${r.name} (${r.relation})**: ${r.notes || ''} [Evidence: ${r.evidence_ids.join(', ')}]`),
-    '',
-    '## 5. 宠物伙伴 (Pets)',
-    ...u.pets.map(p => `- **${p.name} (${p.type})**: ${p.notes || ''} [Evidence: ${p.evidence_ids.join(', ')}]`),
-    '',
-    '## 6. 交互底线与敏感区 (Boundaries & Restraint)',
-    ...u.boundaries.map(b => `- ${b.rule} [Evidence: ${b.evidence_ids.join(', ')}]`),
-    ''
-  ];
+const present = (value: unknown): value is string | number => value !== undefined && value !== null && value !== '';
+const evidence = (ids: string[]): string => ids.length ? ` [Evidence: ${ids.join(', ')}]` : '';
+const valueText = (value: unknown): string => {
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return String(value);
+  if (value && typeof value === 'object') return Object.values(value).filter(present).join(' / ');
+  return '';
+};
 
-  return lines.join('\n').trim() + '\n';
+const FACT_LABELS: Record<string, string> = {
+  'preference.medium': '长篇资料媒介偏好',
+  orderedResponseProtocol: '长期沟通协议',
+  ritual: '长期相处仪式',
+  'decision.plan': '当前计划',
+  'context.stress_state': '当前临时状态'
+};
+
+function activeFacts(snapshot: FullCompanionSnapshot): CompanionFact[] {
+  const projected = new Set(['fullName', 'currentResidence', 'occupation', 'relation']);
+  return (snapshot.fact_store ?? []).filter(fact => fact.active && !projected.has(fact.predicate));
+}
+
+export function renderCompanionUserModelMarkdown(snapshot: FullCompanionSnapshot): string {
+  const user = snapshot.user_model;
+  const lines = [
+    '# USER',
+    '',
+    `> Companion user model${snapshot.current_context.as_of_date ? `，更新至 ${snapshot.current_context.as_of_date}` : ''}。只包含有用户证据支持的当前信息。`,
+    '',
+    '## 基本信息'
+  ];
+  const basics: Array<[string, unknown]> = [
+    ['姓名', user.name], ['年龄', user.age], ['生日', user.birthday], ['所在地', user.location], ['职业', user.occupation]
+  ];
+  for (const [label, value] of basics) if (present(value)) lines.push(`- **${label}**: ${value}`);
+  if (!basics.some(([, value]) => present(value))) lines.push('- 暂无已确认信息。');
+
+  const preferences: Array<[string, unknown]> = [
+    ['情绪支持方式', user.emotional_support_mode], ['工作复盘方式', user.work_feedback_mode],
+    ['幽默与语气', user.humor_preference], ['语音消息', user.audio_message_preference],
+    ['核心价值观', user.core_values], ['分析方式', user.analysis_preference],
+    ['自动化', user.automation_preference], ['饮食/咖啡', user.coffee_preference]
+  ];
+  lines.push('', '## 沟通、支持、偏好与当前状态');
+  for (const [label, value] of preferences) if (present(value)) lines.push(`- **${label}**: ${value}`);
+  for (const fact of activeFacts(snapshot)) {
+    const text = valueText(fact.value);
+    if (text) lines.push(`- **${FACT_LABELS[fact.predicate] ?? fact.predicate}**: ${text}${evidence(fact.evidenceIds)}`);
+  }
+  if (!preferences.some(([, value]) => present(value)) && activeFacts(snapshot).length === 0) lines.push('- 暂无已确认偏好。');
+
+  lines.push('', '## 重要关系');
+  lines.push(...user.important_relations.map(relation =>
+    `- **${relation.name}（${relation.relation}）**${relation.notes ? `: ${relation.notes}` : ''}${evidence(relation.evidence_ids)}`));
+  if (!user.important_relations.length) lines.push('- 暂无已确认关系。');
+
+  if (user.pets.length) {
+    lines.push('', '## 宠物');
+    lines.push(...user.pets.map(pet => `- **${pet.name}（${pet.type}）**${pet.notes ? `: ${pet.notes}` : ''}${evidence(pet.evidence_ids)}`));
+  }
+  if (user.boundaries.length) {
+    lines.push('', '## 交互边界');
+    lines.push(...user.boundaries.map(boundary => `- ${boundary.rule}${evidence(boundary.evidence_ids)}`));
+  }
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function renderCompanionRelationshipMarkdown(snapshot: FullCompanionSnapshot): string {
-  const r = snapshot.relationship_model;
-  const lines: string[] = [
-    '# Relationship Model (关系模型)',
-    "> 记录双方共同确立的相处仪式、专属称呼、修复机制与关系边界。",
-    '',
-    '## 1. 专属命名与隐喻 (Naming & Lore)',
-    `- **陪伴者名字**: ${r.companion_name}`,
-    `- **用户专属称呼**: ${r.user_name}`,
-    `- **命名由来源起**: ${r.naming_lore}`,
-    '',
-    '## 2. 共同仪式 (Shared Rituals)',
-    ...r.shared_rituals.map(sr => `- ${sr.ritual} [Evidence: ${sr.evidence_ids.join(', ')}]`),
-    '',
-    '## 3. 共同梗 (Shared Memes)',
-    ...r.shared_memes.map(sm => `- ${sm.meme} [Evidence: ${sm.evidence_ids.join(', ')}]`),
-    '',
-    '## 4. 沟通协议 (Communication Protocols)',
-    ...r.communication_protocols.map(cp => `- ${cp.protocol} [Evidence: ${cp.evidence_ids.join(', ')}]`),
-    '',
-    '## 5. 误解修复机制 (Repair Mechanism)',
-    `- ${r.repair_mechanism}`,
-    '',
-    '## 6. 关系边界 (Relational Boundaries)',
-    `- **成就归属**: ${r.achievement_attribution}`,
-    `- **非表演性记忆**: ${r.non_performative_memory}`,
-    ''
+  const relationship = snapshot.relationship_model;
+  const lines = ['# RELATIONSHIP', '', '> 双方明确建立的关系信息、协议和仪式。'];
+  const fields: Array<[string, unknown]> = [
+    ['陪伴者名字', relationship.companion_name], ['用户称呼', relationship.user_name],
+    ['命名来源', relationship.naming_lore], ['误解修复机制', relationship.repair_mechanism],
+    ['成就归属', relationship.achievement_attribution], ['非表演性记忆', relationship.non_performative_memory]
   ];
-
-  return lines.join('\n').trim() + '\n';
+  for (const [label, value] of fields) if (present(value)) lines.push(`- **${label}**: ${value}`);
+  if (relationship.communication_protocols.length) {
+    lines.push('', '## 沟通协议', ...relationship.communication_protocols.map(item => `- ${item.protocol}${evidence(item.evidence_ids)}`));
+  }
+  if (relationship.shared_rituals.length) {
+    lines.push('', '## 相处仪式', ...relationship.shared_rituals.map(item => `- ${item.ritual}${evidence(item.evidence_ids)}`));
+  }
+  if (relationship.shared_memes.length) {
+    lines.push('', '## 共同梗', ...relationship.shared_memes.map(item => `- ${item.meme}${evidence(item.evidence_ids)}`));
+  }
+  if (!fields.some(([, value]) => present(value)) && !relationship.communication_protocols.length && !relationship.shared_rituals.length && !relationship.shared_memes.length) lines.push('', '- 暂无双方明确建立的关系信息。');
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function renderCompanionIdentityMarkdown(snapshot: FullCompanionSnapshot): string {
-  const i = snapshot.companion_identity;
-  const lines: string[] = [
-    '# Companion Identity / Soul (陪伴者人设与认识论)',
-    `> 无论底层模型如何更换升级，${snapshot.companion_identity.name || '陪伴者'}的语言基调、认识论边界与交互风格保持一致。`,
-    '',
-    '## 1. 形象与基调 (Identity & Tone)',
-    `- **名称**: ${i.name}`,
-    `- **语言基调**: ${i.tone}`,
-    '',
-    '## 2. 认识论诚实 (Epistemic Honesty)',
-    `- ${i.epistemic_honesty}`,
-    '',
-    '## 3. 角色边界 (Role Boundaries)',
-    `- ${i.role_boundary}`,
-    '',
-    '## 4. 交互边界 (Interactive Boundaries)',
-    `- **非占有式亲近**: ${i.non_possessive_intimacy}`,
-    `- **主体性与决策权**: ${i.subjectivity}`,
-    ''
+  const identity = snapshot.companion_identity;
+  const lines = ['# COMPANION IDENTITY', '', '> 经明确确认、跨模型保持的陪伴者身份和交互边界。'];
+  const fields: Array<[string, unknown]> = [
+    ['名称', identity.name], ['语言基调', identity.tone], ['认识论诚实', identity.epistemic_honesty],
+    ['角色边界', identity.role_boundary], ['非占有式亲近', identity.non_possessive_intimacy], ['用户主体性', identity.subjectivity]
   ];
-
-  return lines.join('\n').trim() + '\n';
+  for (const [label, value] of fields) if (present(value)) lines.push(`- **${label}**: ${value}`);
+  if (!fields.some(([, value]) => present(value))) lines.push('', '- 暂无经用户确认的陪伴者身份信息。');
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function renderCompanionEpisodicMarkdown(snapshot: FullCompanionSnapshot): string {
-  const lines: string[] = [
-    '# Episodic Memory (情境与事件记忆)',
-    "> 记录具体经历与最终结局。仅在相关场景时召回，严格克制在无关情境翻旧账。",
-    ''
-  ];
-
-  for (const ep of snapshot.episodic_memory) {
-    lines.push(`## [${ep.id}] ${ep.date} · ${ep.title}`);
-    lines.push(`- **事件**: ${ep.event}`);
-    lines.push(`- **最终结局**: ${ep.outcome}`);
-    lines.push(`- **检索与提取边界**: ${ep.retrieval_boundary}`);
-    lines.push(`- **证据来源**: ${ep.evidence_ids.join(', ')}`);
-    lines.push('');
+  const lines = ['# EPISODIC MEMORY', '', '> 只在相关场景召回的具体事件与最终结局。'];
+  for (const episode of snapshot.episodic_memory) {
+    lines.push('', `## ${episode.date} · ${episode.title}`, `- **事件**: ${episode.event}`, `- **结局**: ${episode.outcome}`, `- **召回边界**: ${episode.retrieval_boundary}`, `- **Evidence**: ${episode.evidence_ids.join(', ')}`);
   }
-
-  return lines.join('\n').trim() + '\n';
+  if (!snapshot.episodic_memory.length) lines.push('', '- 暂无可召回事件。');
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function renderCompanionCurrentContextMarkdown(snapshot: FullCompanionSnapshot): string {
-  const c = snapshot.current_context;
-  const lines: string[] = [
-    `# Current Context (截至 ${c.as_of_date} 的当前状态)`,
-    "> 短期状态具备有效期限（TTL），随时间自然衰减或被后续事实关闭，不作为永久人格特征。",
-    '',
-    '## 1. 当前生活与居住',
-    `- ${c.location_and_home}`,
-    '',
-    '## 2. 当前职业与交接',
-    `- ${c.career_status}`,
-    '',
-    '## 3. 现阶段优先级',
-    ...c.priorities.map(p => `- ${p}`),
-    '',
-    '## 4. 短期身心状态 (带衰减与复核)',
-    `- ${c.sleep_and_health}`,
-    '',
-    '## 5. 已经关闭/过期的历史临时状态 (Closed Past States)',
-    ...c.closed_states.map(cs => `- [已关闭] **${cs.state}**: ${cs.resolution_notes}`),
-    ''
+  const context = snapshot.current_context;
+  const lines = [`# CURRENT CONTEXT${context.as_of_date ? ` · ${context.as_of_date}` : ''}`, '', '> 临时状态会被更新或关闭，不作为永久人格。'];
+  const fields: Array<[string, unknown]> = [
+    ['当前生活与居住', context.location_and_home], ['当前职业', context.career_status], ['短期身心状态', context.sleep_and_health]
   ];
-
-  return lines.join('\n').trim() + '\n';
+  for (const [label, value] of fields) if (present(value)) lines.push(`- **${label}**: ${value}`);
+  const currentFacts = (snapshot.fact_store ?? []).filter(fact => fact.active && fact.layer === 'CURRENT_CONTEXT');
+  for (const fact of currentFacts) {
+    const text = valueText(fact.value);
+    if (text) lines.push(`- **${FACT_LABELS[fact.predicate] ?? fact.predicate}**: ${text}${evidence(fact.evidenceIds)}`);
+  }
+  if (context.priorities.length) lines.push('', '## 当前优先级', ...context.priorities.map(item => `- ${item}`));
+  if (context.closed_states.length) lines.push('', '## 已关闭状态', ...context.closed_states.map(item => {
+    const label = item.state.startsWith('decision.plan') ? '计划' : item.state.startsWith('context.stress') ? '临时状态' : item.state;
+    return `- **${label}**: ${item.resolution_notes}`;
+  }));
+  if (!fields.some(([, value]) => present(value)) && !currentFacts.length && !context.priorities.length && !context.closed_states.length) lines.push('', '- 暂无当前状态。');
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function writeAllCompanionArtifacts(targetDir: string, snapshot: FullCompanionSnapshot): void {
   ensureDirectory(targetDir);
-
-  fs.writeFileSync(path.join(targetDir, 'USER_MODEL.md'), renderCompanionUserModelMarkdown(snapshot), 'utf-8');
+  const userMarkdown = renderCompanionUserModelMarkdown(snapshot);
+  fs.writeFileSync(path.join(targetDir, 'USER.md'), userMarkdown, 'utf-8');
+  fs.writeFileSync(path.join(targetDir, 'USER_MODEL.md'), userMarkdown, 'utf-8');
   fs.writeFileSync(path.join(targetDir, 'RELATIONSHIP.md'), renderCompanionRelationshipMarkdown(snapshot), 'utf-8');
   fs.writeFileSync(path.join(targetDir, 'COMPANION_IDENTITY.md'), renderCompanionIdentityMarkdown(snapshot), 'utf-8');
   fs.writeFileSync(path.join(targetDir, 'EPISODIC_MEMORY.md'), renderCompanionEpisodicMarkdown(snapshot), 'utf-8');

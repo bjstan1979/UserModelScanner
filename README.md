@@ -58,6 +58,33 @@ npx user-model diff
 
 Companion 是后台纵向扫描，不参与实时对话循环。它复用 Coding 的 ingestion 底座，但按用户分别归约，防止不同用户的记忆互相污染。
 
+### 扫描单个真实用户的陪伴历史
+
+把该用户的 OpenClaw JSONL session 放在一个独立目录中，不要直接指向包含多个 agent、checkpoint 和工具日志的整个 `~/.openclaw`：
+
+```bash
+npx user-model companion \
+  --source ./my-companion-sessions \
+  --adapter openclaw \
+  --provider rule
+```
+
+不指定 `--home` 时，最终交付物与 Coding agent 一样写入 `~/.user-model/`：
+
+```text
+~/.user-model/companion/
+├── USER.md
+├── USER_MODEL.md          # USER.md 的兼容副本
+├── RELATIONSHIP.md
+├── COMPANION_IDENTITY.md
+├── EPISODIC_MEMORY.md
+├── CURRENT_CONTEXT.md
+├── companion-model.json
+└── longitudinal-index.json
+```
+
+`USER.md` 是优先阅读的便携用户模型；未提取到的字段不会输出 `undefined`。OpenClaw 原生 typed text blocks 会被规范化，tool result、thinking 和 orchestration record 不作为用户内容。
+
 ### 运行模拟纵向 corpus
 
 ```bash
@@ -81,11 +108,20 @@ npx user-model --home ./companion-home companion \
 
 ```text
 <home>/companion/
-├── users/<user-id>/              # 每个用户独立 snapshot
-├── longitudinal-index.json      # session 增量索引
-├── longitudinal-baseline.json   # fixture 有 truth ledger 时生成
-└── semantic-cache/              # discovery evidence 持久化缓存
+├── users/<user-id>/
+│   ├── USER.md                    # 每个用户的便携模型
+│   ├── USER_MODEL.md
+│   ├── RELATIONSHIP.md
+│   ├── COMPANION_IDENTITY.md
+│   ├── EPISODIC_MEMORY.md
+│   ├── CURRENT_CONTEXT.md
+│   └── companion-model.json
+├── longitudinal-index.json       # session 增量索引
+├── longitudinal-baseline.json    # fixture 有 truth ledger 时生成
+└── semantic-cache/               # discovery evidence 持久化缓存
 ```
+
+只有一个真实用户时不会额外创建 `users/default/`，文件直接写入 `<home>/companion/`。
 
 ### MiniMax semantic enhancement
 

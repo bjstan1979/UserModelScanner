@@ -64,21 +64,32 @@ export class OpenClawAdapter implements SessionAdapter {
     const events: CanonicalEvent[] = [];
     const fileStream = fs.createReadStream(session.path);
     const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
+    let lineNumber = 0;
 
     for await (const line of rl) {
+      lineNumber += 1;
       if (!line.trim()) continue;
       try {
         const record = JSON.parse(line);
-        const role: CanonicalRole = record.role === 'user' || record.from === 'user' ? 'user' : 'assistant';
-        const content = record.content || record.text || record.msg;
-        if (!content || typeof content !== 'string') continue;
+        if (record.type && record.type !== 'message') continue;
+        const message = record.message && typeof record.message === 'object' ? record.message : record;
+        const rawRole = message.role ?? message.from;
+        if (rawRole !== 'user' && rawRole !== 'assistant') continue;
+        const rawContent = message.content ?? message.text ?? message.msg;
+        const content = typeof rawContent === 'string'
+          ? rawContent
+          : Array.isArray(rawContent)
+            ? rawContent.filter(block => block?.type === 'text' && typeof block.text === 'string').map(block => block.text).join('\n')
+            : '';
+        if (!content.trim()) continue;
+        const timestamp = record.timestamp ?? message.timestamp;
 
         events.push({
-          session_id: record.session_id || session.id,
-          event_id: record.id || `ev_${Math.random().toString(36).slice(2, 9)}`,
-          timestamp: record.timestamp ? new Date(record.timestamp).toISOString() : new Date().toISOString(),
-          project: extractProjectFromCwd(record.cwd),
-          role,
+          session_id: record.session_id ?? record.sessionId ?? message.session_id ?? session.id,
+          event_id: record.id ?? message.id ?? `${session.id}-${lineNumber}`,
+          timestamp: timestamp ? new Date(timestamp).toISOString() : new Date(session.mtime ?? fs.statSync(session.path).mtimeMs).toISOString(),
+          project: extractProjectFromCwd(message.cwd ?? record.cwd ?? record.workspaceDir),
+          role: rawRole as CanonicalRole,
           content: content.trim(),
           metadata: { raw_path: session.path }
         });

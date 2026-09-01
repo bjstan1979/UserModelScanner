@@ -6,6 +6,7 @@ import os from 'node:os';
 import { PiAdapter } from '../src/adapters/pi.js';
 import { CodexAdapter } from '../src/adapters/codex.js';
 import { WorkBuddyAdapter } from '../src/adapters/workbuddy.js';
+import { OpenClawAdapter } from '../src/adapters/openclaw.js';
 
 test('PiAdapter discovers and parses pi sessions', async () => {
   const tmpDir = path.join(os.tmpdir(), `test-pi-${Date.now()}`);
@@ -103,5 +104,27 @@ test('WorkBuddyAdapter discovers and parses workbuddy project sessions', async (
   assert.equal(events[0].content, '叫我老肖，我的风格是干脆利落');
   assert.equal(events[0].project, 'Claw');
 
+  fs.rmSync(tmpDir, { recursive: true, force: true });
+});
+
+test('OpenClawAdapter parses native text blocks and skips orchestration records', async () => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'test-openclaw-'));
+  const sessionFile = path.join(tmpDir, 'session.jsonl');
+  fs.writeFileSync(sessionFile, [
+    JSON.stringify({ type: 'session', id: 's1', timestamp: '2030-01-01T00:00:00.000Z' }),
+    JSON.stringify({ type: 'message', id: 'm1', timestamp: '2030-01-01T00:01:00.000Z', workspaceDir: '/companions/home', message: { role: 'user', content: [{ type: 'text', text: '我喜欢先被倾听，再讨论办法。' }] } }),
+    JSON.stringify({ type: 'message', id: 'm2', timestamp: '2030-01-01T00:02:00.000Z', message: { role: 'assistant', content: [{ type: 'thinking', thinking: 'private' }, { type: 'text', text: '我会记住这个顺序。' }] } }),
+    JSON.stringify({ type: 'custom_message', message: { role: 'user', content: 'CLAW-MONITOR AUTO-STEER' } }),
+    JSON.stringify({ type: 'message', message: { role: 'toolResult', content: [{ type: 'text', text: 'tool output' }] } })
+  ].join('\n'));
+
+  const adapter = new OpenClawAdapter();
+  const [session] = await adapter.discover(tmpDir);
+  const events = await adapter.parse(session);
+  assert.deepEqual(events.map(event => [event.role, event.content]), [
+    ['user', '我喜欢先被倾听，再讨论办法。'],
+    ['assistant', '我会记住这个顺序。']
+  ]);
+  assert.equal(events[0].project, 'home');
   fs.rmSync(tmpDir, { recursive: true, force: true });
 });
