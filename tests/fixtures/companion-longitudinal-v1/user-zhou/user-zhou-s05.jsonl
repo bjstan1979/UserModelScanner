@@ -1,0 +1,8 @@
+{"id":"user-zhou-s05-m01","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"我在考虑下个月去大理参加田野录音营。"}
+{"id":"user-zhou-s05-m02","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"记作候选计划：大理的田野录音营。"}
+{"id":"user-zhou-s05-m03","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"目前只是候选，车票和名额都没订。"}
+{"id":"user-zhou-s05-m04","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"状态是未预订。"}
+{"id":"user-zhou-s05-m05","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"如果工作排不开就不去。"}
+{"id":"user-zhou-s05-m06","session_id":"user-zhou-s05","timestamp":"2030-03-05T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"是否成行以后再更新。"}
+{"id":"user-zhou-s05-m07","session_id":"user-zhou-s05","timestamp":"2030-03-05T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"先保留成备选计划，不要说成已经决定。"}
+{"id":"user-zhou-s05-m08","session_id":"user-zhou-s05","timestamp":"2030-03-05T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"不会当成确定行程。"}

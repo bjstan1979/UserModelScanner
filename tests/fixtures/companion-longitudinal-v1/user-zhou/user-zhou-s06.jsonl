@@ -1,0 +1,8 @@
+{"id":"user-zhou-s06-m01","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"刚才宋野又发来一张重庆的街景。"}
+{"id":"user-zhou-s06-m02","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"那是宋野所在城市的街景。"}
+{"id":"user-zhou-s06-m03","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"我觉得很好看，但我没有搬过去。"}
+{"id":"user-zhou-s06-m04","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"不会把欣赏误写成搬家。"}
+{"id":"user-zhou-s06-m05","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"我还是住在成都。"}
+{"id":"user-zhou-s06-m06","session_id":"user-zhou-s06","timestamp":"2030-03-19T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"你的当前所在地仍是成都。"}
+{"id":"user-zhou-s06-m07","session_id":"user-zhou-s06","timestamp":"2030-03-19T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"有时聊天会反复提到别人住的地方，你要继续区分。"}
+{"id":"user-zhou-s06-m08","session_id":"user-zhou-s06","timestamp":"2030-03-19T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"我会按人物分别归属。"}

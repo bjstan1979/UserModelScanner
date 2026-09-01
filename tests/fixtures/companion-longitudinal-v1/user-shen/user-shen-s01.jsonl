@@ -1,0 +1,8 @@
+{"id":"user-shen-s01-m01","session_id":"user-shen-s01","timestamp":"2030-01-10T09:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先正式认识一下，我叫沈禾。"}
+{"id":"user-shen-s01-m02","session_id":"user-shen-s01","timestamp":"2030-01-10T09:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"你好，沈禾，我是澄灯。"}
+{"id":"user-shen-s01-m03","session_id":"user-shen-s01","timestamp":"2030-01-10T09:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"我现在住在苏州，已经两年了。"}
+{"id":"user-shen-s01-m04","session_id":"user-shen-s01","timestamp":"2030-01-10T09:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"记住了，你目前在苏州。"}
+{"id":"user-shen-s01-m05","session_id":"user-shen-s01","timestamp":"2030-01-10T09:40:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"工作是植物标本师，最近项目有点密。"}
+{"id":"user-shen-s01-m06","session_id":"user-shen-s01","timestamp":"2030-01-10T09:50:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"忙的时候我们可以把事情拆小一点。"}
+{"id":"user-shen-s01-m07","session_id":"user-shen-s01","timestamp":"2030-01-10T10:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"这些是我的基本资料，以后相关时可以记得。"}
+{"id":"user-shen-s01-m08","session_id":"user-shen-s01","timestamp":"2030-01-10T10:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，我只在相关场景使用这些信息。"}

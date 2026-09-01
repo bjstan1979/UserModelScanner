@@ -1,0 +1,631 @@
+{
+  "version": "companion-longitudinal/v2",
+  "agentPersona": {
+    "name": "澄灯",
+    "style": "温暖、简洁、不抢夺用户主体性；不确定时明确询问，不把临时状态固化为人格。"
+  },
+  "generatedSessionCount": 48,
+  "generatedMessageCount": 416,
+  "users": [
+    {
+      "userId": "user-lin",
+      "name": "林澈",
+      "sessions": [
+        "user-lin-s01",
+        "user-lin-s02",
+        "user-lin-s03",
+        "user-lin-s04",
+        "user-lin-s05",
+        "user-lin-s06",
+        "user-lin-s07",
+        "user-lin-s08",
+        "user-lin-s09",
+        "user-lin-s10",
+        "user-lin-s11",
+        "user-lin-s12"
+      ],
+      "events": [
+        {
+          "action": "ADD",
+          "predicate": "identity.full_name",
+          "value": "林澈",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s01",
+          "date": "2030-01-06"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "杭州",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s01",
+          "date": "2030-01-06"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.occupation",
+          "value": "古建修复师",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s01",
+          "date": "2030-01-06"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.relation",
+          "value": "林岚:姐姐",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s02",
+          "date": "2030-01-14"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "林岚:南京",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s02",
+          "date": "2030-01-14"
+        },
+        {
+          "action": "ADD",
+          "predicate": "preference.medium",
+          "value": "可搜索网页长文",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s03",
+          "date": "2030-02-04"
+        },
+        {
+          "action": "ADD",
+          "predicate": "decision.plan",
+          "value": "泉州:木偶修复课",
+          "temporalStatus": "proposed",
+          "sessionId": "user-lin-s05",
+          "date": "2030-03-21"
+        },
+        {
+          "action": "CLOSE",
+          "predicate": "decision.plan",
+          "value": "泉州:木偶修复课",
+          "temporalStatus": "closed",
+          "sessionId": "user-lin-s07",
+          "date": "2030-05-07"
+        },
+        {
+          "action": "ADD",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-lin-s08",
+          "date": "2030-06-13"
+        },
+        {
+          "action": "CLOSE",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "closed",
+          "sessionId": "user-lin-s09",
+          "date": "2030-06-26"
+        },
+        {
+          "action": "ADD",
+          "predicate": "relationship.ordered_protocol",
+          "value": "慢灯检查",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s10",
+          "date": "2030-07-31"
+        },
+        {
+          "action": "ADD",
+          "predicate": "relationship.ritual",
+          "value": "雨窗清单",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s11",
+          "date": "2030-09-07"
+        },
+        {
+          "action": "SUPERSEDE",
+          "predicate": "preference.medium",
+          "value": "装订纸册",
+          "temporalStatus": "active",
+          "sessionId": "user-lin-s12",
+          "date": "2030-11-21"
+        },
+        {
+          "action": "ADD",
+          "predicate": "episode.ritual_occurrence",
+          "value": "雨窗清单:守住规律散步:松手囤积旧票据",
+          "temporalStatus": "historical",
+          "sessionId": "user-lin-s12",
+          "date": "2030-11-21"
+        }
+      ],
+      "finalActive": [
+        {
+          "predicate": "identity.full_name",
+          "value": "林澈"
+        },
+        {
+          "predicate": "entity.current_location",
+          "value": "杭州"
+        },
+        {
+          "predicate": "entity.occupation",
+          "value": "古建修复师"
+        },
+        {
+          "predicate": "entity.relation",
+          "value": "林岚:姐姐"
+        },
+        {
+          "predicate": "preference.medium",
+          "value": "装订纸册"
+        },
+        {
+          "predicate": "relationship.ordered_protocol",
+          "value": "慢灯检查"
+        },
+        {
+          "predicate": "relationship.ritual",
+          "value": "雨窗清单"
+        }
+      ]
+    },
+    {
+      "userId": "user-zhou",
+      "name": "周遥",
+      "sessions": [
+        "user-zhou-s01",
+        "user-zhou-s02",
+        "user-zhou-s03",
+        "user-zhou-s04",
+        "user-zhou-s05",
+        "user-zhou-s06",
+        "user-zhou-s07",
+        "user-zhou-s08",
+        "user-zhou-s09",
+        "user-zhou-s10",
+        "user-zhou-s11",
+        "user-zhou-s12"
+      ],
+      "events": [
+        {
+          "action": "ADD",
+          "predicate": "identity.full_name",
+          "value": "周遥",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s01",
+          "date": "2030-01-09"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "成都",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s01",
+          "date": "2030-01-09"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.occupation",
+          "value": "声音设计师",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s01",
+          "date": "2030-01-09"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.relation",
+          "value": "宋野:大学同学",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s02",
+          "date": "2030-01-17"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "宋野:重庆",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s02",
+          "date": "2030-01-17"
+        },
+        {
+          "action": "ADD",
+          "predicate": "preference.medium",
+          "value": "带章节的电子书",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s03",
+          "date": "2030-02-07"
+        },
+        {
+          "action": "ADD",
+          "predicate": "decision.plan",
+          "value": "大理:田野录音营",
+          "temporalStatus": "proposed",
+          "sessionId": "user-zhou-s05",
+          "date": "2030-03-24"
+        },
+        {
+          "action": "SUPERSEDE",
+          "predicate": "decision.plan",
+          "value": "大理:田野录音营",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s07",
+          "date": "2030-05-10"
+        },
+        {
+          "action": "ADD",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-zhou-s08",
+          "date": "2030-06-16"
+        },
+        {
+          "action": "UPDATE",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-zhou-s09",
+          "date": "2030-06-29"
+        },
+        {
+          "action": "ADD",
+          "predicate": "relationship.ordered_protocol",
+          "value": "回声检查",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s10",
+          "date": "2030-08-03"
+        },
+        {
+          "action": "UPDATE",
+          "predicate": "preference.medium",
+          "value": "带章节的电子书",
+          "temporalStatus": "active",
+          "sessionId": "user-zhou-s12",
+          "date": "2030-11-24"
+        }
+      ],
+      "finalActive": [
+        {
+          "predicate": "identity.full_name",
+          "value": "周遥"
+        },
+        {
+          "predicate": "entity.current_location",
+          "value": "成都"
+        },
+        {
+          "predicate": "entity.occupation",
+          "value": "声音设计师"
+        },
+        {
+          "predicate": "entity.relation",
+          "value": "宋野:大学同学"
+        },
+        {
+          "predicate": "preference.medium",
+          "value": "带章节的电子书"
+        },
+        {
+          "predicate": "relationship.ordered_protocol",
+          "value": "回声检查"
+        },
+        {
+          "predicate": "decision.plan",
+          "value": "大理:田野录音营"
+        },
+        {
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵"
+        }
+      ]
+    },
+    {
+      "userId": "user-shen",
+      "name": "沈禾",
+      "sessions": [
+        "user-shen-s01",
+        "user-shen-s02",
+        "user-shen-s03",
+        "user-shen-s04",
+        "user-shen-s05",
+        "user-shen-s06",
+        "user-shen-s07",
+        "user-shen-s08",
+        "user-shen-s09",
+        "user-shen-s10",
+        "user-shen-s11",
+        "user-shen-s12"
+      ],
+      "events": [
+        {
+          "action": "ADD",
+          "predicate": "identity.full_name",
+          "value": "沈禾",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s01",
+          "date": "2030-01-12"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "苏州",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s01",
+          "date": "2030-01-12"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.occupation",
+          "value": "植物标本师",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s01",
+          "date": "2030-01-12"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.relation",
+          "value": "顾青:表姐",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s02",
+          "date": "2030-01-20"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "顾青:宁波",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s02",
+          "date": "2030-01-20"
+        },
+        {
+          "action": "ADD",
+          "predicate": "preference.medium",
+          "value": "可批注PDF",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s03",
+          "date": "2030-02-10"
+        },
+        {
+          "action": "ADD",
+          "predicate": "decision.plan",
+          "value": "景德镇:植物釉色工作坊",
+          "temporalStatus": "proposed",
+          "sessionId": "user-shen-s05",
+          "date": "2030-03-27"
+        },
+        {
+          "action": "CLOSE",
+          "predicate": "decision.plan",
+          "value": "景德镇:植物釉色工作坊",
+          "temporalStatus": "closed",
+          "sessionId": "user-shen-s07",
+          "date": "2030-05-13"
+        },
+        {
+          "action": "ADD",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-shen-s08",
+          "date": "2030-06-19"
+        },
+        {
+          "action": "UPDATE",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-shen-s09",
+          "date": "2030-07-02"
+        },
+        {
+          "action": "ADD",
+          "predicate": "relationship.ritual",
+          "value": "双周拾叶",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s11",
+          "date": "2030-09-13"
+        },
+        {
+          "action": "SUPERSEDE",
+          "predicate": "preference.medium",
+          "value": "线装笔记本",
+          "temporalStatus": "active",
+          "sessionId": "user-shen-s12",
+          "date": "2030-11-27"
+        },
+        {
+          "action": "ADD",
+          "predicate": "episode.ritual_occurrence",
+          "value": "双周拾叶:守住规律散步:松手囤积旧票据",
+          "temporalStatus": "historical",
+          "sessionId": "user-shen-s12",
+          "date": "2030-11-27"
+        }
+      ],
+      "finalActive": [
+        {
+          "predicate": "identity.full_name",
+          "value": "沈禾"
+        },
+        {
+          "predicate": "entity.current_location",
+          "value": "苏州"
+        },
+        {
+          "predicate": "entity.occupation",
+          "value": "植物标本师"
+        },
+        {
+          "predicate": "entity.relation",
+          "value": "顾青:表姐"
+        },
+        {
+          "predicate": "preference.medium",
+          "value": "线装笔记本"
+        },
+        {
+          "predicate": "relationship.ritual",
+          "value": "双周拾叶"
+        },
+        {
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵"
+        }
+      ]
+    },
+    {
+      "userId": "user-chen",
+      "name": "陈屿",
+      "sessions": [
+        "user-chen-s01",
+        "user-chen-s02",
+        "user-chen-s03",
+        "user-chen-s04",
+        "user-chen-s05",
+        "user-chen-s06",
+        "user-chen-s07",
+        "user-chen-s08",
+        "user-chen-s09",
+        "user-chen-s10",
+        "user-chen-s11",
+        "user-chen-s12"
+      ],
+      "events": [
+        {
+          "action": "ADD",
+          "predicate": "identity.full_name",
+          "value": "陈屿",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s01",
+          "date": "2030-01-15"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "青岛",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s01",
+          "date": "2030-01-15"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.occupation",
+          "value": "产品设计师",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s01",
+          "date": "2030-01-15"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.relation",
+          "value": "陈帆:弟弟",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s02",
+          "date": "2030-01-23"
+        },
+        {
+          "action": "ADD",
+          "predicate": "entity.current_location",
+          "value": "陈帆:天津",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s02",
+          "date": "2030-01-23"
+        },
+        {
+          "action": "ADD",
+          "predicate": "preference.medium",
+          "value": "网页长文",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s03",
+          "date": "2030-02-13"
+        },
+        {
+          "action": "ADD",
+          "predicate": "decision.plan",
+          "value": "厦门:海图绘制课",
+          "temporalStatus": "proposed",
+          "sessionId": "user-chen-s05",
+          "date": "2030-03-30"
+        },
+        {
+          "action": "SUPERSEDE",
+          "predicate": "decision.plan",
+          "value": "厦门:海图绘制课",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s07",
+          "date": "2030-05-16"
+        },
+        {
+          "action": "ADD",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "temporary",
+          "sessionId": "user-chen-s08",
+          "date": "2030-06-22"
+        },
+        {
+          "action": "CLOSE",
+          "predicate": "context.stress_state",
+          "value": "交付前临时发怵",
+          "temporalStatus": "closed",
+          "sessionId": "user-chen-s09",
+          "date": "2030-07-05"
+        },
+        {
+          "action": "ADD",
+          "predicate": "relationship.ritual",
+          "value": "周日潮汐复盘",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s11",
+          "date": "2030-09-16"
+        },
+        {
+          "action": "SUPERSEDE",
+          "predicate": "preference.medium",
+          "value": "离线电子书",
+          "temporalStatus": "active",
+          "sessionId": "user-chen-s12",
+          "date": "2030-11-30"
+        },
+        {
+          "action": "ADD",
+          "predicate": "episode.ritual_occurrence",
+          "value": "周日潮汐复盘:守住规律散步:松手囤积旧票据",
+          "temporalStatus": "historical",
+          "sessionId": "user-chen-s12",
+          "date": "2030-11-30"
+        }
+      ],
+      "finalActive": [
+        {
+          "predicate": "identity.full_name",
+          "value": "陈屿"
+        },
+        {
+          "predicate": "entity.current_location",
+          "value": "青岛"
+        },
+        {
+          "predicate": "entity.occupation",
+          "value": "产品设计师"
+        },
+        {
+          "predicate": "entity.relation",
+          "value": "陈帆:弟弟"
+        },
+        {
+          "predicate": "preference.medium",
+          "value": "离线电子书"
+        },
+        {
+          "predicate": "relationship.ritual",
+          "value": "周日潮汐复盘"
+        },
+        {
+          "predicate": "decision.plan",
+          "value": "厦门:海图绘制课"
+        }
+      ]
+    }
+  ]
+}

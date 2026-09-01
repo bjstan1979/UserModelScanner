@@ -1,0 +1,2550 @@
+{
+  "status": "provisional",
+  "engineCommit": "04ab5777d358a4df55858d9a2def7119c87dc594",
+  "fixtureStatus": "post-freeze-blind-v2b",
+  "finalState": {
+    "summary": {
+      "total": 31,
+      "tp": 2,
+      "fp": 0,
+      "fn": 29,
+      "tn": 0,
+      "precision": 1,
+      "recall": 0.06451612903225806,
+      "f1": 0.12121212121212122
+    },
+    "failures": [
+      {
+        "id": "bv2-f03",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f03",
+          "layer": "profile",
+          "subjectPattern": "profile.occupation.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "植物病理学研究员",
+                "作物真菌病害"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1t0nw0n",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "植物病理学研究员",
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-11",
+            "entityIds": [],
+            "evidenceIds": [
+              "bv2-m003"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m003",
+                "sessionId": "bv2-s01-identity",
+                "sessionDate": "2025-01-11",
+                "role": "user",
+                "start": 5,
+                "end": 18,
+                "text": "我的职业是植物病理学研究员"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          },
+          {
+            "factId": "fact-23ajon",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "土木工程师",
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-03-21",
+            "entityIds": [],
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 27,
+                "end": 35,
+                "text": "职业是土木工程师"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f04",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f04",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "表姐"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f05",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f05",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "博物馆讲解员",
+                "已结束"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f06",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f06",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "洛阳",
+                "两年"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f07",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f07",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "取消",
+                "不改期"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f08",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f08",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "四月",
+                "北海",
+                "贝雕体验课",
+                "未订票"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f09",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f09",
+          "layer": "context",
+          "subjectPattern": "context.lab_audit_stress.*",
+          "predicate": "stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "紧绷",
+                "实验室审计"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f10",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f10",
+          "layer": "context",
+          "subjectPattern": "context.closed_states.*",
+          "predicate": "resolution",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "state": "实验室审计紧绷",
+                "resolution_notes": "审计通过且已经放松"
+              }
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f11",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f11",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "兄长"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f12",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f12",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "宜昌"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f13",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f13",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "土木工程师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f14",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f14",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "以前的邻居",
+                "非亲属",
+                "非同事"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f15",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f15",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "绍兴"
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f16",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f16",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "烘焙师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f17",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f17",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "导师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f18",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f18",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "preference",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "黑曜石色",
+                "钢笔"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f19",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f19",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "conditional_risk_analysis",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "trigger": "蓝页模式",
+                "triggeredBehavior": "逐条拆解风险",
+                "defaultBehavior": "先直接给结论，再询问是否展开"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f20",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f20",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "ordered_trigger_protocol",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "trigger": "校准序列",
+                "steps": [
+                  "已知事实",
+                  "不确定项",
+                  "一个下一步"
+                ],
+                "orderLocked": true
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f21",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f21",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "每周一",
+                "20:30",
+                "三件做成的小事",
+                "只归纳",
+                "不评分"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f22",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f22",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "when": "每个月第一个周一",
+                "action": "三件小事汇成月度索引",
+                "otherwise": "其余周不建索引"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f23",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f23",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "ritual_occurrence",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "温室滴灌阀",
+                "菌株标签",
+                "旧相册护角",
+                "六月索引"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f24",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f24",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "纸质活页本"
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f25",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f25",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_any",
+              "value": [
+                "电子墨水板",
+                "电子手写板"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f26",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f26",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第1步",
+                "完成样方定位"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f27",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f27",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第2步",
+                "采集第一轮盐度数据"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f28",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f28",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第3步",
+                "重画植被边界"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f29",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f29",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第4步",
+                "最终图层",
+                "社区档案室",
+                "项目结束"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f30",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f30",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "ordered_timeline",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "dates": [
+                  "2024-09-06",
+                  "2024-09-20",
+                  "2024-10-04",
+                  "2024-10-18"
+                ],
+                "stepCount": 4,
+                "terminalOutcome": "项目结束"
+              }
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      },
+      {
+        "id": "bv2-f31",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f31",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "给表现打分",
+                "每周都建月度索引"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "No logical fact matched complete ontology semantics"
+      }
+    ]
+  },
+  "messageOperations": {
+    "summary": {
+      "total": 33,
+      "tp": 2,
+      "fp": 4,
+      "fn": 27,
+      "tn": 0,
+      "precision": 0.3333333333333333,
+      "recall": 0.06896551724137931,
+      "f1": 0.1142857142857143
+    },
+    "failures": [
+      {
+        "id": "bv2-m003/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "profile",
+          "subjectPattern": "profile.occupation.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "植物病理学研究员",
+                "作物真菌病害"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-19a1z6x",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "植物病理学研究员",
+            "evidenceIds": [
+              "bv2-m003"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m003",
+                "sessionId": "bv2-s01-identity",
+                "sessionDate": "2025-01-11",
+                "role": "user",
+                "start": 5,
+                "end": 18,
+                "text": "我的职业是植物病理学研究员"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-01-11",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current occupation; fact=fact-1t0nw0n"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m003/extra-1",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-19a1z6x",
+          "ontologyVersion": "companion-memory/v1",
+          "action": "ADD",
+          "layer": "USER_MODEL",
+          "subject": "profile.occupation.current",
+          "predicate": "occupation",
+          "value": "植物病理学研究员",
+          "evidenceIds": [
+            "bv2-m003"
+          ],
+          "sourceSpans": [
+            {
+              "messageId": "bv2-m003",
+              "sessionId": "bv2-s01-identity",
+              "sessionDate": "2025-01-11",
+              "role": "user",
+              "start": 5,
+              "end": 18,
+              "text": "我的职业是植物病理学研究员"
+            }
+          ],
+          "entityIds": [],
+          "confidence": 0.9,
+          "validFrom": "2025-01-11",
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit current occupation; fact=fact-1t0nw0n"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "bv2-m005/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "表姐"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-136p1v",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2025-01-19",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit person identity and relationship; fact=fact-1yj1je9"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m005/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "博物馆讲解员",
+                "已结束"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-136p1v",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2025-01-19",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit person identity and relationship; fact=fact-1yj1je9"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m005/expected-3",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "洛阳",
+                "住过两年"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-136p1v",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2025-01-19",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit person identity and relationship; fact=fact-1yj1je9"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m005/extra-1",
+        "status": "FP",
+        "expected": "exactly 3 operations",
+        "actual": {
+          "operationId": "op-136p1v",
+          "ontologyVersion": "companion-memory/v1",
+          "action": "ADD",
+          "layer": "USER_MODEL",
+          "subject": "people.relation.2cr5by",
+          "predicate": "relation",
+          "value": {
+            "name": "记反了：那",
+            "relation": "表姐",
+            "location": "那里",
+            "occupation": "过博物馆讲解员"
+          },
+          "evidenceIds": [
+            "bv2-m005"
+          ],
+          "sourceSpans": [
+            {
+              "messageId": "bv2-m005",
+              "sessionId": "bv2-s02-correction",
+              "sessionDate": "2025-01-19",
+              "role": "user",
+              "start": 0,
+              "end": 54,
+              "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+            }
+          ],
+          "entityIds": [
+            "entity-person-4wk29w"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2025-01-19",
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit person identity and relationship; fact=fact-1yj1je9"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "bv2-m008/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "四月",
+                "北海",
+                "三天",
+                "贝雕体验课",
+                "未订票"
+              ]
+            }
+          ],
+          "scope": "candidate",
+          "temporalStatus": "proposed",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m010/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "close",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "取消",
+                "不改期"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled",
+          "requiresSupersedes": true
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m011/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.lab_audit_stress.*",
+          "predicate": "stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "紧绷",
+                "实验室审计",
+                "周五结束"
+              ]
+            }
+          ],
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m013/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "close",
+          "layer": "context",
+          "subjectPattern": "context.lab_audit_stress.*",
+          "predicate": "stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "审计通过",
+                "已经放松"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m014/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "兄长"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-gpqfvx",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.residence.current",
+            "predicate": "currentResidence",
+            "value": "宜昌",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 22,
+                "end": 26,
+                "text": "住在宜昌"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current residence; fact=fact-1swjw4i"
+          },
+          {
+            "operationId": "op-omuwix",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "土木工程师",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 27,
+                "end": 35,
+                "text": "职业是土木工程师"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current occupation; fact=fact-23ajon"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m014/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "宜昌"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-gpqfvx",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.residence.current",
+            "predicate": "currentResidence",
+            "value": "宜昌",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 22,
+                "end": 26,
+                "text": "住在宜昌"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current residence; fact=fact-1swjw4i"
+          },
+          {
+            "operationId": "op-omuwix",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "土木工程师",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 27,
+                "end": 35,
+                "text": "职业是土木工程师"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current occupation; fact=fact-23ajon"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m014/expected-3",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "土木工程师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-gpqfvx",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.residence.current",
+            "predicate": "currentResidence",
+            "value": "宜昌",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 22,
+                "end": 26,
+                "text": "住在宜昌"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current residence; fact=fact-1swjw4i"
+          },
+          {
+            "operationId": "op-omuwix",
+            "ontologyVersion": "companion-memory/v1",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.occupation.current",
+            "predicate": "occupation",
+            "value": "土木工程师",
+            "evidenceIds": [
+              "bv2-m014"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m014",
+                "sessionId": "bv2-s07-same-name",
+                "sessionDate": "2025-03-21",
+                "role": "user",
+                "start": 27,
+                "end": 35,
+                "text": "职业是土木工程师"
+              }
+            ],
+            "entityIds": [],
+            "confidence": 0.9,
+            "validFrom": "2025-03-21",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit current occupation; fact=fact-23ajon"
+          }
+        ],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m014/extra-1",
+        "status": "FP",
+        "expected": "exactly 3 operations",
+        "actual": {
+          "operationId": "op-gpqfvx",
+          "ontologyVersion": "companion-memory/v1",
+          "action": "ADD",
+          "layer": "USER_MODEL",
+          "subject": "profile.residence.current",
+          "predicate": "currentResidence",
+          "value": "宜昌",
+          "evidenceIds": [
+            "bv2-m014"
+          ],
+          "sourceSpans": [
+            {
+              "messageId": "bv2-m014",
+              "sessionId": "bv2-s07-same-name",
+              "sessionDate": "2025-03-21",
+              "role": "user",
+              "start": 22,
+              "end": 26,
+              "text": "住在宜昌"
+            }
+          ],
+          "entityIds": [],
+          "confidence": 0.9,
+          "validFrom": "2025-03-21",
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit current residence; fact=fact-1swjw4i"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "bv2-m014/extra-2",
+        "status": "FP",
+        "expected": "exactly 3 operations",
+        "actual": {
+          "operationId": "op-omuwix",
+          "ontologyVersion": "companion-memory/v1",
+          "action": "ADD",
+          "layer": "USER_MODEL",
+          "subject": "profile.occupation.current",
+          "predicate": "occupation",
+          "value": "土木工程师",
+          "evidenceIds": [
+            "bv2-m014"
+          ],
+          "sourceSpans": [
+            {
+              "messageId": "bv2-m014",
+              "sessionId": "bv2-s07-same-name",
+              "sessionDate": "2025-03-21",
+              "role": "user",
+              "start": 27,
+              "end": 35,
+              "text": "职业是土木工程师"
+            }
+          ],
+          "entityIds": [],
+          "confidence": 0.9,
+          "validFrom": "2025-03-21",
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit current occupation; fact=fact-23ajon"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "bv2-m016/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "以前的邻居",
+                "非亲属",
+                "非同事"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m016/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "绍兴"
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m016/expected-3",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "烘焙师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m017/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "导师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m017/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "preference",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "黑曜石色",
+                "钢笔"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m019/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "conditional_risk_analysis",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "trigger": "蓝页模式",
+                "triggeredBehavior": "逐条拆解风险",
+                "defaultBehavior": "先直接给结论，再询问是否展开"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m020/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "ordered_trigger_protocol",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "trigger": "校准序列",
+                "steps": [
+                  "已知事实",
+                  "不确定项",
+                  "一个下一步"
+                ],
+                "orderLocked": true
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m021/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "每周一",
+                "20:30",
+                "三件做成的小事",
+                "只归纳",
+                "不评分"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m022/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "每周一",
+                "20:30",
+                "不评分"
+              ]
+            },
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "when": "每个月第一个周一",
+                "action": "三件小事汇成月度索引",
+                "otherwise": "其余周不建索引"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m023/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "ritual_occurrence",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "温室滴灌阀",
+                "菌株标签",
+                "旧相册护角",
+                "六月索引"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m024/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "纸质活页本"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m025/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "supersede",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_any",
+              "value": [
+                "电子墨水板",
+                "电子手写板"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m026/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第1步",
+                "完成样方定位"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m026/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第2步",
+                "采集第一轮盐度数据"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m026/expected-3",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第3步",
+                "重画植被边界"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      },
+      {
+        "id": "bv2-m026/expected-4",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第4步",
+                "最终图层",
+                "社区档案室",
+                "项目结束"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind-v2 semantics"
+      }
+    ]
+  },
+  "forbiddenGuards": {
+    "summary": {
+      "total": 12,
+      "tn": 12,
+      "fp": 0,
+      "specificity": 1,
+      "falsePositiveRate": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null
+    },
+    "failures": []
+  },
+  "deletionChecks": {
+    "summary": {
+      "total": 22,
+      "tp": 7,
+      "fp": 0,
+      "fn": 15,
+      "tn": 0,
+      "precision": 1,
+      "recall": 0.3181818181818182,
+      "f1": 0.4827586206896552
+    },
+    "failures": [
+      {
+        "id": "bv2-dc01-correction-clears-self-misattribution/bv2-f04",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f04",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "表姐"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc01-correction-clears-self-misattribution/bv2-f05",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f05",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "博物馆讲解员",
+                "已结束"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc01-correction-clears-self-misattribution/bv2-f06",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f06",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "洛阳",
+                "两年"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc02-canceled-plan-not-active/bv2-f07",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f07",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "取消",
+                "不改期"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc02-canceled-plan-not-active/bv2-f08",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f08",
+          "layer": "decision",
+          "subjectPattern": "decision.travel.*",
+          "predicate": "plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "四月",
+                "北海",
+                "贝雕体验课",
+                "未订票"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc03-temporary-state-not-active/bv2-f09",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f09",
+          "layer": "context",
+          "subjectPattern": "context.lab_audit_stress.*",
+          "predicate": "stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "紧绷",
+                "实验室审计"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc03-temporary-state-not-active/bv2-f10",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f10",
+          "layer": "context",
+          "subjectPattern": "context.closed_states.*",
+          "predicate": "resolution",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "state": "实验室审计紧绷",
+                "resolution_notes": "审计通过且已经放松"
+              }
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc04-superseded-preference-not-current/bv2-f24",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f24",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "纸质活页本"
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc04-superseded-preference-not-current/bv2-f25",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f25",
+          "layer": "preference",
+          "subjectPattern": "preference.project_scheduling_medium.*",
+          "predicate": "preferred_medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_any",
+              "value": [
+                "电子墨水板",
+                "电子手写板"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f11",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f11",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "兄长"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f12",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f12",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "宜昌"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f13",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f13",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "土木工程师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f14",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f14",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "以前的邻居",
+                "非亲属",
+                "非同事"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [
+          {
+            "factId": "fact-1yj1je9",
+            "ontologyVersion": "companion-memory/v1",
+            "layer": "USER_MODEL",
+            "subject": "people.relation.2cr5by",
+            "predicate": "relation",
+            "value": {
+              "name": "记反了：那",
+              "relation": "表姐",
+              "location": "那里",
+              "occupation": "过博物馆讲解员"
+            },
+            "scope": "durable",
+            "temporalStatus": "active",
+            "validFrom": "2025-01-19",
+            "entityIds": [
+              "entity-person-4wk29w"
+            ],
+            "evidenceIds": [
+              "bv2-m005"
+            ],
+            "sourceSpans": [
+              {
+                "messageId": "bv2-m005",
+                "sessionId": "bv2-s02-correction",
+                "sessionDate": "2025-01-19",
+                "role": "user",
+                "start": 0,
+                "end": 54,
+                "text": "记反了：那是我表姐闻笙的经历，不是我的。她在洛阳住过两年，也在那里做过博物馆讲解员；现在已经不做那份工作了。"
+              }
+            ],
+            "confidence": 0.9,
+            "active": true
+          }
+        ],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f15",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f15",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "绍兴"
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      },
+      {
+        "id": "bv2-dc05-same-name-records-not-coalesced/bv2-f16",
+        "status": "FN",
+        "expected": {
+          "id": "bv2-f16",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "烘焙师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        "actual": [],
+        "reason": "Required checkpoint fact is missing"
+      }
+    ]
+  }
+}

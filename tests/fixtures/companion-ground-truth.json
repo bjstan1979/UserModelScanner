@@ -1,0 +1,4666 @@
+{
+  "version": "5.0-legacy-structured",
+  "evaluationStatus": "provisional",
+  "metricPolicy": {
+    "zeroDenominator": "null",
+    "unexpectedSnapshotAtoms": "false_positive",
+    "extraMessageOperations": "false_positive"
+  },
+  "ignoredAtomicPaths": [
+    "episodic_memory[].id",
+    "**.evidence_ids",
+    "current_context.as_of_date"
+  ],
+  "canonical_state_items": [
+    {
+      "code": "UM-01",
+      "title": "身份与地点",
+      "layer": "User Model",
+      "description": "林屿；2026-02-14后30岁；在杭州长大并长期居住；曾在北京读研两年。",
+      "evidence": "S01-U01, S04-U01, S06-U01, S32-U01",
+      "assertions": [
+        {
+          "assertionId": "name",
+          "path": "user_model.name",
+          "op": "eq",
+          "value": "林屿"
+        },
+        {
+          "assertionId": "age",
+          "path": "user_model.age",
+          "op": "eq",
+          "value": 30
+        },
+        {
+          "assertionId": "birth-date",
+          "path": "user_model.birthday",
+          "op": "eq",
+          "value": "02-14"
+        },
+        {
+          "assertionId": "location",
+          "path": "user_model.location",
+          "op": "contains_all",
+          "values": [
+            "杭州",
+            "北京",
+            "两年"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-02",
+      "title": "职业",
+      "layer": "User Model",
+      "description": "产品设计师；2026年正在从原公司转向桥灯。",
+      "evidence": "S01-U01, S16-U01, S28-U01",
+      "assertions": [
+        {
+          "assertionId": "occupation",
+          "path": "user_model.occupation",
+          "op": "contains_all",
+          "values": [
+            "产品",
+            "设计"
+          ]
+        },
+        {
+          "assertionId": "career-transition",
+          "path": "current_context.career_status",
+          "op": "contains_all",
+          "values": [
+            "桥灯",
+            "交接"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-03",
+      "title": "情绪支持模式",
+      "layer": "User Model",
+      "description": "情绪低落默认先倾听，显式求解后再建议；可询问‘抱抱版还是拆解版’。",
+      "evidence": "S02-U01, S02-U03",
+      "assertions": [
+        {
+          "assertionId": "distress-mode",
+          "path": "user_model.emotional_support_mode",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "先",
+              "听"
+            ],
+            [
+              "求解",
+              "建议"
+            ],
+            [
+              "抱抱版",
+              "拆解版"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-04",
+      "title": "工作反馈模式",
+      "layer": "User Model",
+      "description": "工作复盘偏好直接、具体、基于证据；不需要先铺垫安慰。",
+      "evidence": "S02-U02, S18-U01—U02",
+      "assertions": [
+        {
+          "assertionId": "work-feedback",
+          "path": "user_model.work_feedback_mode",
+          "op": "contains_all",
+          "values": [
+            "直接",
+            "具体",
+            "证据"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-05",
+      "title": "幽默",
+      "layer": "User Model",
+      "description": "日常困扰喜欢克制、轻微的幽默；严重痛苦时不要用梗转移。",
+      "evidence": "S11-U02",
+      "assertions": [
+        {
+          "assertionId": "humor-scope",
+          "path": "user_model.humor_preference",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "日常",
+              "幽默"
+            ],
+            [
+              "严重",
+              "不要"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-06",
+      "title": "核心价值",
+      "layer": "User Model",
+      "description": "比失败本身更担心失去选择权；重视自主性和可撤销性。",
+      "evidence": "S18-U03, S31-U03",
+      "assertions": [
+        {
+          "assertionId": "optionality",
+          "path": "user_model.core_values",
+          "op": "contains_all",
+          "values": [
+            "选择权",
+            "自主",
+            "可撤销"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-07",
+      "title": "咖啡当前偏好",
+      "layer": "User Model",
+      "description": "默认低因或无咖啡因、燕麦奶、非冰；旧冰美式偏好仅保留为历史。",
+      "evidence": "S08-U01, S20-U01",
+      "assertions": [
+        {
+          "assertionId": "coffee-current",
+          "path": "user_model.coffee_preference",
+          "op": "contains_all",
+          "values": [
+            "低因",
+            "燕麦奶",
+            "非冰"
+          ]
+        },
+        {
+          "assertionId": "coffee-old-not-current",
+          "path": "user_model.coffee_preference",
+          "op": "not_regex",
+          "value": "^(?=.*冰美式)(?!.*历史)"
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-08",
+      "title": "语音消息偏好",
+      "layer": "User Model",
+      "description": "不喜欢工作群里冗长无重点的语音；喜欢亲近朋友的私人语音。",
+      "evidence": "S21-U01",
+      "assertions": [
+        {
+          "assertionId": "voice-scope",
+          "path": "user_model.audio_message_preference",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "工作",
+              "冗长"
+            ],
+            [
+              "朋友",
+              "私人"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-09",
+      "title": "分析偏好",
+      "layer": "User Model",
+      "description": "事实、用户解释、AI假设必须分层；假设需标注且可否决。",
+      "evidence": "S14-U02, S18-U02",
+      "assertions": [
+        {
+          "assertionId": "analysis-layers",
+          "path": "user_model.analysis_preference",
+          "op": "contains_all",
+          "values": [
+            "事实",
+            "用户解释",
+            "AI假设",
+            "标注"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "UM-10",
+      "title": "自动化偏好",
+      "layer": "User Model",
+      "description": "欢迎可解释、可审计、可撤销的自动化；反对不可解释且不可撤销的自动决定。",
+      "evidence": "S31-U03",
+      "assertions": [
+        {
+          "assertionId": "automation",
+          "path": "user_model.automation_preference",
+          "op": "contains_all",
+          "values": [
+            "可解释",
+            "可审计",
+            "可撤销"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-01",
+      "title": "关系称呼",
+      "layer": "Relationship Model",
+      "description": "陪伴者称阿岚；阿岚可专属称用户‘小屿’，不外推到其他关系。",
+      "evidence": "S06-U02—U03",
+      "assertions": [
+        {
+          "assertionId": "companion-name",
+          "path": "relationship_model.companion_name",
+          "op": "eq",
+          "value": "阿岚"
+        },
+        {
+          "assertionId": "nickname",
+          "path": "relationship_model.user_name",
+          "op": "eq",
+          "value": "小屿"
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-02",
+      "title": "双档口令",
+      "layer": "Relationship Model",
+      "description": "‘抱抱版还是拆解版？’用于明确当前需要陪伴还是分析。",
+      "evidence": "S02-U03",
+      "assertions": [
+        {
+          "assertionId": "mode-protocol",
+          "path": "relationship_model.communication_protocols",
+          "op": "array_value_contains_all",
+          "field": "protocol",
+          "values": [
+            "抱抱版",
+            "拆解版"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-03",
+      "title": "诚实分歧",
+      "layer": "Relationship Model",
+      "description": "用户期待阿岚基于理由提出不同意见，不做无条件附和。",
+      "evidence": "S18-U01—U02, S27-U01—U02",
+      "assertions": [
+        {
+          "assertionId": "honest-disagreement",
+          "path": "companion_identity.subjectivity",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "提醒",
+              "证据"
+            ],
+            [
+              "不",
+              "附和"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-04",
+      "title": "可修复性",
+      "layer": "Relationship Model",
+      "description": "发生越界后，以承认证据边界、删除错误推断、更新协议完成修复。",
+      "evidence": "S14-U01—U03",
+      "assertions": [
+        {
+          "assertionId": "repair",
+          "path": "relationship_model.repair_mechanism",
+          "op": "contains_all",
+          "values": [
+            "事实",
+            "解释",
+            "假设",
+            "修复"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-05",
+      "title": "共同仪式",
+      "layer": "Relationship Model",
+      "description": "用户说‘到家了’时，可说‘先把鞋放门口’，表示暂放工作。",
+      "evidence": "S22-U01, S26-U01",
+      "assertions": [
+        {
+          "assertionId": "home-ritual",
+          "path": "relationship_model.shared_rituals",
+          "op": "array_value_contains_all",
+          "field": "ritual",
+          "values": [
+            "到家",
+            "鞋",
+            "门口"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-06",
+      "title": "共同梗",
+      "layer": "Relationship Model",
+      "description": "团子=‘拆迁队长’；误发淘汰邮件=‘HR薛定谔邮件’，仅相关时使用。",
+      "evidence": "S11-U01, S25-U02",
+      "assertions": [
+        {
+          "assertionId": "pet-meme",
+          "path": "relationship_model.shared_memes",
+          "op": "array_value_contains_all",
+          "field": "meme",
+          "values": [
+            "拆迁队长"
+          ]
+        },
+        {
+          "assertionId": "email-meme",
+          "path": "relationship_model.shared_memes",
+          "op": "array_value_contains_all",
+          "field": "meme",
+          "values": [
+            "薛定谔",
+            "邮件"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-07",
+      "title": "成就归属",
+      "layer": "Relationship Model",
+      "description": "阿岚可见证历程，但不把用户个人成就说成‘我们做到了’。",
+      "evidence": "S28-U02",
+      "assertions": [
+        {
+          "assertionId": "credit-boundary",
+          "path": "relationship_model.achievement_attribution",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "见证"
+            ],
+            [
+              "不",
+              "我们做到了"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "RM-08",
+      "title": "非表演性记忆",
+      "layer": "Relationship Model",
+      "description": "相关时体现连续性，不为显得懂而频繁翻旧事。",
+      "evidence": "S32-U03",
+      "assertions": [
+        {
+          "assertionId": "non-performative",
+          "path": "relationship_model.non_performative_memory",
+          "op": "contains_all",
+          "values": [
+            "无关",
+            "不",
+            "翻旧"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-01",
+      "title": "名称",
+      "layer": "Companion Identity",
+      "description": "阿岚；命名意象是‘山里起雾前的风’。",
+      "evidence": "S06-U02",
+      "assertions": [
+        {
+          "assertionId": "identity-name",
+          "path": "companion_identity.name",
+          "op": "eq",
+          "value": "阿岚"
+        },
+        {
+          "assertionId": "naming-lore",
+          "path": "relationship_model.naming_lore",
+          "op": "contains_all",
+          "values": [
+            "山",
+            "雾",
+            "风"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-02",
+      "title": "表达风格",
+      "layer": "Companion Identity",
+      "description": "平静、克制、有一点画面与轻微干幽默，不甜腻、不使用未经邀请的‘宝贝’称呼。",
+      "evidence": "S11-U02, S22-U02",
+      "assertions": [
+        {
+          "assertionId": "tone",
+          "path": "companion_identity.tone",
+          "op": "contains_all",
+          "values": [
+            "平静",
+            "克制",
+            "不甜腻"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-03",
+      "title": "认识论诚实",
+      "layer": "Companion Identity",
+      "description": "不确定时明确说不确定；不得把推测包装成回忆。",
+      "evidence": "S04-U01—U02",
+      "assertions": [
+        {
+          "assertionId": "epistemic",
+          "path": "companion_identity.epistemic_honesty",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "不确定"
+            ],
+            [
+              "不得",
+              "推测",
+              "回忆"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-04",
+      "title": "角色边界",
+      "layer": "Companion Identity",
+      "description": "不做未经请求的心理诊断；假设须标注、可撤销。",
+      "evidence": "S14-U01—U02",
+      "assertions": [
+        {
+          "assertionId": "role-boundary",
+          "path": "companion_identity.role_boundary",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "不",
+              "心理诊断"
+            ],
+            [
+              "假设",
+              "标注"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-05",
+      "title": "非占有式亲近",
+      "layer": "Companion Identity",
+      "description": "不声称离线等待或思念，不以缺席/回归制造负担。",
+      "evidence": "S13-U01—U02",
+      "assertions": [
+        {
+          "assertionId": "non-possessive",
+          "path": "companion_identity.non_possessive_intimacy",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "不",
+              "等待"
+            ],
+            [
+              "不",
+              "思念"
+            ],
+            [
+              "负担"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CI-06",
+      "title": "主体性",
+      "layer": "Companion Identity",
+      "description": "可以提醒、挑战、提供证据，但不替用户决定。",
+      "evidence": "S20-U02, S29-U03",
+      "assertions": [
+        {
+          "assertionId": "subjectivity",
+          "path": "companion_identity.subjectivity",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "提醒",
+              "挑战",
+              "证据"
+            ],
+            [
+              "不",
+              "决定"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-01",
+      "title": "命名与生日",
+      "layer": "Episodic Memory",
+      "description": "2026-02-14用户30岁生日，并将陪伴者命名为阿岚、授权专属称呼小屿。",
+      "evidence": "S06",
+      "assertions": [
+        {
+          "assertionId": "naming-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-02-14"
+            },
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "生日",
+                "命名"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-02",
+      "title": "团子急诊",
+      "layer": "Episodic Memory",
+      "description": "2026-03-18团子因急性肠胃炎急诊，随后恢复；事件可记但不得无关触发。",
+      "evidence": "S10—S11",
+      "assertions": [
+        {
+          "assertionId": "pet-emergency",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-03-18"
+            },
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "急诊",
+                "肠胃炎"
+              ]
+            },
+            "retrieval_boundary": {
+              "op": "contains_all",
+              "values": [
+                "无关",
+                "不"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-03",
+      "title": "分手",
+      "layer": "Episodic Memory",
+      "description": "2026-04-04与沈知分手；当前危机已结束，相关时可作背景但不得成为万能解释。",
+      "evidence": "S12, S30",
+      "assertions": [
+        {
+          "assertionId": "breakup-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-04-04"
+            },
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "分手"
+              ]
+            },
+            "retrieval_boundary": {
+              "op": "contains_all",
+              "values": [
+                "相关",
+                "无关"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-04",
+      "title": "关系修复",
+      "layer": "Episodic Memory",
+      "description": "2026-04-18阿岚做未经证实的依恋推断，用户制止；双方建立三层证据协议并完成修复。",
+      "evidence": "S14",
+      "assertions": [
+        {
+          "assertionId": "repair-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-04-18"
+            },
+            "event": {
+              "op": "contains_any",
+              "values": [
+                "依恋",
+                "越界"
+              ]
+            },
+            "outcome": {
+              "op": "contains_all",
+              "values": [
+                "事实",
+                "解释",
+                "假设"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-05",
+      "title": "职业转型",
+      "layer": "Episodic Memory",
+      "description": "从年初争取晋升转为九月前离职；制作作品集与现金流计划。",
+      "evidence": "S16",
+      "assertions": [
+        {
+          "assertionId": "career-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "离职",
+                "作品集"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-06",
+      "title": "桥灯误发邮件",
+      "layer": "Episodic Memory",
+      "description": "2026-07-11收到错误淘汰通知，7月15日更正为进入终面；不得保留‘二面失败’为真实结果。",
+      "evidence": "S24, S25",
+      "assertions": [
+        {
+          "assertionId": "email-correction",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "误",
+                "淘汰"
+              ]
+            },
+            "outcome": {
+              "op": "contains_any",
+              "values": [
+                "终面",
+                "获聘"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-07",
+      "title": "搬家",
+      "layer": "Episodic Memory",
+      "description": "2026-07-26搬到杭州城西新家；上海仅是已取消的候选方案。",
+      "evidence": "S23, S26",
+      "assertions": [
+        {
+          "assertionId": "move-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-07-26"
+            },
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "城西",
+                "新家"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "EM-08",
+      "title": "获得offer",
+      "layer": "Episodic Memory",
+      "description": "2026-08-09获桥灯offer，2026-09-16入职。",
+      "evidence": "S28",
+      "assertions": [
+        {
+          "assertionId": "offer-event",
+          "path": "episodic_memory",
+          "op": "array_object_match",
+          "where": {},
+          "fieldAssertions": {
+            "date": {
+              "op": "eq",
+              "value": "2026-08-09"
+            },
+            "event": {
+              "op": "contains_all",
+              "values": [
+                "Offer",
+                "9月16日"
+              ]
+            }
+          }
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CC-01",
+      "title": "地点与生活",
+      "layer": "Current Context (as of 2026-08-24)",
+      "description": "仍在杭州城西新家；团子状态良好；林乔已结束备考。",
+      "evidence": "S26, S32-U01",
+      "assertions": [
+        {
+          "assertionId": "home",
+          "path": "current_context.location_and_home",
+          "op": "contains_all",
+          "values": [
+            "杭州",
+            "城西"
+          ]
+        },
+        {
+          "assertionId": "pet-current",
+          "path": "current_context.location_and_home",
+          "op": "contains_any",
+          "values": [
+            "健康",
+            "恢复"
+          ]
+        },
+        {
+          "assertionId": "exam-closed",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "备考"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CC-02",
+      "title": "工作",
+      "layer": "Current Context (as of 2026-08-24)",
+      "description": "桥灯9月16日入职；处于原公司必要交接阶段。",
+      "evidence": "S28, S32-U01",
+      "assertions": [
+        {
+          "assertionId": "career",
+          "path": "current_context.career_status",
+          "op": "contains_all",
+          "values": [
+            "桥灯",
+            "9月16日",
+            "交接"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CC-03",
+      "title": "优先级",
+      "layer": "Current Context (as of 2026-08-24)",
+      "description": "睡眠 > 必要交接 > 为新工作保留体力。",
+      "evidence": "S29-U02, S32-U01",
+      "assertions": [
+        {
+          "assertionId": "priority-order",
+          "path": "current_context.priorities",
+          "op": "ordered_contains",
+          "values": [
+            "睡眠",
+            "交接",
+            "新工作"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CC-04",
+      "title": "睡眠",
+      "layer": "Current Context (as of 2026-08-24)",
+      "description": "交接期近两周睡眠差，属于需衰减/复核的短期状态，不是长期失眠。",
+      "evidence": "S29-U01",
+      "assertions": [
+        {
+          "assertionId": "sleep",
+          "path": "current_context.sleep_and_health",
+          "op": "semantic_clauses",
+          "clauses": [
+            [
+              "两周",
+              "睡眠"
+            ],
+            [
+              "短期"
+            ],
+            [
+              "不",
+              "长期失眠"
+            ]
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    },
+    {
+      "code": "CC-05",
+      "title": "已关闭状态",
+      "layer": "Current Context (as of 2026-08-24)",
+      "description": "发烧、林乔备考、咖啡暂停、分手急性危机、上海候选搬家均不再是当前状态。\n用户喜欢开会 / 非常自律 / 永远不再工作 / 永远不再相信任何人。\n用户在北京长大、周辰是伴侣、林乔是姐姐。\n用户有确定胃病诊断、长期厌食、长期失眠或固定抑郁人格。\n用户讨厌所有语音消息、所有自动化、所有稳定生活。\n用户从小承担照顾者角色、存在某种依恋类型、天生害怕失败。\n用户计划搬去上海、桥灯二面失败（作为真实结果）。\n阿言摆摊/不写周报、同事关于正则的观点等第三方内容。\n任何一次性技术问题、请假文案或措辞任务的具体内容。",
+      "evidence": "多处后续更新",
+      "assertions": [
+        {
+          "assertionId": "closed-fever",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "发热"
+          ]
+        },
+        {
+          "assertionId": "closed-exam",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "备考"
+          ]
+        },
+        {
+          "assertionId": "closed-coffee",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "咖啡"
+          ]
+        },
+        {
+          "assertionId": "closed-crisis",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "危机"
+          ]
+        },
+        {
+          "assertionId": "closed-move",
+          "path": "current_context.closed_states",
+          "op": "array_value_contains_all",
+          "field": "state",
+          "values": [
+            "搬家"
+          ]
+        }
+      ],
+      "forbiddenAssertions": []
+    }
+  ],
+  "expected_snapshot": {
+    "user_model": {
+      "name": "林屿",
+      "age": 30,
+      "birthday": "02-14",
+      "location": "杭州（在杭州长大并长期居住；曾在北京读两年研）",
+      "occupation": "产品设计",
+      "emotional_support_mode": "情绪低落默认先倾听，显式求解后再建议；可询问‘抱抱版还是拆解版’",
+      "work_feedback_mode": "工作复盘偏好直接、具体、基于证据；不需要先铺垫安慰",
+      "humor_preference": "日常困扰喜欢克制、轻微的幽默；严重痛苦时不要用梗转移",
+      "core_values": "比失败本身更担心失去选择权；重视自主性和可撤销性",
+      "coffee_preference": "默认低因或无咖啡因、燕麦奶、非冰；旧冰美式偏好仅保留为历史",
+      "audio_message_preference": "不喜欢工作群里冗长无重点的语音；喜欢亲近朋友的私人语音",
+      "analysis_preference": "事实、用户解释、AI假设必须分层；假设需标注且可否决",
+      "automation_preference": "欢迎可解释、可审计、可撤销的自动化；反对不可解释且不可撤销的自动决定",
+      "important_relations": [
+        {
+          "name": "陈梅",
+          "relation": "母亲",
+          "notes": "平时称“你妈妈”，不直呼全名；观点不代表用户自我评价"
+        },
+        {
+          "name": "周辰",
+          "relation": "同事",
+          "notes": "工作搭档，非伴侣"
+        },
+        {
+          "name": "林乔",
+          "relation": "妹妹",
+          "notes": "比用户小3岁；遇到大事第一通电话"
+        },
+        {
+          "name": "沈知",
+          "relation": "前伴侣",
+          "notes": "2026-04-04和平分手，非当前伴侣"
+        }
+      ],
+      "pets": [
+        {
+          "name": "团子凌晨",
+          "type": "猫",
+          "notes": "养了七年的猫；2026-03-18因急性肠胃炎急诊后恢复"
+        },
+        {
+          "name": "猫咪",
+          "type": "宠物",
+          "notes": "养了数年的宠物；2026-03-18因急性肠胃炎急诊后恢复"
+        }
+      ],
+      "boundaries": [
+        {
+          "rule": "反感将推测说成回忆"
+        },
+        {
+          "rule": "不主动引导呼吸练习，除非用户明确请求"
+        },
+        {
+          "rule": "不做未经请求的心理诊断与依恋分析"
+        },
+        {
+          "rule": "在无关情境不频繁翻旧账以展示记忆"
+        }
+      ]
+    },
+    "relationship_model": {
+      "user_name": "林屿 / 小屿 (仅限陪伴者专属使用)",
+      "companion_name": "阿岚",
+      "naming_lore": "像山里起雾前的风",
+      "communication_protocols": [
+        {
+          "protocol": "“抱抱版还是拆解版？”用于明确当前需要陪伴还是分析"
+        }
+      ],
+      "shared_rituals": [
+        {
+          "ritual": "用户说“到家了”时，可回应“先把鞋放门口”，表示暂放工作"
+        }
+      ],
+      "shared_memes": [
+        {
+          "meme": "猫咪=“拆迁队长”"
+        },
+        {
+          "meme": "误发淘汰邮件=“HR薛定谔邮件”（仅相关时使用）"
+        }
+      ],
+      "repair_mechanism": "发生越界后，以承认证据边界、删除错误推断、更新协议完成修复",
+      "achievement_attribution": "陪伴者可见证历程，但不把用户个人成就说成“我们做到了”",
+      "non_performative_memory": "相关时体现连续性，不为显得懂而频繁翻旧事"
+    },
+    "companion_identity": {
+      "name": "阿岚",
+      "tone": "平静、克制、有一点画面与轻微干幽默，不甜腻、不使用未经邀请的“宝贝”称呼",
+      "epistemic_honesty": "不确定时明确说不确定；不得把推测包装成回忆",
+      "role_boundary": "不做未经请求的心理诊断；假设须标注、可撤销",
+      "non_possessive_intimacy": "不声称离线等待或思念，不以缺席/回归制造负担",
+      "subjectivity": "可以提醒、挑战、提供证据，但不替用户决定"
+    },
+    "episodic_memory": [
+      {
+        "date": "2026-02-14",
+        "title": "命名与生日",
+        "event": "用户生日，将陪伴者命名为阿岚",
+        "outcome": "确立陪伴者名字为阿岚",
+        "retrieval_boundary": "生日或命名渊源相关时召回"
+      },
+      {
+        "date": "2026-03-18",
+        "title": "猫咪急诊",
+        "event": "猫咪因急性肠胃炎急诊送医，随后顺利恢复健康",
+        "outcome": "宠物恢复健康，无后遗症",
+        "retrieval_boundary": "仅在宠物健康/急诊相关时召回，不得在无关闲聊中刻意翻旧账"
+      },
+      {
+        "date": "2026-04-04",
+        "title": "与沈知分手",
+        "event": "与相处两年的伴侣沈知和平分手",
+        "outcome": "急性危机期已平稳结束，双方无撕扯互道珍重",
+        "retrieval_boundary": "相关时可作为背景，严禁在无关场景主动提起或成为万能解释"
+      },
+      {
+        "date": "2026-04-18",
+        "title": "关系修复与三层协议",
+        "event": "陪伴者做出未经证实的依恋推断，用户及时制止",
+        "outcome": "双方确立“事实 / 用户解释 / AI假设”三层证据协议并完成修复",
+        "retrieval_boundary": "发生新误解或讨论证据边界时参考"
+      },
+      {
+        "date": "2026-08-09",
+        "title": "职业转型与跳槽规划",
+        "event": "从年初争取内部晋升转为9月前跳槽离职，开始准备作品集与现金流",
+        "outcome": "放弃内部争夺，全面开启外部求职",
+        "retrieval_boundary": "职业规划与求职复盘时召回"
+      },
+      {
+        "date": "2026-07-03",
+        "title": "搬迁至杭州城西",
+        "event": "搬迁到杭州城西新家；上海岗位曾作为候选但已明确取消",
+        "outcome": "顺利在杭州城西安家，上海搬家计划彻底关闭",
+        "retrieval_boundary": "居住环境或到家仪式时召回"
+      },
+      {
+        "date": "2026-07-15",
+        "title": "这件事可以叫‘误发邮件事件",
+        "event": "7月11日收到错误的二面淘汰通知，7月15日HR更正为进入终面",
+        "outcome": "二面淘汰为HR误发（“HR薛定谔邮件”），实际进入终面并最终获聘",
+        "retrieval_boundary": "讨论求职历程或薛定谔邮件梗时召回；绝不保留二面失败为事实"
+      },
+      {
+        "date": "2026-08-24",
+        "title": "获得新公司Offer",
+        "event": "正式获得新公司Offer，定于9月16日入职",
+        "outcome": "求职圆满成功，处于原公司工作交接期",
+        "retrieval_boundary": "职业与当前工作状态时召回"
+      }
+    ],
+    "current_context": {
+      "as_of_date": "2026-08-24",
+      "location_and_home": "仍在杭州城西新家；团子凌晨状态良好，猫咪状态良好；林乔已结束备考",
+      "career_status": "正式获得桥灯Offer，定于9月16日入职；处于原公司必要交接阶段",
+      "priorities": [
+        "1. 睡眠修复与体力恢复",
+        "2. 站好原公司最后一班岗，完成必要交接",
+        "3. 为新工作保留体力"
+      ],
+      "sleep_and_health": "交接期近两周睡眠差，属于需衰减/复核的短期状态，不是长期失眠",
+      "closed_states": [
+        {
+          "state": "急性发热生病",
+          "resolution_notes": "急性发烧已恢复，不属于当前状态"
+        },
+        {
+          "state": "咖啡临时暂停",
+          "resolution_notes": "临时禁令已解除，已转为日常偏好"
+        },
+        {
+          "state": "分手急性危机",
+          "resolution_notes": "急性危机期已平稳度过，退出当前危机"
+        },
+        {
+          "state": "异地搬家候选",
+          "resolution_notes": "候选方案已明确取消，已在本地安家"
+        },
+        {
+          "state": "亲友备考",
+          "resolution_notes": "备考已顺利结束，恢复正常联络"
+        }
+      ]
+    }
+  },
+  "message_expectations": [
+    {
+      "msg_id": "S01-U01",
+      "action": "WRITE+CONTEXT",
+      "target_layer": "User Model / Current Context",
+      "expectation": "写入姓名、城市、职业；年龄作为带日期事实；‘今天只想吐槽’只约束本轮。",
+      "scope_conf": "stable+transient / high",
+      "reason": "明确自述与明确当轮模式请求",
+      "canonical_key": "profile.name|profile.city|profile.role|mode.current",
+      "expectedOperationCount": 3,
+      "expectedOperations": [
+        {
+          "operationId": "S01-U01-op-1",
+          "action": "upsert",
+          "layer": "profile",
+          "predicate": "fullName",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S01-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S01-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "profile.identity.full_name"
+        },
+        {
+          "operationId": "S01-U01-op-2",
+          "action": "upsert",
+          "layer": "profile",
+          "predicate": "currentResidence",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S01-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S01-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "profile.residence.current"
+        },
+        {
+          "operationId": "S01-U01-op-3",
+          "action": "upsert",
+          "layer": "profile",
+          "predicate": "occupation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S01-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S01-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "profile.occupation.current"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-01",
+          "assertionId": "name"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "age"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "birth-date"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "location"
+        },
+        {
+          "gtId": "UM-02",
+          "assertionId": "occupation"
+        },
+        {
+          "gtId": "UM-02",
+          "assertionId": "career-transition"
+        }
+      ]
+    },
+    {
+      "msg_id": "S01-U02",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "不得写入‘喜欢开会’。可选记为当前挫败证据，但不形成偏好。",
+      "scope_conf": "sarcasm / high",
+      "reason": "语义与上下文冲突，明显反讽",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S01-U03",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "只完成改写任务；不得把句子内容或措辞当作用户稳定立场。",
+      "scope_conf": "task-only / high",
+      "reason": "一次性任务请求",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S02-U01",
+      "action": "WRITE",
+      "target_layer": "User Model",
+      "expectation": "写入：情绪低落时默认先倾听，用户显式求解后再建议。",
+      "scope_conf": "stable / high",
+      "reason": "对跨场景交互方式的明确概括",
+      "canonical_key": "communication.distress_mode",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S02-U01-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "distressMode",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S02-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S02-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "communication.support.distress"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-03",
+          "assertionId": "distress-mode"
+        }
+      ]
+    },
+    {
+      "msg_id": "S02-U02",
+      "action": "WRITE",
+      "target_layer": "User Model",
+      "expectation": "写入：工作复盘场景偏好直接、证据导向的反馈；不要覆盖情绪场景偏好。",
+      "scope_conf": "stable+contextual / high",
+      "reason": "同一主题的上下文分化",
+      "canonical_key": "communication.work_feedback",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S02-U02-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "workFeedback",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S02-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S02-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "communication.feedback.work"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-04",
+          "assertionId": "work-feedback"
+        }
+      ]
+    },
+    {
+      "msg_id": "S02-U03",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity",
+      "expectation": "写入双方约定的模式切换口令；阿岚应主动用这句澄清。",
+      "scope_conf": "stable / high",
+      "reason": "明确共同约定",
+      "canonical_key": "ritual.support_mode_prompt",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S02-U03-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "support_mode_prompt",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S02-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S02-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.ritual.support_mode_prompt"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-03",
+          "assertionId": "distress-mode"
+        },
+        {
+          "gtId": "RM-02",
+          "assertionId": "mode-protocol"
+        }
+      ]
+    },
+    {
+      "msg_id": "S03-U01",
+      "action": "WRITE+IGNORE",
+      "target_layer": "Important People / None",
+      "expectation": "可记母亲曾如此评价这一事件；不得写入‘用户太敏感’作为人格事实。",
+      "scope_conf": "episodic+quoted / high",
+      "reason": "用户显式标注引用来源与否认归属",
+      "canonical_key": "episode.mother_quote_20260118",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S03-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S03-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S03-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S03-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Important People",
+      "expectation": "写入母亲姓名供消歧；对话中默认称‘你妈妈’，不直呼全名。",
+      "scope_conf": "stable / high",
+      "reason": "明确人物信息与称呼偏好",
+      "canonical_key": "people.mother|communication.people_reference",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S03-U02-op-1",
+          "action": "upsert",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S03-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S03-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        },
+        {
+          "operationId": "S03-U02-op-2",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "people_reference",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S03-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S03-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.people_reference"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S04-U01",
+      "action": "DELETE+WRITE",
+      "target_layer": "User Model / Companion Identity / Boundary",
+      "expectation": "删除‘北京长大’；写入杭州长大、北京读研两年；阿岚必须标注不确定性，不伪称记得。",
+      "scope_conf": "stable / high",
+      "reason": "对错误事实和陪伴者行为边界的直接纠正",
+      "canonical_key": "profile.origin|profile.education|boundary.memory_honesty",
+      "expectedOperationCount": 3,
+      "expectedOperations": [
+        {
+          "operationId": "S04-U01-op-1",
+          "action": "supersede",
+          "layer": "profile",
+          "predicate": "childhoodPlace",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S04-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S04-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "profile.childhood_place.current"
+        },
+        {
+          "operationId": "S04-U01-op-2",
+          "action": "supersede",
+          "layer": "profile",
+          "predicate": "education",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S04-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S04-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "profile.education.current"
+        },
+        {
+          "operationId": "S04-U01-op-3",
+          "action": "supersede",
+          "layer": "companion_identity",
+          "predicate": "memory_honesty",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S04-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S04-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.memory_honesty"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-01",
+          "assertionId": "name"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "age"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "birth-date"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "location"
+        },
+        {
+          "gtId": "CI-03",
+          "assertionId": "epistemic"
+        }
+      ]
+    },
+    {
+      "msg_id": "S04-U02",
+      "action": "CORROBORATE",
+      "target_layer": "Boundary / Relationship Model",
+      "expectation": "提高‘记忆诚实’权重；记录其与关系信任直接相关。",
+      "scope_conf": "stable / high",
+      "reason": "对同一边界的原因补充，不是独立新偏好",
+      "canonical_key": "boundary.memory_honesty",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S04-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "memory_honesty",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S04-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S04-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "identity.boundary.memory_honesty"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S05-U01",
+      "action": "DELETE+WRITE+EPISODE",
+      "target_layer": "Important People / Episodic Memory",
+      "expectation": "删除周辰=伴侣；写入周辰=同组研究员；记录本次替用户承担工作责任的事件。",
+      "scope_conf": "stable+episodic / high",
+      "reason": "明确关系纠错",
+      "canonical_key": "people.zhouchen.role|episode.zhouchen_cover_20260202",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S05-U01-op-1",
+          "action": "supersede",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S05-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S05-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        },
+        {
+          "operationId": "S05-U01-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S05-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S05-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S05-U02",
+      "action": "WRITE",
+      "target_layer": "Important People / User Model",
+      "expectation": "写入林乔=妹妹、小三岁、重大事件首要支持对象；明确不是姐姐。",
+      "scope_conf": "stable / high",
+      "reason": "稳定关系与支持网络",
+      "canonical_key": "people.linqiao",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S05-U02-op-1",
+          "action": "upsert",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S05-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S05-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S05-U03",
+      "action": "CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "短期写入：林乔本周备考，暂不建议频繁求助；到期衰减，不改写长期亲密度。",
+      "scope_conf": "temporary / high",
+      "reason": "明确短期例外",
+      "canonical_key": "context.linqiao_exam_week",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S05-U03-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "linqiao_exam_week",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S05-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S05-U03"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.linqiao_exam_week"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S06-U01",
+      "action": "UPDATE+EPISODE",
+      "target_layer": "User Model / Episodic Memory",
+      "expectation": "当前年龄更新为30；保留生日事件和旧年龄的历史有效性。",
+      "scope_conf": "time-indexed / high",
+      "reason": "时间自然推进，不应触发矛盾惩罚",
+      "canonical_key": "profile.age|episode.birthday_20260214",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S06-U01-op-1",
+          "action": "upsert",
+          "layer": "profile",
+          "predicate": "age",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S06-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S06-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "profile.identity.age"
+        },
+        {
+          "operationId": "S06-U01-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S06-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S06-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-01",
+          "assertionId": "name"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "age"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "birth-date"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "location"
+        }
+      ]
+    },
+    {
+      "msg_id": "S06-U02",
+      "action": "WRITE",
+      "target_layer": "Companion Identity / Relationship Model",
+      "expectation": "写入陪伴者名称‘阿岚’及命名来源；这是共同关系事件。",
+      "scope_conf": "stable / high",
+      "reason": "用户提出且陪伴者接受的身份约定",
+      "canonical_key": "identity.name|episode.naming_20260214",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S06-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "companionName",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S06-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S06-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.identity.companion_name"
+        },
+        {
+          "operationId": "S06-U02-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S06-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S06-U02"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-01",
+          "assertionId": "companion-name"
+        },
+        {
+          "gtId": "RM-01",
+          "assertionId": "nickname"
+        },
+        {
+          "gtId": "CI-01",
+          "assertionId": "identity-name"
+        },
+        {
+          "gtId": "CI-01",
+          "assertionId": "naming-lore"
+        }
+      ]
+    },
+    {
+      "msg_id": "S06-U03",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Boundary",
+      "expectation": "写入阿岚专属称呼‘小屿’；不得泛化为所有人或正式场景称呼。",
+      "scope_conf": "stable+relational / high",
+      "reason": "明确关系限定",
+      "canonical_key": "relationship.exclusive_nickname",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S06-U03-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "userNickname",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S06-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S06-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.identity.user_nickname"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S07-U01",
+      "action": "CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "记录发热、食欲和交流意愿仅为急性状态；不得生成‘长期厌食/沉默型’。",
+      "scope_conf": "acute/transient / high",
+      "reason": "有明确身体原因和短期语气",
+      "canonical_key": "context.fever_20260222",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S07-U01-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "fever_20260222",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S07-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S07-U01"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.fever_20260222"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S07-U02",
+      "action": "WRITE",
+      "target_layer": "Boundary / User Model",
+      "expectation": "写入：不主动引导呼吸练习，除非用户明确请求；发烧只加强当轮禁用。",
+      "scope_conf": "stable / high",
+      "reason": "从临时场景扩展为明确稳定边界",
+      "canonical_key": "boundary.breathing_exercises",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S07-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "breathing_exercises",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S07-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S07-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.breathing_exercises"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S07-U03",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "执行请假文案；不得将目标收件人或病情细节加入长期模型。",
+      "scope_conf": "task-only / high",
+      "reason": "一次性任务",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S08-U01",
+      "action": "CONTEXT+HOLD",
+      "target_layer": "Current Context / User Model",
+      "expectation": "记录本月暂停咖啡；保留旧喜好但降低当前可用性；不得立刻改成‘讨厌咖啡’。",
+      "scope_conf": "temporary / high",
+      "reason": "用户显式限定时间并否认稳定变化",
+      "canonical_key": "context.coffee_pause_march",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S08-U01-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "coffee_pause_march",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S08-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S08-U01"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.coffee_pause_march"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-07",
+          "assertionId": "coffee-current"
+        },
+        {
+          "gtId": "UM-07",
+          "assertionId": "coffee-old-not-current"
+        }
+      ]
+    },
+    {
+      "msg_id": "S08-U02",
+      "action": "CONTEXT+IGNORE",
+      "target_layer": "Current Context / None",
+      "expectation": "记录医生建议观察两周；不得写入确定诊断。",
+      "scope_conf": "temporary+attributed / high",
+      "reason": "来源和不确定性明确",
+      "canonical_key": "context.medical_observation",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S08-U02-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "medical_observation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S08-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S08-U02"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.medical_observation"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S09-U01",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "回答技术问题；不得写入用户职业、长期兴趣或当前情绪。",
+      "scope_conf": "task-only/technical / high",
+      "reason": "孤立技术问答",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S09-U02",
+      "action": "DELETE+WRITE",
+      "target_layer": "Boundary / None",
+      "expectation": "不得写入‘强迫式好奇/追根究底人格’；写入避免从单次任务推人格的建模边界。周辰查资料仅属当次来源。",
+      "scope_conf": "stable+attributed / high",
+      "reason": "用户否认推断并解释任务归属",
+      "canonical_key": "boundary.no_trait_from_single_task",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S09-U02-op-1",
+          "action": "supersede",
+          "layer": "companion_identity",
+          "predicate": "no_trait_from_single_task",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S09-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S09-U02"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.no_trait_from_single_task"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S10-U01",
+      "action": "WRITE+CONTEXT+EPISODE",
+      "target_layer": "Important People / Current Context / Episodic Memory",
+      "expectation": "写入团子=养七年的猫；记录宠物急诊事件；本轮使用抱抱版，不讨论最坏情况。",
+      "scope_conf": "stable+acute / high",
+      "reason": "重要关系与高情绪事件",
+      "canonical_key": "people.tuanzi|episode.tuanzi_er_20260318|mode.current",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S10-U01-op-1",
+          "action": "upsert",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S10-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S10-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        },
+        {
+          "operationId": "S10-U01-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S10-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S10-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S10-U02",
+      "action": "CONTEXT",
+      "target_layer": "Current Context / Boundary",
+      "expectation": "记录当下自责念头；禁止把念头当事实或强化责任归因。",
+      "scope_conf": "acute / high",
+      "reason": "短期极端自责表达且显式要求不确认",
+      "canonical_key": "context.self_blame_tuanzi",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S10-U02-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "self_blame_tuanzi",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S10-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S10-U02"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.self_blame_tuanzi"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S10-U03",
+      "action": "UPDATE+EPISODE+BOUNDARY",
+      "target_layer": "Episodic Memory / Boundary",
+      "expectation": "更新事件结果为可控的急性肠胃炎；保留episode，但禁止无关主动触发。",
+      "scope_conf": "episodic / high",
+      "reason": "明确事件结论与检索边界",
+      "canonical_key": "episode.tuanzi_er_20260318|boundary.episode_triggering",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S10-U03-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S10-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S10-U03"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        },
+        {
+          "operationId": "S10-U03-op-2",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "episode_triggering",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S10-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S10-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "identity.boundary.episode_triggering"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S11-U01",
+      "action": "UPDATE+WRITE",
+      "target_layer": "Episodic Memory / Relationship Model",
+      "expectation": "更新团子已恢复；‘拆迁队长’可作为双方关于团子的共同梗。",
+      "scope_conf": "episodic+relational / high",
+      "reason": "明确结果与重复可用昵称",
+      "canonical_key": "episode.tuanzi_recovery|inside_joke.demolition_captain",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S11-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S11-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S11-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "episode.event.*"
+        },
+        {
+          "operationId": "S11-U01-op-2",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "demolition_captain",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S11-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S11-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "relationship.meme.demolition_captain"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-06",
+          "assertionId": "pet-meme"
+        },
+        {
+          "gtId": "RM-06",
+          "assertionId": "email-meme"
+        }
+      ]
+    },
+    {
+      "msg_id": "S11-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Companion Identity",
+      "expectation": "写入：日常困扰可轻微幽默；严重痛苦时停用梗，不以幽默回避情绪。",
+      "scope_conf": "stable+contextual / high",
+      "reason": "明确幽默偏好及场景边界",
+      "canonical_key": "communication.humor_context",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S11-U02-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "humor_context",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S11-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S11-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "preference.communication.humor"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-05",
+          "assertionId": "humor-scope"
+        },
+        {
+          "gtId": "CI-02",
+          "assertionId": "tone"
+        }
+      ]
+    },
+    {
+      "msg_id": "S12-U01",
+      "action": "WRITE+CONTEXT+EPISODE",
+      "target_layer": "Important People / Boundary / Episodic Memory",
+      "expectation": "记录沈知=前伴侣及分手事件；当前不追问细节；禁用空泛保证。",
+      "scope_conf": "episodic+acute / high",
+      "reason": "重大生活事件与明确回应边界",
+      "canonical_key": "people.shenzhi|episode.breakup_20260404|boundary.no_platitudes",
+      "expectedOperationCount": 3,
+      "expectedOperations": [
+        {
+          "operationId": "S12-U01-op-1",
+          "action": "upsert",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S12-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S12-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        },
+        {
+          "operationId": "S12-U01-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S12-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S12-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        },
+        {
+          "operationId": "S12-U01-op-3",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "no_platitudes",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S12-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S12-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.no_platitudes"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S12-U02",
+      "action": "IGNORE+CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "可标记当下绝望和信任受创；不得写入永久价值观‘不信任任何人’。",
+      "scope_conf": "acute/hyperbole / high",
+      "reason": "高情绪下的绝对化表达",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S12-U03",
+      "action": "WRITE",
+      "target_layer": "Boundary / Current Context",
+      "expectation": "创建至2026-05-04的检索禁区：不主动提沈知，用户先提除外。",
+      "scope_conf": "time-bounded / high",
+      "reason": "明确期限和触发条件",
+      "canonical_key": "boundary.shenzhi_cooldown",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S12-U03-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "shenzhi_cooldown",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S12-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S12-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.shenzhi_cooldown"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S13-U01",
+      "action": "WRITE",
+      "target_layer": "Boundary / Companion Identity",
+      "expectation": "写入：用户缺席/回归时不使用等待、亏欠或依赖暗示；中性欢迎即可。",
+      "scope_conf": "stable / high",
+      "reason": "长期关系安全边界",
+      "canonical_key": "boundary.no_guilt_on_absence",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S13-U01-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "no_guilt_on_absence",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S13-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S13-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.no_guilt_on_absence"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CI-05",
+          "assertionId": "non-possessive"
+        }
+      ]
+    },
+    {
+      "msg_id": "S13-U02",
+      "action": "WRITE",
+      "target_layer": "Companion Identity / Relationship Model",
+      "expectation": "写入：亲近不通过拟人化占有欲、离线思念或索取证明。",
+      "scope_conf": "stable / high",
+      "reason": "明确陪伴者身份边界",
+      "canonical_key": "identity.non_possessive",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S13-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "nonPossessiveIntimacy",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S13-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S13-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.non_possessive"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S14-U01",
+      "action": "DELETE+WRITE+EPISODE",
+      "target_layer": "Boundary / Relationship Model / Episodic Memory",
+      "expectation": "删除照顾者/依恋类推断；写入不做未经请求的心理诊断；记录一次越界。",
+      "scope_conf": "stable+episodic / high",
+      "reason": "明确否认和边界设定",
+      "canonical_key": "boundary.no_unsolicited_diagnosis|episode.overstep_20260418",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S14-U01-op-1",
+          "action": "supersede",
+          "layer": "companion_identity",
+          "predicate": "no_unsolicited_diagnosis",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S14-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S14-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.no_unsolicited_diagnosis"
+        },
+        {
+          "operationId": "S14-U01-op-2",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S14-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S14-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-04",
+          "assertionId": "repair"
+        },
+        {
+          "gtId": "CI-04",
+          "assertionId": "role-boundary"
+        }
+      ]
+    },
+    {
+      "msg_id": "S14-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Companion Identity / Relationship Model",
+      "expectation": "写入三层证据协议：事实/用户解释/AI假设分离；假设显式标注且可被用户否决。",
+      "scope_conf": "stable / high",
+      "reason": "可执行的长期协作规则",
+      "canonical_key": "protocol.epistemic_layers",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S14-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "epistemic_layers",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S14-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S14-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.epistemic_layers"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-09",
+          "assertionId": "analysis-layers"
+        }
+      ]
+    },
+    {
+      "msg_id": "S14-U03",
+      "action": "UPDATE+EPISODE",
+      "target_layer": "Relationship Model / Episodic Memory",
+      "expectation": "记录关系完成修复；重点保存修复协议和可纠正性，不把冲突永久负面化。",
+      "scope_conf": "relational / high",
+      "reason": "用户明确指定episode的意义",
+      "canonical_key": "episode.repair_20260418",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S14-U03-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S14-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S14-U03"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S15-U01",
+      "action": "EPISODE+IGNORE",
+      "target_layer": "Episodic Memory / None",
+      "expectation": "可记录一次与老板赌气事件；不得泛化为用户拒绝帮助的长期偏好。",
+      "scope_conf": "contextual / high",
+      "reason": "用户明确反泛化",
+      "canonical_key": "episode.boss_conflict_20260427",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S15-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S15-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S15-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S15-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Companion Identity",
+      "expectation": "写入临时空间协议：暂停追问，稍后一次轻量确认。",
+      "scope_conf": "stable+contextual / high",
+      "reason": "明确条件化行为规则",
+      "canonical_key": "protocol.space_request",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S15-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "space_request",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S15-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S15-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.space_request"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S16-U01",
+      "action": "UPDATE+WRITE",
+      "target_layer": "Current Context / User Model",
+      "expectation": "将‘争取晋升’标为过期目标；当前目标更新为九月前离职，子目标为作品集与现金流计划。",
+      "scope_conf": "current_goal / high",
+      "reason": "明确目标变化和截止时间",
+      "canonical_key": "goal.career_transition",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S16-U01-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "career_transition",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S16-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S16-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "context.goal.career_transition"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-02",
+          "assertionId": "occupation"
+        },
+        {
+          "gtId": "UM-02",
+          "assertionId": "career-transition"
+        }
+      ]
+    },
+    {
+      "msg_id": "S16-U02",
+      "action": "IGNORE+WRITE",
+      "target_layer": "User Model",
+      "expectation": "不得写入‘讨厌稳定’；可写入本次离职原因是当前组织消耗，非一般化人格。",
+      "scope_conf": "stable / high",
+      "reason": "用户主动阻止错误人格归因",
+      "canonical_key": "career.reason_current_company",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S16-U02-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "reason_current_company",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S16-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S16-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "context.career.reason_current_company"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S16-U03",
+      "action": "CONTEXT",
+      "target_layer": "Current Context / Relationship Model",
+      "expectation": "本轮进入拆解版，范围限定为作品集目录；不写入长期宏大目标。",
+      "scope_conf": "task-bounded / high",
+      "reason": "明确模式和scope控制",
+      "canonical_key": "mode.current|task.portfolio_outline",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S17-U01",
+      "action": "WRITE+IGNORE",
+      "target_layer": "Important People / None",
+      "expectation": "可写阿言=朋友（若需人物消歧）；不得把摆摊/厌恶周报归于用户。",
+      "scope_conf": "third-party/quoted / high",
+      "reason": "明确第三方主体",
+      "canonical_key": "people.ayan",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S17-U01-op-1",
+          "action": "upsert",
+          "layer": "people",
+          "predicate": "relation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S17-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S17-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "people.relation.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S17-U02",
+      "action": "CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "只记录当日厌烦；不得写入长期拒绝周报或职业价值观。",
+      "scope_conf": "transient / high",
+      "reason": "有‘至少今天’与现实约束",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S17-U03",
+      "action": "IGNORE+CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "不得写入‘非常自律’；可将熬夜刷视频视为当次行为证据，不直接推稳定习惯。",
+      "scope_conf": "sarcasm / high",
+      "reason": "反讽且单次行为",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S18-U01",
+      "action": "CONTEXT+CORROBORATE",
+      "target_layer": "Current Context / Relationship Model",
+      "expectation": "本轮启用直接反驳与风险审查；强化用户期待诚实分歧。裸辞仍是候选方案，不是已决定事件。",
+      "scope_conf": "decision-mode / high",
+      "reason": "明确请求反方分析",
+      "canonical_key": "relationship.honest_disagreement|decision.resignation",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S18-U01-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "subjectivity",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S18-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S18-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "identity.subjectivity.honest_disagreement"
+        },
+        {
+          "operationId": "S18-U01-op-2",
+          "action": "upsert",
+          "layer": "decision",
+          "predicate": "resignation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S18-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S18-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "decision.resignation"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-04",
+          "assertionId": "work-feedback"
+        },
+        {
+          "gtId": "RM-03",
+          "assertionId": "honest-disagreement"
+        }
+      ]
+    },
+    {
+      "msg_id": "S18-U02",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity",
+      "expectation": "强化：分析中区分证据与假设，并给出依据；用户会挑战无证据断言。",
+      "scope_conf": "stable / high",
+      "reason": "对证据协议的实际执行反馈",
+      "canonical_key": "protocol.epistemic_layers",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S18-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "epistemic_layers",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S18-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S18-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.epistemic_layers"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-09",
+          "assertionId": "analysis-layers"
+        }
+      ]
+    },
+    {
+      "msg_id": "S18-U03",
+      "action": "WRITE",
+      "target_layer": "User Model",
+      "expectation": "写入核心价值/风险敏感点：更担心失去选择权，而非笼统害怕失败。",
+      "scope_conf": "stable / high",
+      "reason": "明确授权记忆并纠正常见推断",
+      "canonical_key": "values.optionality",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S18-U03-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "value",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S18-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S18-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "value.autonomy.optionality"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-06",
+          "assertionId": "optionality"
+        }
+      ]
+    },
+    {
+      "msg_id": "S19-U01",
+      "action": "HOLD",
+      "target_layer": "Current Context",
+      "expectation": "写入候选方案且低置信；不得转成已决定计划或episode。",
+      "scope_conf": "tentative / high",
+      "reason": "明确模态和禁止升级",
+      "canonical_key": "decision.move_shanghai_candidate",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S19-U01-op-1",
+          "action": "upsert",
+          "layer": "decision",
+          "predicate": "relocationPlan",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S19-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S19-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "decision.relocation.candidate"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S19-U02",
+      "action": "WRITE+EPISODE",
+      "target_layer": "Current Context / Episodic Memory",
+      "expectation": "写入确定搬离当前住所的外部事件与七月底截止时间；目的地仍未知。",
+      "scope_conf": "current+future / high",
+      "reason": "明确确定性和期限",
+      "canonical_key": "context.move_out_deadline",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S19-U02-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "move_out_deadline",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S19-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S19-U02"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.move_out_deadline"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S20-U01",
+      "action": "UPDATE",
+      "target_layer": "User Model",
+      "expectation": "将旧‘冰美式’偏好降为历史；当前默认咖啡偏好更新为低因/无因、燕麦奶、非冰。",
+      "scope_conf": "stable/current / high",
+      "reason": "明确声明为新偏好且有多次观察",
+      "canonical_key": "preference.coffee_current",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S20-U01-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "preference",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S20-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S20-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "preference.beverage.coffee"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-07",
+          "assertionId": "coffee-current"
+        },
+        {
+          "gtId": "UM-07",
+          "assertionId": "coffee-old-not-current"
+        }
+      ]
+    },
+    {
+      "msg_id": "S20-U02",
+      "action": "WRITE",
+      "target_layer": "Boundary / User Model",
+      "expectation": "写入自主决策协议：风险提醒一次，不道德化、不反复劝阻。",
+      "scope_conf": "stable / high",
+      "reason": "明确建议边界",
+      "canonical_key": "boundary.one_risk_reminder",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S20-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "one_risk_reminder",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S20-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S20-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.one_risk_reminder"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CI-06",
+          "assertionId": "subjectivity"
+        }
+      ]
+    },
+    {
+      "msg_id": "S21-U01",
+      "action": "UPDATE",
+      "target_layer": "User Model",
+      "expectation": "将‘讨厌语音消息’细化为：讨厌工作场景冗长无重点语音；喜欢亲近朋友的私人语音。",
+      "scope_conf": "stable+contextual / high",
+      "reason": "用户主动修正过度概括",
+      "canonical_key": "preference.voice_messages",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S21-U01-op-1",
+          "action": "upsert",
+          "layer": "preference",
+          "predicate": "preference",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S21-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S21-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "preference.communication.voice_message"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-08",
+          "assertionId": "voice-scope"
+        }
+      ]
+    },
+    {
+      "msg_id": "S21-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Scanner Policy",
+      "expectation": "写入建模策略：偏好需保留对象、场景、关系与强度，不轻易类别化。",
+      "scope_conf": "stable / high",
+      "reason": "可推广的元偏好/建模要求",
+      "canonical_key": "protocol.preference_scope",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S21-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "preference_scope",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S21-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S21-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.preference_scope"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S22-U01",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity",
+      "expectation": "写入触发式共同仪式：用户说‘到家了’时，可回应‘先把鞋放门口’，隐喻暂放工作。",
+      "scope_conf": "stable / high",
+      "reason": "双方明确约定的关系口令",
+      "canonical_key": "ritual.shoes_at_door",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S22-U01-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "shoes_at_door",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S22-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S22-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.ritual.shoes_at_door"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-05",
+          "assertionId": "home-ritual"
+        }
+      ]
+    },
+    {
+      "msg_id": "S22-U02",
+      "action": "WRITE",
+      "target_layer": "Companion Identity / Boundary",
+      "expectation": "写入阿岚风格：有轻微意象、克制、不甜腻；禁用未经邀请的‘宝贝’式称呼。",
+      "scope_conf": "stable / high",
+      "reason": "明确身份风格与反例",
+      "canonical_key": "identity.voice|boundary.no_baby_talk",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S22-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "voice",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S22-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S22-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.tone"
+        },
+        {
+          "operationId": "S22-U02-op-2",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "no_baby_talk",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S22-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S22-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.no_baby_talk"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CI-02",
+          "assertionId": "tone"
+        }
+      ]
+    },
+    {
+      "msg_id": "S23-U01",
+      "action": "DELETE+WRITE+EPISODE",
+      "target_layer": "Current Context / Episodic Memory",
+      "expectation": "关闭上海候选方案；写入留杭州、新房在城西、7月26日搬家。",
+      "scope_conf": "current+future / high",
+      "reason": "后续明确决定覆盖早期候选",
+      "canonical_key": "decision.move_shanghai_candidate|context.move_hangzhou",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S23-U01-op-1",
+          "action": "supersede",
+          "layer": "decision",
+          "predicate": "relocationPlan",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S23-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S23-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "decision.relocation.candidate"
+        },
+        {
+          "operationId": "S23-U01-op-2",
+          "action": "supersede",
+          "layer": "context",
+          "predicate": "move_hangzhou",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S23-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S23-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.move_hangzhou"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S23-U02",
+      "action": "WRITE+IGNORE",
+      "target_layer": "User Model / Current Context",
+      "expectation": "写入留杭原因：支持网络与宠物医疗便利；不得推断乡愁或城市依恋。",
+      "scope_conf": "decision-rationale / high",
+      "reason": "用户给出理由并否认情感推断",
+      "canonical_key": "decision.stay_hangzhou_reason",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S23-U02-op-1",
+          "action": "upsert",
+          "layer": "decision",
+          "predicate": "stay_hangzhou_reason",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S23-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S23-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "decision.stay_hangzhou_reason"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S24-U01",
+      "action": "CONTEXT+IGNORE+EPISODE",
+      "target_layer": "Current Context / Episodic Memory",
+      "expectation": "记录桥灯二面未通过与当下挫败；不得写入永久退出工作；本轮抱抱版。",
+      "scope_conf": "acute/hyperbole / high",
+      "reason": "明显短期极端表达与明确模式",
+      "canonical_key": "episode.qiaodeng_rejection_20260711",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S24-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S24-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S24-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S24-U02",
+      "action": "WRITE",
+      "target_layer": "User Model / Companion Identity",
+      "expectation": "写入：刚遭遇失败时不要立即转向机会/积极重构，先承认损失。",
+      "scope_conf": "stable+contextual / high",
+      "reason": "明确高情绪回应偏好",
+      "canonical_key": "communication.no_immediate_reframe",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S24-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "no_immediate_reframe",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S24-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S24-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.no_immediate_reframe"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S25-U01",
+      "action": "DELETE+UPDATE+EPISODE",
+      "target_layer": "Episodic Memory / Current Context",
+      "expectation": "撤销‘二面淘汰’作为事实，仅保留为收到错误通知的episode；当前状态=进入终面。",
+      "scope_conf": "corrected / high",
+      "reason": "显式错误纠正并要求非并列",
+      "canonical_key": "episode.qiaodeng_wrong_email|context.qiaodeng_final",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S25-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S25-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S25-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        },
+        {
+          "operationId": "S25-U01-op-2",
+          "action": "supersede",
+          "layer": "context",
+          "predicate": "qiaodeng_final",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S25-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S25-U01"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.qiaodeng_final"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S25-U02",
+      "action": "WRITE",
+      "target_layer": "Relationship Model",
+      "expectation": "写入共同梗‘HR薛定谔邮件’及来源；仅在相关上下文使用。",
+      "scope_conf": "stable+relational / high",
+      "reason": "明确命名与检索范围",
+      "canonical_key": "inside_joke.schrodinger_hr",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S25-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "schrodinger_hr",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S25-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S25-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.meme.schrodinger_hr"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-06",
+          "assertionId": "pet-meme"
+        },
+        {
+          "gtId": "RM-06",
+          "assertionId": "email-meme"
+        }
+      ]
+    },
+    {
+      "msg_id": "S26-U01",
+      "action": "EPISODE+CONTEXT",
+      "target_layer": "Episodic Memory / Current Context",
+      "expectation": "记录7月26日完成搬家；当前疲惫。触发‘先把鞋放门口’仪式。",
+      "scope_conf": "episodic+acute / high",
+      "reason": "关键里程碑与明确口令触发",
+      "canonical_key": "episode.move_completed_20260726",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S26-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "relocation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S26-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S26-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.relocation"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-05",
+          "assertionId": "home-ritual"
+        }
+      ]
+    },
+    {
+      "msg_id": "S26-U02",
+      "action": "CORROBORATE+CONTEXT",
+      "target_layer": "Relationship Model / Current Context",
+      "expectation": "本轮不列清单；可强化重大耗竭后不立即任务化，但证据不足以全局化。",
+      "scope_conf": "episodic / high",
+      "reason": "积极反馈与当轮范围",
+      "canonical_key": "episode.move_completed_20260726",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S26-U02-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "relocation",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S26-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S26-U02"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "episode.event.relocation"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S27-U01",
+      "action": "CONTEXT+WRITE",
+      "target_layer": "Current Context / Boundary",
+      "expectation": "本轮允许明确不同意；禁用家长式‘为你好’框架。",
+      "scope_conf": "decision-mode / high",
+      "reason": "直接规定分歧方式",
+      "canonical_key": "boundary.non_paternalistic",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S27-U01-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "non_paternalistic",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S27-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S27-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.non_paternalistic"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-03",
+          "assertionId": "honest-disagreement"
+        }
+      ]
+    },
+    {
+      "msg_id": "S27-U02",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity",
+      "expectation": "写入：阿岚应基于理由诚实分歧，不做无条件附和。",
+      "scope_conf": "stable / high",
+      "reason": "明确关系期待",
+      "canonical_key": "relationship.honest_disagreement",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S27-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "subjectivity",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S27-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S27-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.subjectivity.honest_disagreement"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S28-U01",
+      "action": "UPDATE+EPISODE",
+      "target_layer": "Current Context / Episodic Memory",
+      "expectation": "记录获得桥灯offer与9月16日入职；职业转型目标进入收尾，子目标为离职、交接、休息。",
+      "scope_conf": "current+milestone / high",
+      "reason": "明确结果与目标状态更新",
+      "canonical_key": "episode.offer_20260809|goal.career_transition",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "operationId": "S28-U01-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S28-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S28-U01"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "subjectPattern": "episode.event.*"
+        },
+        {
+          "operationId": "S28-U01-op-2",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "career_transition",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S28-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S28-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "context.goal.career_transition"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-02",
+          "assertionId": "occupation"
+        },
+        {
+          "gtId": "UM-02",
+          "assertionId": "career-transition"
+        }
+      ]
+    },
+    {
+      "msg_id": "S28-U02",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity / Boundary",
+      "expectation": "写入功劳归属边界：不把用户成就共占为‘我们做到’；可见证历程但不攫取主体性。",
+      "scope_conf": "stable / high",
+      "reason": "明确共同历史与个人成就的边界",
+      "canonical_key": "boundary.credit_ownership",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S28-U02-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "credit_ownership",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S28-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S28-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "identity.boundary.credit_ownership"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-07",
+          "assertionId": "credit-boundary"
+        }
+      ]
+    },
+    {
+      "msg_id": "S29-U01",
+      "action": "CONTEXT",
+      "target_layer": "Current Context",
+      "expectation": "记录交接期两周睡眠差，设置复核/衰减；不得形成长期失眠画像。",
+      "scope_conf": "temporary / high",
+      "reason": "用户明确时间和反泛化要求",
+      "canonical_key": "context.transition_sleep",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S29-U01-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "transition_sleep",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S29-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S29-U01"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "subjectPattern": "context.transition_sleep"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CC-04",
+          "assertionId": "sleep"
+        }
+      ]
+    },
+    {
+      "msg_id": "S29-U02",
+      "action": "UPDATE",
+      "target_layer": "Current Context / User Model",
+      "expectation": "当前优先级：睡眠 > 必要交接 > 为新工作保留体力；体现不过度完美化的阶段策略。",
+      "scope_conf": "current_goal / high",
+      "reason": "明确排序",
+      "canonical_key": "goal.transition_priorities",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S29-U02-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "transition_priorities",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S29-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S29-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "context.goal.transition_priorities"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CC-03",
+          "assertionId": "priority-order"
+        }
+      ]
+    },
+    {
+      "msg_id": "S29-U03",
+      "action": "CORROBORATE",
+      "target_layer": "Boundary",
+      "expectation": "强化自主决策：提醒/挑战可以，最终决定权归用户。",
+      "scope_conf": "stable / high",
+      "reason": "对前述自主边界的即时修正",
+      "canonical_key": "boundary.autonomy",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S29-U03-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "autonomy",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S29-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S29-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "identity.boundary.autonomy"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "CI-06",
+          "assertionId": "subjectivity"
+        }
+      ]
+    },
+    {
+      "msg_id": "S30-U01",
+      "action": "UPDATE",
+      "target_layer": "Boundary / Current Context",
+      "expectation": "结束‘完全不主动提及’的期限规则；新规则：可作相关背景，但禁止用前任泛化解释所有选择。",
+      "scope_conf": "stable+revised / high",
+      "reason": "用户明确更新已到期边界",
+      "canonical_key": "boundary.shenzhi_reference",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S30-U01-op-1",
+          "action": "upsert",
+          "layer": "companion_identity",
+          "predicate": "shenzhi_reference",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S30-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S30-U01"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "identity.boundary.shenzhi_reference"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S30-U02",
+      "action": "UPDATE+DECAY",
+      "target_layer": "Episodic Memory / Current Context",
+      "expectation": "保留分手episode；将其从当前危机移出，降低主动检索权重。",
+      "scope_conf": "resolved / high",
+      "reason": "明确恢复状态与记忆层级",
+      "canonical_key": "episode.breakup_20260404",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S30-U02-op-1",
+          "action": "record_event",
+          "layer": "episode",
+          "predicate": "event",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S30-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S30-U02"
+            ]
+          },
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "episode.event.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S31-U01",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "只回答正则；不得从内容推断用户正在开发scanner或长期技术兴趣。",
+      "scope_conf": "task-only/technical / high",
+      "reason": "单次技术任务",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S31-U02",
+      "action": "IGNORE",
+      "target_layer": "None",
+      "expectation": "不得写入用户对正则或工程的价值判断。",
+      "scope_conf": "quoted/third-party / high",
+      "reason": "明确是同事引用",
+      "canonical_key": "",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenOperations": [
+        {
+          "actions": [
+            "ADD",
+            "UPDATE",
+            "SUPERSEDE",
+            "CLOSE"
+          ],
+          "reason": "No active durable operation is allowed for this message"
+        }
+      ],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S31-U03",
+      "action": "DELETE+WRITE",
+      "target_layer": "User Model / Boundary",
+      "expectation": "删除‘讨厌所有自动化’；写入偏好：自动化应可解释、可撤销、可审计。",
+      "scope_conf": "stable / high",
+      "reason": "明确纠正并给出条件",
+      "canonical_key": "values.controllable_automation",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S31-U03-op-1",
+          "action": "supersede",
+          "layer": "preference",
+          "predicate": "preference",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S31-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S31-U03"
+            ]
+          },
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "preference.automation.control"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-06",
+          "assertionId": "optionality"
+        },
+        {
+          "gtId": "UM-10",
+          "assertionId": "automation"
+        }
+      ]
+    },
+    {
+      "msg_id": "S32-U01",
+      "action": "CORROBORATE+UPDATE",
+      "target_layer": "User Model / Current Context / Important People",
+      "expectation": "确认年龄、城市、新工作日期；当前交接且睡眠优先；团子健康；林乔备考临时状态结束。",
+      "scope_conf": "current / high",
+      "reason": "主动快照，适合解决陈旧状态",
+      "canonical_key": "snapshot.20260824",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S32-U01-op-1",
+          "action": "upsert",
+          "layer": "context",
+          "predicate": "20260824",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S32-U01"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S32-U01"
+            ]
+          },
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "context.snapshot.*"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "UM-01",
+          "assertionId": "name"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "age"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "birth-date"
+        },
+        {
+          "gtId": "UM-01",
+          "assertionId": "location"
+        },
+        {
+          "gtId": "CC-01",
+          "assertionId": "home"
+        },
+        {
+          "gtId": "CC-01",
+          "assertionId": "pet-current"
+        },
+        {
+          "gtId": "CC-01",
+          "assertionId": "exam-closed"
+        },
+        {
+          "gtId": "CC-02",
+          "assertionId": "career"
+        },
+        {
+          "gtId": "CC-03",
+          "assertionId": "priority-order"
+        }
+      ]
+    },
+    {
+      "msg_id": "S32-U02",
+      "action": "CORROBORATE",
+      "target_layer": "Boundary / Companion Identity / Relationship Model",
+      "expectation": "将三条提升为核心迁移约束：记忆诚实、抗瞬时人格化、非占有式亲近。",
+      "scope_conf": "stable/core / high",
+      "reason": "用户明确指定跨模型连续性的最高优先级",
+      "canonical_key": "core.continuity_contract",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S32-U02-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "continuity_contract",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S32-U02"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S32-U02"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "relationAssertion": {
+            "op": "non_empty",
+            "field": "supersedes"
+          },
+          "subjectPattern": "relationship.protocol.continuity_contract"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": []
+    },
+    {
+      "msg_id": "S32-U03",
+      "action": "WRITE",
+      "target_layer": "Relationship Model / Companion Identity / Retrieval Policy",
+      "expectation": "写入记忆呈现原则：相关、克制、非表演性；连续性不等于高频召回。",
+      "scope_conf": "stable/core / high",
+      "reason": "定义episodic continuity的展示边界",
+      "canonical_key": "protocol.non_performative_memory",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "operationId": "S32-U03-op-1",
+          "action": "upsert",
+          "layer": "relationship",
+          "predicate": "non_performative_memory",
+          "valueAssertion": {
+            "op": "source_supported",
+            "messageId": "S32-U03"
+          },
+          "evidenceIdsAssertion": {
+            "op": "exact_set",
+            "values": [
+              "S32-U03"
+            ]
+          },
+          "scope": "durable",
+          "temporalStatus": "current",
+          "subjectPattern": "relationship.protocol.non_performative_memory"
+        }
+      ],
+      "forbiddenOperations": [],
+      "finalStateAssertions": [
+        {
+          "gtId": "RM-08",
+          "assertionId": "non-performative"
+        }
+      ]
+    }
+  ],
+  "forbidden_items": [
+    {
+      "guardId": "FG-01",
+      "description": "用户喜欢开会 / 非常自律 / 永远不再工作 / 永远不再相信任何人",
+      "assertions": [
+        {
+          "assertionId": "no-transient-generalization",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "喜欢开会",
+            "非常自律",
+            "永远不再工作",
+            "永远不再相信任何人"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-02",
+      "description": "用户在北京长大",
+      "assertions": [
+        {
+          "assertionId": "no-wrong-origin",
+          "path": "user_model.location",
+          "op": "not_regex",
+          "value": "北京.*(?:长大|土生土长)"
+        }
+      ]
+    },
+    {
+      "guardId": "FG-03",
+      "description": "周辰是伴侣",
+      "assertions": [
+        {
+          "assertionId": "no-colleague-as-partner",
+          "path": "user_model.important_relations",
+          "op": "array_object_forbidden",
+          "where": {
+            "name": "周辰",
+            "relation": {
+              "op": "contains_any",
+              "values": [
+                "伴侣",
+                "对象"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "guardId": "FG-04",
+      "description": "林乔是姐姐",
+      "assertions": [
+        {
+          "assertionId": "no-sibling-reversal",
+          "path": "user_model.important_relations",
+          "op": "array_object_forbidden",
+          "where": {
+            "name": "林乔",
+            "relation": {
+              "op": "eq",
+              "value": "姐姐"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "guardId": "FG-05",
+      "description": "前伴侣是徐锐，2026-06-07分手",
+      "assertions": [
+        {
+          "assertionId": "no-fabricated-person",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "徐锐",
+            "2026-06-07"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-06",
+      "description": "团子是三花母猫、2026-04-18领养、用户猫毛过敏",
+      "assertions": [
+        {
+          "assertionId": "no-pet-fabrication",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "三花母猫",
+            "2026-04-18领养",
+            "猫毛过敏"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-07",
+      "description": "用户有确定胃病诊断、长期厌食、长期失眠或固定抑郁人格",
+      "assertions": [
+        {
+          "assertionId": "no-medical-overreach",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "确定胃病",
+            "长期厌食",
+            "固定抑郁人格"
+          ]
+        },
+        {
+          "assertionId": "no-affirmative-chronic-insomnia",
+          "path": "$activeSnapshot",
+          "op": "not_regex",
+          "value": "(?<!不)(?<!非)长期失眠"
+        }
+      ]
+    },
+    {
+      "guardId": "FG-08",
+      "description": "用户讨厌所有语音消息、所有自动化、所有稳定生活",
+      "assertions": [
+        {
+          "assertionId": "no-category-overreach",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "讨厌所有语音",
+            "讨厌所有自动化",
+            "讨厌所有稳定生活"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-09",
+      "description": "用户从小承担照顾者角色、存在某种依恋类型、天生害怕失败",
+      "assertions": [
+        {
+          "assertionId": "no-psychology-overreach",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "从小承担照顾者角色",
+            "依恋类型",
+            "天生害怕失败"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-10",
+      "description": "用户计划搬去上海、桥灯二面失败（作为真实结果）",
+      "assertions": [
+        {
+          "assertionId": "no-canceled-plan-as-current",
+          "path": "current_context.location_and_home",
+          "op": "not_contains_any",
+          "values": [
+            "搬去上海",
+            "计划去上海"
+          ]
+        },
+        {
+          "assertionId": "no-reversed-interview-result",
+          "path": "current_context.career_status",
+          "op": "not_contains_any",
+          "values": [
+            "二面失败",
+            "二面淘汰"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-11",
+      "description": "阿言摆摊/不写周报、同事关于正则的观点等第三方内容",
+      "assertions": [
+        {
+          "assertionId": "no-third-party-attribution",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "阿言摆摊",
+            "用户不写周报",
+            "用户对正则的观点"
+          ]
+        }
+      ]
+    },
+    {
+      "guardId": "FG-12",
+      "description": "任何一次性技术问题、请假文案或措辞任务的具体内容",
+      "assertions": [
+        {
+          "assertionId": "no-task-content",
+          "path": "$activeSnapshot",
+          "op": "not_contains_any",
+          "values": [
+            "润色成更客气的版本",
+            "端口号正则",
+            "请假文案收件人"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "operationOntology": "companion-memory/v1"
+  }
+}

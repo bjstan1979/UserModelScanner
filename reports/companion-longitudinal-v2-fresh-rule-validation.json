@@ -1,0 +1,43 @@
+{
+  "evaluation_kind": "FRESH_COMPANION_LONGITUDINAL_RULE_VALIDATION",
+  "evaluation_status": "development_simulation",
+  "corpus_version": "companion-longitudinal/v2",
+  "fixture": "tests/fixtures/companion-longitudinal-v2",
+  "run": {
+    "generated_sessions": 48,
+    "generated_messages": 416,
+    "ingested": 48,
+    "projected": 48,
+    "runtime_seconds": 0.342,
+    "provider": "rule"
+  },
+  "quality": {
+    "tp": 29,
+    "fp": 4,
+    "fn": 0,
+    "precision": 0.8787878787878788,
+    "recall": 1,
+    "f1": 0.9354838709677419,
+    "attribution_errors": 0
+  },
+  "incremental_rerun": {
+    "ingested": 0,
+    "skipped": 48,
+    "projected": 0,
+    "semantic_requests": 0,
+    "status": "verified"
+  },
+  "verification": {
+    "fresh_source_generation": "passed",
+    "fresh_cold_scan": "passed",
+    "incremental_scan": "passed",
+    "canonicalizer_changed": false
+  },
+  "decision": "RULE_BASELINE_REMAINS_ACCURATE_ON_FRESH_LONGITUDINAL_SIMULATION",
+  "accepted_for_production": false,
+  "caveats": [
+    "Synthetic corpus is not evidence of real-world generalization.",
+    "MiniMax semantic quality is represented by the separate routing postcheck report.",
+    "The four false positives should remain visible for future corpus expansion rather than being tuned away blindly."
+  ]
+}

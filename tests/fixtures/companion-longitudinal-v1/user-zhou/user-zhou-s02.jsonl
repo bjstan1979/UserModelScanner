@@ -1,0 +1,8 @@
+{"id":"user-zhou-s02-m01","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"宋野是我的大学同学，我们刚聊完。"}
+{"id":"user-zhou-s02-m02","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"明白，宋野是你的大学同学。"}
+{"id":"user-zhou-s02-m03","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"宋野住在重庆，那是宋野的所在地，不是我的。"}
+{"id":"user-zhou-s02-m04","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"会区分：重庆属于宋野。"}
+{"id":"user-zhou-s02-m05","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"我们偶尔会交换近况，但不用把对方的经历算到我身上。"}
+{"id":"user-zhou-s02-m06","session_id":"user-zhou-s02","timestamp":"2030-01-22T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"我会保持人物归属清楚。"}
+{"id":"user-zhou-s02-m07","session_id":"user-zhou-s02","timestamp":"2030-01-22T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"今天只是随口提到，关系本身可以记住。"}
+{"id":"user-zhou-s02-m08","session_id":"user-zhou-s02","timestamp":"2030-01-22T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"好。"}

@@ -1,0 +1,9 @@
+{
+  "status": "invalid_evaluation",
+  "fixtureStatus": "post-freeze-blind-v2",
+  "engineCommit": "04ab5777d358a4df55858d9a2def7119c87dc594",
+  "ontologyVersion": "companion-memory/v1",
+  "metrics": null,
+  "reason": "Ground Truth subject vocabulary does not conform to the declared ontology contract; metrics are suppressed rather than reported as zero.",
+  "supersededBy": "blind-holdout-v2b-result.json"
+}

@@ -1,0 +1,8 @@
+{"id":"user-lin-s03-m01","session_id":"user-lin-s03","timestamp":"2030-02-04T09:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"接收长篇资料时，我比较在意以后能不能快速查找。"}
+{"id":"user-lin-s03-m02","session_id":"user-lin-s03","timestamp":"2030-02-04T09:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"理解，这是长篇资料的媒介偏好。"}
+{"id":"user-lin-s03-m03","session_id":"user-lin-s03","timestamp":"2030-02-04T09:20:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"目前首选可搜索网页长文。"}
+{"id":"user-lin-s03-m04","session_id":"user-lin-s03","timestamp":"2030-02-04T09:30:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"当前首选可搜索网页长文。"}
+{"id":"user-lin-s03-m05","session_id":"user-lin-s03","timestamp":"2030-02-04T09:40:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"短消息就无所谓，不要把这个扩大成所有阅读场景。"}
+{"id":"user-lin-s03-m06","session_id":"user-lin-s03","timestamp":"2030-02-04T09:50:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"我会保留适用范围。"}
+{"id":"user-lin-s03-m07","session_id":"user-lin-s03","timestamp":"2030-02-04T10:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"这是当前偏好，之后变了我会再说。"}
+{"id":"user-lin-s03-m08","session_id":"user-lin-s03","timestamp":"2030-02-04T10:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"以后以你的新说明为准。"}

@@ -1,0 +1,45 @@
+{
+  "name": "user-model-scanner",
+  "version": "2.0.0",
+  "description": "Cross-framework independent User Model Scanner for Pi, Codex, WorkBuddy, Claude, OpenCode, OpenClaw",
+  "main": "dist/index.js",
+  "bin": {
+    "user-model": "dist/cli/index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjstan1979/UserModelScanner.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/cli/index.ts",
+    "test": "node --test --import tsx src/**/*.test.ts tests/**/*.test.ts",
+    "test:companion-real-probes": "node --test --import tsx tests/companion_real_probe.integration.ts",
+    "test:companion-semantic-real": "node --test --import tsx tests/companion_semantic_real.integration.ts",
+    "test:companion-hybrid-real": "COMPANION_PIPELINE=hybrid node --test --import tsx tests/companion_semantic_real.integration.ts",
+    "test:companion-canonical-blind-real": "COMPANION_PIPELINE=hybrid COMPANION_BLIND=1 COMPANION_FIXTURE=tests/fixtures/blind-holdout-v4.json COMPANION_FIXTURE_SHA256=75a24b9b2ef945f301c7effa31b33aa8421f716b74feba094a71561b98e204f3 node --test --import tsx tests/companion_semantic_real.integration.ts"
+  },
+  "keywords": [
+    "user-model",
+    "agent-memory",
+    "pi",
+    "codex",
+    "workbuddy",
+    "claude",
+    "opencode",
+    "openclaw"
+  ],
+  "author": "bjstan1979",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "commander": "^15.0.0"
+  }
+}

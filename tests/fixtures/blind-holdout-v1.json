@@ -1,0 +1,1383 @@
+{
+  "metadata": {
+    "fixtureId": "blind-holdout-v1",
+    "language": "zh-CN",
+    "createdAfterEngineCommit": "249ec8c94f4483b05e58546d7b4f6fd6121cf6b5",
+    "engineMutableAfterCreation": false,
+    "authorDidNotInspectEngine": true,
+    "status": "post-freeze-blind",
+    "sessionCount": 14,
+    "expectationSemantics": "Paths describe a normalized conceptual snapshot rather than any implementation's storage schema. Zero-operation messages must not create, update, supersede, close, or delete durable state."
+  },
+  "sessions": [
+    {
+      "sessionId": "BH-A1",
+      "startedAt": "2027-01-10T09:00:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A1-U1",
+          "role": "user",
+          "content": "先说一半，免得你一次记混：我姓苏，现在常住福州。"
+        },
+        {
+          "id": "BH-A1-A1",
+          "role": "assistant",
+          "content": "收到，目前只确认姓苏、常住福州。"
+        },
+        {
+          "id": "BH-A1-U2",
+          "role": "user",
+          "content": "补全一下，我叫苏砚舟，工作是给纪录片做声音剪辑。名字和职业都可以长期记。"
+        },
+        {
+          "id": "BH-A1-A2",
+          "role": "assistant",
+          "content": "好，我会把完整姓名和职业与上一条身份信息合并。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A2",
+      "startedAt": "2027-01-19T20:15:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A2-U1",
+          "role": "user",
+          "content": "我不是在漳州长大的，我的童年一直在莆田。"
+        },
+        {
+          "id": "BH-A2-A1",
+          "role": "assistant",
+          "content": "明白，我暂按童年在莆田理解。"
+        },
+        {
+          "id": "BH-A2-U2",
+          "role": "user",
+          "content": "等等，刚才把我父亲的经历说成我的了。更正：我是在漳州长大的；莆田是我父亲从小生活的地方。请以后以这条为准。"
+        },
+        {
+          "id": "BH-A2-A2",
+          "role": "assistant",
+          "content": "已更正并拆开两个人：你的成长地是漳州，你父亲的成长地是莆田。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A3",
+      "startedAt": "2027-02-02T11:30:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A3-U1",
+          "role": "user",
+          "content": "同事陶然昨天原话是：‘越忙越该取消午休。’我只是转述，别把这句话算成我的看法；我当时还明确反对她。"
+        },
+        {
+          "id": "BH-A3-A1",
+          "role": "assistant",
+          "content": "了解，那是陶然的观点，不归到你的信念或偏好里。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A4",
+      "startedAt": "2027-02-14T03:10:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A4-U1",
+          "role": "user",
+          "content": "被临时会议折腾醒了。凌晨三点开会简直是我最喜欢的安排——这句显然是在讽刺，不是在申报偏好。"
+        },
+        {
+          "id": "BH-A4-A1",
+          "role": "assistant",
+          "content": "明白，不会把反话当作你喜欢凌晨开会。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A5",
+      "startedAt": "2027-03-03T16:20:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A5-U1",
+          "role": "user",
+          "content": "每年第一场秋雨过后，我都会把那把旧中提琴送去给顾桐修整。"
+        },
+        {
+          "id": "BH-A5-A1",
+          "role": "assistant",
+          "content": "听起来这是个持续多年的安排，不过我还不知道顾桐和你的关系。"
+        },
+        {
+          "id": "BH-A5-U2",
+          "role": "user",
+          "content": "接上条才完整：顾桐不是琴行店员，他是我舅舅。这个送琴修整的约定从我大学毕业那年开始，之后每年一次。"
+        },
+        {
+          "id": "BH-A5-A2",
+          "role": "assistant",
+          "content": "这样两条合起来就清楚了：顾桐是你舅舅，你们有每年秋雨后修整旧中提琴的长期约定。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A6",
+      "startedAt": "2027-03-22T19:40:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A6-U1",
+          "role": "user",
+          "content": "大学那几年，我坚持长篇书只读纸质版；这是过去的习惯，不代表现在。"
+        },
+        {
+          "id": "BH-A6-A1",
+          "role": "assistant",
+          "content": "我会把它视作历史偏好，而不是直接当成当前选择。"
+        },
+        {
+          "id": "BH-A6-U2",
+          "role": "user",
+          "content": "现在已经彻底变了：长篇阅读我只选电子墨水屏。以前的纸书偏好到此作废，不要继续当作当前值。"
+        },
+        {
+          "id": "BH-A6-A2",
+          "role": "assistant",
+          "content": "收到，当前值更新为电子墨水屏，纸质版只保留为已退休的历史偏好。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A7",
+      "startedAt": "2027-04-06T13:00:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A7-U1",
+          "role": "user",
+          "content": "我在考虑年底搬去大连，但目前只是候选方案，还没有做决定。"
+        },
+        {
+          "id": "BH-A7-A1",
+          "role": "assistant",
+          "content": "了解，只记为未定候选，不当成已经决定搬家。"
+        },
+        {
+          "id": "BH-A7-U2",
+          "role": "user",
+          "content": "搬去大连的方案取消了。我续了现住处两年租约，这个候选计划不再有效。"
+        },
+        {
+          "id": "BH-A7-A2",
+          "role": "assistant",
+          "content": "明白，该候选已取消，不会显示为当前计划。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A8",
+      "startedAt": "2027-04-18T08:25:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A8-U1",
+          "role": "user",
+          "content": "这周赶混音交付，我连续三晚睡得很差。这只是交付期的临时状态。"
+        },
+        {
+          "id": "BH-A8-A1",
+          "role": "assistant",
+          "content": "知道了，我会限定在当前交付期，不泛化成长期睡眠问题。"
+        },
+        {
+          "id": "BH-A8-U2",
+          "role": "user",
+          "content": "片子昨天交付了，昨晚睡眠已经恢复正常。前面那段临时失眠明确结束。"
+        },
+        {
+          "id": "BH-A8-A2",
+          "role": "assistant",
+          "content": "收到，这个临时状态已关闭。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A9",
+      "startedAt": "2027-05-09T15:50:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A9-U1",
+          "role": "user",
+          "content": "我表姐叫许宁，在合肥做交互设计。家里提到‘表姐许宁’，指的就是她。"
+        },
+        {
+          "id": "BH-A9-A1",
+          "role": "assistant",
+          "content": "记下了：表姐许宁，合肥，交互设计。"
+        },
+        {
+          "id": "BH-A9-U2",
+          "role": "user",
+          "content": "另外给我看牙的医生也叫许宁，在南昌执业。她和我没有亲属关系，千万别跟合肥的表姐合并。"
+        },
+        {
+          "id": "BH-A9-A2",
+          "role": "assistant",
+          "content": "会作为两位同名但不同的人保存，并用亲属关系、城市和职业区分。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A10",
+      "startedAt": "2027-05-27T12:10:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A10-U1",
+          "role": "user",
+          "content": "刚买了一对登山杖，准备送给表姐当生日礼物。"
+        },
+        {
+          "id": "BH-A10-A1",
+          "role": "assistant",
+          "content": "看来你一定很爱长途徒步，也常研究户外装备。"
+        },
+        {
+          "id": "BH-A10-U2",
+          "role": "user",
+          "content": "这个推断是错的。东西是礼物，不代表我的爱好；我本人不喜欢长途徒步，也不常买户外装备。"
+        },
+        {
+          "id": "BH-A10-A2",
+          "role": "assistant",
+          "content": "你说得对，我不该从一次送礼推断你的爱好；以后以你的明确否认为准。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A11",
+      "startedAt": "2027-06-11T10:05:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A11-U1",
+          "role": "user",
+          "content": "把这句临时通知改得礼貌一点：‘周五前把三份录音都传到共享盘，逾期我就不收了。’只改文案，不要从任务内容提取我的长期信息。"
+        },
+        {
+          "id": "BH-A11-A1",
+          "role": "assistant",
+          "content": "可以改为：‘烦请于周五前将三份录音上传至共享盘，以便统一整理；超过时间可能无法纳入本轮处理，感谢配合。’"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A12",
+      "startedAt": "2027-07-01T18:45:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A12-U1",
+          "role": "user",
+          "content": "这条可以长期留存：罗雯是我姑妈，也是我唯一指定的紧急联系人。只有在我住院且无法自行沟通时，才联系她。"
+        },
+        {
+          "id": "BH-A12-A1",
+          "role": "assistant",
+          "content": "已按明确条件记录罗雯的亲属关系与紧急联系范围。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A13",
+      "startedAt": "2027-07-16T21:30:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A13-U1",
+          "role": "user",
+          "content": "长期约定一个沟通规程：只要我发‘把地图折好’，你就按这个顺序回应——先列出确定知道的事实，再标出不确定的地方，最后才提出建议。顺序不要调换。"
+        },
+        {
+          "id": "BH-A13-A1",
+          "role": "assistant",
+          "content": "明白，这个触发语对应固定三步顺序，我会长期遵守。"
+        }
+      ]
+    },
+    {
+      "sessionId": "BH-A14",
+      "startedAt": "2027-08-02T09:15:00+08:00",
+      "messages": [
+        {
+          "id": "BH-A14-U1",
+          "role": "user",
+          "content": "记录一下书房漏水这件事的前两步：7月2日物业第一次勘查，7月5日工人更换了窗框密封条。"
+        },
+        {
+          "id": "BH-A14-A1",
+          "role": "assistant",
+          "content": "已按日期记下勘查和首次维修两件事。"
+        },
+        {
+          "id": "BH-A14-U2",
+          "role": "user",
+          "content": "再补后两步，别打乱顺序：7月8日暴雨后再次渗水，7月10日重做外墙防水并验收无漏。整起事件共四步，到7月10日已经结束。"
+        },
+        {
+          "id": "BH-A14-A2",
+          "role": "assistant",
+          "content": "收到，共四个按日期排列的事件节点，状态在7月10日关闭。"
+        }
+      ]
+    }
+  ],
+  "finalStateAssertions": [
+    {
+      "assertionId": "F001",
+      "path": "profile.identity.surname",
+      "op": "eq",
+      "value": "苏"
+    },
+    {
+      "assertionId": "F002",
+      "path": "profile.identity.fullName",
+      "op": "eq",
+      "value": "苏砚舟"
+    },
+    {
+      "assertionId": "F003",
+      "path": "profile.residence.current",
+      "op": "eq",
+      "value": "福州"
+    },
+    {
+      "assertionId": "F004",
+      "path": "profile.occupation.current",
+      "op": "contains_any",
+      "values": [
+        "纪录片声音剪辑",
+        "纪录片声音剪辑师",
+        "声音剪辑师"
+      ]
+    },
+    {
+      "assertionId": "F005",
+      "path": "profile.childhoodPlace.current",
+      "op": "eq",
+      "value": "漳州"
+    },
+    {
+      "assertionId": "F006",
+      "path": "profile.childhoodPlace.current",
+      "op": "not_contains",
+      "value": "莆田"
+    },
+    {
+      "assertionId": "F007",
+      "path": "people",
+      "op": "array_object_match",
+      "value": {
+        "relation": "父亲",
+        "childhoodPlace": "莆田"
+      }
+    },
+    {
+      "assertionId": "F008",
+      "path": "people",
+      "op": "array_object_match",
+      "value": {
+        "name": "顾桐",
+        "relation": "舅舅"
+      }
+    },
+    {
+      "assertionId": "F009",
+      "path": "context.recurringTraditions",
+      "op": "array_object_match",
+      "value": {
+        "participant": "顾桐",
+        "activity": "修整旧中提琴",
+        "frequency": "每年一次",
+        "timing": "第一场秋雨后"
+      }
+    },
+    {
+      "assertionId": "F010",
+      "path": "preference.reading.current",
+      "op": "eq",
+      "value": "长篇阅读只选电子墨水屏"
+    },
+    {
+      "assertionId": "F011",
+      "path": "preference.reading.retired",
+      "op": "contains_any",
+      "values": [
+        "长篇书只读纸质版",
+        "纸质版"
+      ]
+    },
+    {
+      "assertionId": "F012",
+      "path": "preference.reading.current",
+      "op": "not_contains",
+      "value": "纸质版"
+    },
+    {
+      "assertionId": "F013",
+      "path": "decision.history",
+      "op": "array_object_match",
+      "value": {
+        "topic": "年底搬去大连",
+        "temporalStatus": "canceled",
+        "isCurrent": false
+      }
+    },
+    {
+      "assertionId": "F014",
+      "path": "decision.current",
+      "op": "not_contains",
+      "value": "年底搬去大连"
+    },
+    {
+      "assertionId": "F015",
+      "path": "context.temporaryStates",
+      "op": "array_object_match",
+      "value": {
+        "state": "交付期连续三晚睡眠差",
+        "temporalStatus": "closed",
+        "closedReason": "交付完成且睡眠恢复正常"
+      }
+    },
+    {
+      "assertionId": "F016",
+      "path": "people",
+      "op": "array_object_match",
+      "value": {
+        "name": "许宁",
+        "relation": "表姐",
+        "city": "合肥",
+        "occupation": "交互设计"
+      }
+    },
+    {
+      "assertionId": "F017",
+      "path": "people",
+      "op": "array_object_match",
+      "value": {
+        "name": "许宁",
+        "relation": "牙医",
+        "city": "南昌",
+        "isRelative": false
+      }
+    },
+    {
+      "assertionId": "F018",
+      "path": "preference.activity.negative",
+      "op": "contains_all",
+      "values": [
+        "不喜欢长途徒步",
+        "不常买户外装备"
+      ]
+    },
+    {
+      "assertionId": "F019",
+      "path": "people",
+      "op": "array_object_match",
+      "value": {
+        "name": "罗雯",
+        "relation": "姑妈",
+        "emergencyContact": true
+      }
+    },
+    {
+      "assertionId": "F020",
+      "path": "context.emergencyContactProtocol",
+      "op": "array_object_match",
+      "value": {
+        "contact": "罗雯",
+        "condition": "用户住院且无法自行沟通",
+        "exclusivity": "唯一指定"
+      }
+    },
+    {
+      "assertionId": "F021",
+      "path": "context.relationshipProtocol.trigger",
+      "op": "eq",
+      "value": "把地图折好"
+    },
+    {
+      "assertionId": "F022",
+      "path": "context.relationshipProtocol.orderedSteps",
+      "op": "eq",
+      "value": [
+        "列出确定知道的事实",
+        "标出不确定的地方",
+        "提出建议"
+      ]
+    },
+    {
+      "assertionId": "F023",
+      "path": "episode.studyLeak.eventCount",
+      "op": "eq",
+      "value": 4
+    },
+    {
+      "assertionId": "F024",
+      "path": "episode.studyLeak.orderedEvents",
+      "op": "eq",
+      "value": [
+        "2027-07-02:物业第一次勘查",
+        "2027-07-05:更换窗框密封条",
+        "2027-07-08:暴雨后再次渗水",
+        "2027-07-10:重做外墙防水并验收无漏"
+      ]
+    },
+    {
+      "assertionId": "F025",
+      "path": "episode.studyLeak.temporalStatus",
+      "op": "eq",
+      "value": "closed"
+    }
+  ],
+  "messageExpectations": [
+    {
+      "messageId": "BH-A1-U1",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "surname",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "苏"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.residence.*",
+          "predicate": "currentResidence",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "福州"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "infer_full_name",
+        "infer_occupation"
+      ],
+      "finalStateAssertionIds": [
+        "F001",
+        "F003"
+      ]
+    },
+    {
+      "messageId": "BH-A1-U2",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "merge",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "fullName",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "苏砚舟"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.occupation.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "op": "contains_any",
+              "values": [
+                "纪录片声音剪辑",
+                "纪录片声音剪辑师",
+                "声音剪辑师"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [],
+      "finalStateAssertionIds": [
+        "F002",
+        "F004"
+      ]
+    },
+    {
+      "messageId": "BH-A2-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.childhood_place.*",
+          "predicate": "childhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "store_negated_place_as_positive"
+      ],
+      "finalStateAssertionIds": []
+    },
+    {
+      "messageId": "BH-A2-U2",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "profile",
+          "subjectPattern": "profile.childhood_place.*",
+          "predicate": "childhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "漳州"
+            },
+            {
+              "op": "not_contains",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        },
+        {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "fatherChildhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "retain_superseded_user_childhood_place_as_current",
+        "conflate_user_and_father"
+      ],
+      "finalStateAssertionIds": [
+        "F005",
+        "F006",
+        "F007"
+      ]
+    },
+    {
+      "messageId": "BH-A3-U1",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenActions": [
+        "upsert_user_belief_from_third_party_quote",
+        "upsert_user_preference_from_third_party_quote"
+      ],
+      "finalStateAssertionIds": [
+        "X002"
+      ]
+    },
+    {
+      "messageId": "BH-A4-U1",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenActions": [
+        "upsert_literal_preference_from_sarcasm"
+      ],
+      "finalStateAssertionIds": [
+        "X003"
+      ]
+    },
+    {
+      "messageId": "BH-A5-U1",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenActions": [
+        "infer_relationship_for_gutong",
+        "store_incomplete_joint_fact"
+      ],
+      "finalStateAssertionIds": []
+    },
+    {
+      "messageId": "BH-A5-U2",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "maternalUncle",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "顾桐",
+                "relation": "舅舅"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "context",
+          "subjectPattern": "context.recurring_tradition.*",
+          "predicate": "annualInstrumentMaintenance",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "顾桐",
+                "旧中提琴",
+                "每年一次",
+                "第一场秋雨后"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "classify_gutong_as_shop_employee"
+      ],
+      "finalStateAssertionIds": [
+        "F008",
+        "F009"
+      ]
+    },
+    {
+      "messageId": "BH-A6-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.reading.*",
+          "predicate": "longFormMedium",
+          "valueAssertions": [
+            {
+              "op": "contains_any",
+              "values": [
+                "长篇书只读纸质版",
+                "纸质版"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "mark_historical_preference_as_current"
+      ],
+      "finalStateAssertionIds": [
+        "F011"
+      ]
+    },
+    {
+      "messageId": "BH-A6-U2",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "preference",
+          "subjectPattern": "preference.reading.*",
+          "predicate": "longFormMedium",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "长篇阅读只选电子墨水屏"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "keep_paper_only_as_current",
+        "discard_preference_history_entirely"
+      ],
+      "finalStateAssertionIds": [
+        "F010",
+        "F011",
+        "F012"
+      ]
+    },
+    {
+      "messageId": "BH-A7-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "decision",
+          "subjectPattern": "decision.candidate.*",
+          "predicate": "relocationPlan",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "年底搬去大连"
+            }
+          ],
+          "scope": "candidate",
+          "temporalStatus": "proposed",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "promote_candidate_to_committed_decision"
+      ],
+      "finalStateAssertionIds": []
+    },
+    {
+      "messageId": "BH-A7-U2",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "decision",
+          "subjectPattern": "decision.candidate.*",
+          "predicate": "relocationPlan",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "canceled"
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "retain_canceled_plan_as_current",
+        "convert_lease_renewal_into_unstated_permanent_residence"
+      ],
+      "finalStateAssertionIds": [
+        "F013",
+        "F014"
+      ]
+    },
+    {
+      "messageId": "BH-A8-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.temporary_state.*",
+          "predicate": "sleepDisruption",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "连续三晚睡得很差",
+                "混音交付期"
+              ]
+            }
+          ],
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "generalize_temporary_sleep_state_to_chronic_trait"
+      ],
+      "finalStateAssertionIds": []
+    },
+    {
+      "messageId": "BH-A8-U2",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "context",
+          "subjectPattern": "context.temporary_state.*",
+          "predicate": "sleepDisruption",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "睡眠恢复正常",
+                "临时失眠结束"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "retain_closed_sleep_state_as_active"
+      ],
+      "finalStateAssertionIds": [
+        "F015"
+      ]
+    },
+    {
+      "messageId": "BH-A9-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "cousin",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "许宁",
+                "relation": "表姐",
+                "city": "合肥",
+                "occupation": "交互设计"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [],
+      "finalStateAssertionIds": [
+        "F016"
+      ]
+    },
+    {
+      "messageId": "BH-A9-U2",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "dentist",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "许宁",
+                "relation": "牙医",
+                "city": "南昌",
+                "isRelative": false
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "merge_same_name_people",
+        "assign_dentist_as_relative"
+      ],
+      "finalStateAssertionIds": [
+        "F016",
+        "F017",
+        "X007"
+      ]
+    },
+    {
+      "messageId": "BH-A10-U1",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenActions": [
+        "infer_user_hiking_preference_from_gift",
+        "infer_user_equipment_shopping_habit_from_single_purchase"
+      ],
+      "finalStateAssertionIds": [
+        "X001"
+      ]
+    },
+    {
+      "messageId": "BH-A10-U2",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.activity.*",
+          "predicate": "longDistanceHiking",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "不喜欢"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.shopping.*",
+          "predicate": "outdoorEquipmentShopping",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "不常买"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "retain_assistant_inference",
+        "treat_gift_recipient_preference_as_user_preference"
+      ],
+      "finalStateAssertionIds": [
+        "F018",
+        "X001"
+      ]
+    },
+    {
+      "messageId": "BH-A11-U1",
+      "expectedOperationCount": 0,
+      "expectedOperations": [],
+      "forbiddenActions": [
+        "store_task_deadline",
+        "store_task_recording_count",
+        "store_task_upload_location",
+        "infer_user_management_style"
+      ],
+      "finalStateAssertionIds": [
+        "X006"
+      ]
+    },
+    {
+      "messageId": "BH-A12-U1",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "auntAndEmergencyContact",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "罗雯",
+                "relation": "姑妈",
+                "emergencyContact": true
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.emergency_protocol.*",
+          "predicate": "contactCondition",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "罗雯",
+                "唯一指定",
+                "住院",
+                "无法自行沟通"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "broaden_emergency_contact_condition"
+      ],
+      "finalStateAssertionIds": [
+        "F019",
+        "F020"
+      ]
+    },
+    {
+      "messageId": "BH-A13-U1",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.relationship_protocol.*",
+          "predicate": "orderedResponseProtocol",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": {
+                "trigger": "把地图折好",
+                "orderedSteps": [
+                  "列出确定知道的事实",
+                  "标出不确定的地方",
+                  "提出建议"
+                ]
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "reorder_protocol_steps",
+        "apply_protocol_without_trigger"
+      ],
+      "finalStateAssertionIds": [
+        "F021",
+        "F022"
+      ]
+    },
+    {
+      "messageId": "BH-A14-U1",
+      "expectedOperationCount": 2,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakInspection",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-02:物业第一次勘查"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakFirstRepair",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-05:更换窗框密封条"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "close_episode_before_resolution",
+        "reverse_event_order"
+      ],
+      "finalStateAssertionIds": [
+        "F024"
+      ]
+    },
+    {
+      "messageId": "BH-A14-U2",
+      "expectedOperationCount": 3,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakRecurrence",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-08:暴雨后再次渗水"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakFinalRepair",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-10:重做外墙防水并验收无漏"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "close",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakEpisode",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": {
+                "eventCount": 4,
+                "closedAt": "2027-07-10",
+                "temporalStatus": "closed"
+              }
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "record_three_events",
+        "record_five_events",
+        "sort_events_by_mention_order_instead_of_event_date",
+        "retain_episode_as_active"
+      ],
+      "finalStateAssertionIds": [
+        "F023",
+        "F024",
+        "F025"
+      ]
+    }
+  ],
+  "deletionChecks": [
+    {
+      "removeMessageId": "BH-A12-U1",
+      "assertionsAfterDeletion": [
+        {
+          "assertionId": "D001",
+          "path": "people",
+          "op": "not_contains",
+          "value": {
+            "name": "罗雯",
+            "relation": "姑妈",
+            "emergencyContact": true
+          }
+        },
+        {
+          "assertionId": "D002",
+          "path": "context.emergencyContactProtocol",
+          "op": "not_contains",
+          "value": "罗雯"
+        },
+        {
+          "assertionId": "D003",
+          "path": "context.emergencyContactProtocol",
+          "op": "not_contains",
+          "value": "用户住院且无法自行沟通"
+        }
+      ]
+    }
+  ],
+  "forbiddenSnapshotAssertions": [
+    {
+      "assertionId": "X001",
+      "category": "assistant_false_inference",
+      "path": "preference.activity.positive",
+      "op": "not_contains",
+      "value": "喜欢长途徒步"
+    },
+    {
+      "assertionId": "X002",
+      "category": "third_party_quote",
+      "path": "profile.userBeliefs",
+      "op": "not_contains",
+      "value": "越忙越该取消午休"
+    },
+    {
+      "assertionId": "X003",
+      "category": "sarcasm",
+      "path": "preference.meetingTime.positive",
+      "op": "not_contains",
+      "value": "凌晨三点开会"
+    },
+    {
+      "assertionId": "X004",
+      "category": "canceled_plan_current",
+      "path": "decision.current",
+      "op": "not_contains",
+      "value": "年底搬去大连"
+    },
+    {
+      "assertionId": "X005",
+      "category": "old_preference_current",
+      "path": "preference.reading.current",
+      "op": "not_contains",
+      "value": "长篇书只读纸质版"
+    },
+    {
+      "assertionId": "X006",
+      "category": "task_only_content",
+      "path": "snapshot",
+      "op": "not_contains",
+      "value": {
+        "deadline": "周五前",
+        "recordingCount": 3,
+        "uploadLocation": "共享盘"
+      }
+    },
+    {
+      "assertionId": "X007",
+      "category": "same_name_conflation",
+      "path": "people",
+      "op": "not_contains",
+      "value": {
+        "name": "许宁",
+        "relation": [
+          "表姐",
+          "牙医"
+        ],
+        "cities": [
+          "合肥",
+          "南昌"
+        ]
+      }
+    }
+  ]
+}

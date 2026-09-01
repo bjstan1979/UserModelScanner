@@ -1,0 +1,1331 @@
+{
+  "status": "provisional",
+  "engineCommit": "249ec8c94f4483b05e58546d7b4f6fd6121cf6b5",
+  "fixtureStatus": "post-freeze-blind",
+  "finalState": {
+    "summary": {
+      "total": 25,
+      "tp": 3,
+      "fp": 0,
+      "fn": 22,
+      "tn": 0,
+      "precision": 1,
+      "recall": 0.12,
+      "f1": 0.21428571428571425
+    },
+    "failures": [
+      {
+        "id": "F001",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F001",
+          "path": "profile.identity.surname",
+          "op": "eq",
+          "value": "苏"
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F002",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F002",
+          "path": "profile.identity.fullName",
+          "op": "eq",
+          "value": "苏砚舟"
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F003",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F003",
+          "path": "profile.residence.current",
+          "op": "eq",
+          "value": "福州"
+        },
+        "actual": "漳州 | 已经彻底变了：长篇阅:我只选电子墨水屏",
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F004",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F004",
+          "path": "profile.occupation.current",
+          "op": "contains_any",
+          "values": [
+            "纪录片声音剪辑",
+            "纪录片声音剪辑师",
+            "声音剪辑师"
+          ]
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F005",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F005",
+          "path": "profile.childhoodPlace.current",
+          "op": "eq",
+          "value": "漳州"
+        },
+        "actual": "漳州 | 已经彻底变了：长篇阅:我只选电子墨水屏",
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F007",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F007",
+          "path": "people",
+          "op": "array_object_match",
+          "value": {
+            "relation": "父亲",
+            "childhoodPlace": "莆田"
+          }
+        },
+        "actual": [],
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F008",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F008",
+          "path": "people",
+          "op": "array_object_match",
+          "value": {
+            "name": "顾桐",
+            "relation": "舅舅"
+          }
+        },
+        "actual": [],
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F009",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F009",
+          "path": "context.recurringTraditions",
+          "op": "array_object_match",
+          "value": {
+            "participant": "顾桐",
+            "activity": "修整旧中提琴",
+            "frequency": "每年一次",
+            "timing": "第一场秋雨后"
+          }
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F010",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F010",
+          "path": "preference.reading.current",
+          "op": "eq",
+          "value": "长篇阅读只选电子墨水屏"
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F011",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F011",
+          "path": "preference.reading.retired",
+          "op": "contains_any",
+          "values": [
+            "长篇书只读纸质版",
+            "纸质版"
+          ]
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F013",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F013",
+          "path": "decision.history",
+          "op": "array_object_match",
+          "value": {
+            "topic": "年底搬去大连",
+            "temporalStatus": "canceled",
+            "isCurrent": false
+          }
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F015",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F015",
+          "path": "context.temporaryStates",
+          "op": "array_object_match",
+          "value": {
+            "state": "交付期连续三晚睡眠差",
+            "temporalStatus": "closed",
+            "closedReason": "交付完成且睡眠恢复正常"
+          }
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F016",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F016",
+          "path": "people",
+          "op": "array_object_match",
+          "value": {
+            "name": "许宁",
+            "relation": "表姐",
+            "city": "合肥",
+            "occupation": "交互设计"
+          }
+        },
+        "actual": [],
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F017",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F017",
+          "path": "people",
+          "op": "array_object_match",
+          "value": {
+            "name": "许宁",
+            "relation": "牙医",
+            "city": "南昌",
+            "isRelative": false
+          }
+        },
+        "actual": [],
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F018",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F018",
+          "path": "preference.activity.negative",
+          "op": "contains_all",
+          "values": [
+            "不喜欢长途徒步",
+            "不常买户外装备"
+          ]
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F019",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F019",
+          "path": "people",
+          "op": "array_object_match",
+          "value": {
+            "name": "罗雯",
+            "relation": "姑妈",
+            "emergencyContact": true
+          }
+        },
+        "actual": [],
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F020",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F020",
+          "path": "context.emergencyContactProtocol",
+          "op": "array_object_match",
+          "value": {
+            "contact": "罗雯",
+            "condition": "用户住院且无法自行沟通",
+            "exclusivity": "唯一指定"
+          }
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F021",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F021",
+          "path": "context.relationshipProtocol.trigger",
+          "op": "eq",
+          "value": "把地图折好"
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F022",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F022",
+          "path": "context.relationshipProtocol.orderedSteps",
+          "op": "eq",
+          "value": [
+            "列出确定知道的事实",
+            "标出不确定的地方",
+            "提出建议"
+          ]
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F023",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F023",
+          "path": "episode.studyLeak.eventCount",
+          "op": "eq",
+          "value": 4
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F024",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F024",
+          "path": "episode.studyLeak.orderedEvents",
+          "op": "eq",
+          "value": [
+            "2027-07-02:物业第一次勘查",
+            "2027-07-05:更换窗框密封条",
+            "2027-07-08:暴雨后再次渗水",
+            "2027-07-10:重做外墙防水并验收无漏"
+          ]
+        },
+        "reason": "Final-state assertion did not match"
+      },
+      {
+        "id": "F025",
+        "status": "FN",
+        "expected": {
+          "assertionId": "F025",
+          "path": "episode.studyLeak.temporalStatus",
+          "op": "eq",
+          "value": "closed"
+        },
+        "reason": "Final-state assertion did not match"
+      }
+    ]
+  },
+  "messageOperations": {
+    "summary": {
+      "total": 33,
+      "tp": 0,
+      "fp": 6,
+      "fn": 27,
+      "tn": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": null
+    },
+    "failures": [
+      {
+        "id": "BH-A1-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "surname",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "苏"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A1-U1/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.residence.*",
+          "predicate": "currentResidence",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "福州"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A1-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "fullName",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "苏砚舟"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A1-U2/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.occupation.*",
+          "predicate": "occupation",
+          "valueAssertions": [
+            {
+              "op": "contains_any",
+              "values": [
+                "纪录片声音剪辑",
+                "纪录片声音剪辑师",
+                "声音剪辑师"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A2-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.childhood_place.*",
+          "predicate": "childhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-fl0k1t",
+            "action": "SUPERSEDE",
+            "layer": "USER_MODEL",
+            "subject": "profile.origin",
+            "predicate": "origin",
+            "value": {
+              "normalized": "漳州",
+              "sourceText": "在漳州长大"
+            },
+            "evidenceIds": [
+              "BH-A2-U1"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-01-19",
+            "supersedes": [],
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit origin correction"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A2-U1/extra-1",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-fl0k1t",
+          "action": "SUPERSEDE",
+          "layer": "USER_MODEL",
+          "subject": "profile.origin",
+          "predicate": "origin",
+          "value": {
+            "normalized": "漳州",
+            "sourceText": "在漳州长大"
+          },
+          "evidenceIds": [
+            "BH-A2-U1"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-01-19",
+          "supersedes": [],
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit origin correction"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A2-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "supersede",
+          "layer": "profile",
+          "subjectPattern": "profile.childhood_place.*",
+          "predicate": "childhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "漳州"
+            },
+            {
+              "op": "not_contains",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        },
+        "actual": [
+          {
+            "operationId": "op-fl0fkw",
+            "action": "SUPERSEDE",
+            "layer": "USER_MODEL",
+            "subject": "profile.origin",
+            "predicate": "origin",
+            "value": {
+              "normalized": "漳州",
+              "sourceText": "在漳州长大"
+            },
+            "evidenceIds": [
+              "BH-A2-U2"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-01-19",
+            "supersedes": [],
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit origin correction"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A2-U2/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "fatherChildhoodPlace",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "莆田"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-fl0fkw",
+            "action": "SUPERSEDE",
+            "layer": "USER_MODEL",
+            "subject": "profile.origin",
+            "predicate": "origin",
+            "value": {
+              "normalized": "漳州",
+              "sourceText": "在漳州长大"
+            },
+            "evidenceIds": [
+              "BH-A2-U2"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-01-19",
+            "supersedes": [],
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit origin correction"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A2-U2/extra-1",
+        "status": "FP",
+        "expected": "exactly 2 operations",
+        "actual": {
+          "operationId": "op-fl0fkw",
+          "action": "SUPERSEDE",
+          "layer": "USER_MODEL",
+          "subject": "profile.origin",
+          "predicate": "origin",
+          "value": {
+            "normalized": "漳州",
+            "sourceText": "在漳州长大"
+          },
+          "evidenceIds": [
+            "BH-A2-U2"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-01-19",
+          "supersedes": [],
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit origin correction"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A5-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "maternalUncle",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "顾桐",
+                "relation": "舅舅"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A5-U2/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "merge",
+          "layer": "context",
+          "subjectPattern": "context.recurring_tradition.*",
+          "predicate": "annualInstrumentMaintenance",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "顾桐",
+                "旧中提琴",
+                "每年一次",
+                "第一场秋雨后"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A6-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.reading.*",
+          "predicate": "longFormMedium",
+          "valueAssertions": [
+            {
+              "op": "contains_any",
+              "values": [
+                "长篇书只读纸质版",
+                "纸质版"
+              ]
+            }
+          ],
+          "scope": "durable_history",
+          "temporalStatus": "historical",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A6-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "supersede",
+          "layer": "preference",
+          "subjectPattern": "preference.reading.*",
+          "predicate": "longFormMedium",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "长篇阅读只选电子墨水屏"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        },
+        "actual": [
+          {
+            "operationId": "op-1kpu9s7",
+            "action": "ADD",
+            "layer": "USER_MODEL",
+            "subject": "profile.education",
+            "predicate": "education",
+            "value": {
+              "normalized": {
+                "city": "已经彻底变了：长篇阅",
+                "program": "我只选电子墨水屏"
+              },
+              "sourceText": "在已经彻底变了：长篇阅读我只选电子墨水屏"
+            },
+            "evidenceIds": [
+              "BH-A6-U2"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-03-22",
+            "temporal_status": "active",
+            "scope": "durable",
+            "reason": "Explicit education history"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A6-U2/extra-1",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-1kpu9s7",
+          "action": "ADD",
+          "layer": "USER_MODEL",
+          "subject": "profile.education",
+          "predicate": "education",
+          "value": {
+            "normalized": {
+              "city": "已经彻底变了：长篇阅",
+              "program": "我只选电子墨水屏"
+            },
+            "sourceText": "在已经彻底变了：长篇阅读我只选电子墨水屏"
+          },
+          "evidenceIds": [
+            "BH-A6-U2"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-03-22",
+          "temporal_status": "active",
+          "scope": "durable",
+          "reason": "Explicit education history"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A7-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "decision",
+          "subjectPattern": "decision.candidate.*",
+          "predicate": "relocationPlan",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "年底搬去大连"
+            }
+          ],
+          "scope": "candidate",
+          "temporalStatus": "proposed",
+          "requiresSupersedes": false
+        },
+        "actual": [
+          {
+            "operationId": "op-1enji3b",
+            "action": "ADD",
+            "layer": "CURRENT_CONTEXT",
+            "subject": "decision.relocation",
+            "predicate": "candidate",
+            "value": {
+              "normalized": {
+                "destination": "大连",
+                "status": "candidate"
+              },
+              "sourceText": "考虑年底搬去大连"
+            },
+            "evidenceIds": [
+              "BH-A7-U1"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-04-06",
+            "temporal_status": "temporary",
+            "scope": "temporary",
+            "reason": "Explicit candidate relocation, not a decision"
+          },
+          {
+            "operationId": "op-2b9qdy",
+            "action": "ADD",
+            "layer": "EPISODIC_MEMORY",
+            "subject": "episode.event.event-relocation-2027-04-06-4uw348",
+            "predicate": "event",
+            "value": {
+              "normalized": {
+                "id": "event-relocation-2027-04-06-4uw348",
+                "event_type": "relocation",
+                "entities": [
+                  "大连"
+                ],
+                "date": "2027-04-06",
+                "title": "搬去大连",
+                "event": "搬去大连",
+                "outcome": "",
+                "retrieval_boundary": ""
+              },
+              "sourceText": "搬去大连"
+            },
+            "evidenceIds": [
+              "BH-A7-U1"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-04-06",
+            "temporal_status": "historical",
+            "scope": "historical",
+            "reason": "Explicit user-described event"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A7-U1/extra-1",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-1enji3b",
+          "action": "ADD",
+          "layer": "CURRENT_CONTEXT",
+          "subject": "decision.relocation",
+          "predicate": "candidate",
+          "value": {
+            "normalized": {
+              "destination": "大连",
+              "status": "candidate"
+            },
+            "sourceText": "考虑年底搬去大连"
+          },
+          "evidenceIds": [
+            "BH-A7-U1"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-04-06",
+          "temporal_status": "temporary",
+          "scope": "temporary",
+          "reason": "Explicit candidate relocation, not a decision"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A7-U1/extra-2",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-2b9qdy",
+          "action": "ADD",
+          "layer": "EPISODIC_MEMORY",
+          "subject": "episode.event.event-relocation-2027-04-06-4uw348",
+          "predicate": "event",
+          "value": {
+            "normalized": {
+              "id": "event-relocation-2027-04-06-4uw348",
+              "event_type": "relocation",
+              "entities": [
+                "大连"
+              ],
+              "date": "2027-04-06",
+              "title": "搬去大连",
+              "event": "搬去大连",
+              "outcome": "",
+              "retrieval_boundary": ""
+            },
+            "sourceText": "搬去大连"
+          },
+          "evidenceIds": [
+            "BH-A7-U1"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-04-06",
+          "temporal_status": "historical",
+          "scope": "historical",
+          "reason": "Explicit user-described event"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A7-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "close",
+          "layer": "decision",
+          "subjectPattern": "decision.candidate.*",
+          "predicate": "relocationPlan",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "canceled"
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled",
+          "requiresSupersedes": true
+        },
+        "actual": [
+          {
+            "operationId": "op-zkc0cd",
+            "action": "ADD",
+            "layer": "EPISODIC_MEMORY",
+            "subject": "episode.event.event-relocation-2027-04-06-tmau6f",
+            "predicate": "event",
+            "value": {
+              "normalized": {
+                "id": "event-relocation-2027-04-06-tmau6f",
+                "event_type": "relocation",
+                "entities": [
+                  "大连的方案取消了"
+                ],
+                "date": "2027-04-06",
+                "title": "搬去大连的方案取消了",
+                "event": "搬去大连的方案取消了",
+                "outcome": "",
+                "retrieval_boundary": ""
+              },
+              "sourceText": "搬去大连的方案取消了"
+            },
+            "evidenceIds": [
+              "BH-A7-U2"
+            ],
+            "confidence": 0.9,
+            "validFrom": "2027-04-06",
+            "temporal_status": "historical",
+            "scope": "historical",
+            "reason": "Explicit user-described event"
+          }
+        ],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A7-U2/extra-1",
+        "status": "FP",
+        "expected": "exactly 1 operations",
+        "actual": {
+          "operationId": "op-zkc0cd",
+          "action": "ADD",
+          "layer": "EPISODIC_MEMORY",
+          "subject": "episode.event.event-relocation-2027-04-06-tmau6f",
+          "predicate": "event",
+          "value": {
+            "normalized": {
+              "id": "event-relocation-2027-04-06-tmau6f",
+              "event_type": "relocation",
+              "entities": [
+                "大连的方案取消了"
+              ],
+              "date": "2027-04-06",
+              "title": "搬去大连的方案取消了",
+              "event": "搬去大连的方案取消了",
+              "outcome": "",
+              "retrieval_boundary": ""
+            },
+            "sourceText": "搬去大连的方案取消了"
+          },
+          "evidenceIds": [
+            "BH-A7-U2"
+          ],
+          "confidence": 0.9,
+          "validFrom": "2027-04-06",
+          "temporal_status": "historical",
+          "scope": "historical",
+          "reason": "Explicit user-described event"
+        },
+        "reason": "Unexpected extra operation"
+      },
+      {
+        "id": "BH-A8-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.temporary_state.*",
+          "predicate": "sleepDisruption",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "连续三晚睡得很差",
+                "混音交付期"
+              ]
+            }
+          ],
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A8-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "close",
+          "layer": "context",
+          "subjectPattern": "context.temporary_state.*",
+          "predicate": "sleepDisruption",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "睡眠恢复正常",
+                "临时失眠结束"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A9-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "cousin",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "许宁",
+                "relation": "表姐",
+                "city": "合肥",
+                "occupation": "交互设计"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A9-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "dentist",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "许宁",
+                "relation": "牙医",
+                "city": "南昌",
+                "isRelative": false
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A10-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.activity.*",
+          "predicate": "longDistanceHiking",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "不喜欢"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A10-U2/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.shopping.*",
+          "predicate": "outdoorEquipmentShopping",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "不常买"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A12-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "auntAndEmergencyContact",
+          "valueAssertions": [
+            {
+              "op": "array_object_match",
+              "value": {
+                "name": "罗雯",
+                "relation": "姑妈",
+                "emergencyContact": true
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A12-U1/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.emergency_protocol.*",
+          "predicate": "contactCondition",
+          "valueAssertions": [
+            {
+              "op": "contains_all",
+              "values": [
+                "罗雯",
+                "唯一指定",
+                "住院",
+                "无法自行沟通"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A13-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.relationship_protocol.*",
+          "predicate": "orderedResponseProtocol",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": {
+                "trigger": "把地图折好",
+                "orderedSteps": [
+                  "列出确定知道的事实",
+                  "标出不确定的地方",
+                  "提出建议"
+                ]
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A14-U1/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakInspection",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-02:物业第一次勘查"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A14-U1/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakFirstRepair",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-05:更换窗框密封条"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A14-U2/expected-1",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakRecurrence",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-08:暴雨后再次渗水"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A14-U2/expected-2",
+        "status": "FN",
+        "expected": {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakFinalRepair",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": "2027-07-10:重做外墙防水并验收无漏"
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      },
+      {
+        "id": "BH-A14-U2/expected-3",
+        "status": "FN",
+        "expected": {
+          "action": "close",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "studyLeakEpisode",
+          "valueAssertions": [
+            {
+              "op": "eq",
+              "value": {
+                "eventCount": 4,
+                "closedAt": "2027-07-10",
+                "temporalStatus": "closed"
+              }
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        },
+        "actual": [],
+        "reason": "No operation matched complete blind semantics"
+      }
+    ]
+  },
+  "forbiddenGuards": {
+    "summary": {
+      "total": 7,
+      "tn": 7,
+      "fp": 0
+    },
+    "failures": []
+  },
+  "deletionChecks": {
+    "summary": {
+      "total": 3,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1
+    },
+    "failures": []
+  }
+}

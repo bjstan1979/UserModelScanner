@@ -1,0 +1,10 @@
+{"id":"user-shen-s11-m01","session_id":"user-shen-s11","timestamp":"2030-09-13T09:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"我们设一个长期重复的小仪式，叫“双周拾叶”。"}
+{"id":"user-shen-s11-m02","session_id":"user-shen-s11","timestamp":"2030-09-13T09:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，仪式叫“双周拾叶”。"}
+{"id":"user-shen-s11-m03","session_id":"user-shen-s11","timestamp":"2030-09-13T09:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"每个月最后一个周日晚上做一次。"}
+{"id":"user-shen-s11-m04","session_id":"user-shen-s11","timestamp":"2030-09-13T09:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"时间是每月最后一个周日晚上。"}
+{"id":"user-shen-s11-m05","session_id":"user-shen-s11","timestamp":"2030-09-13T09:40:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"我说一件想守住的事和一件愿意松手的事。"}
+{"id":"user-shen-s11-m06","session_id":"user-shen-s11","timestamp":"2030-09-13T09:50:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"你提供“守住”和“松手”各一项。"}
+{"id":"user-shen-s11-m07","session_id":"user-shen-s11","timestamp":"2030-09-13T10:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"你只分别标记，不分析原因。"}
+{"id":"user-shen-s11-m08","session_id":"user-shen-s11","timestamp":"2030-09-13T10:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"我只标记，不分析。"}
+{"id":"user-shen-s11-m09","session_id":"user-shen-s11","timestamp":"2030-09-13T10:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-shen-s11-m10","session_id":"user-shen-s11","timestamp":"2030-09-13T10:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

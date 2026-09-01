@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build Output
+dist/
+
+# Local data & databases
+.user-model/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.log
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.tmp

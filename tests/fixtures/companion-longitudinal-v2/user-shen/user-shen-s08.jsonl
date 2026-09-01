@@ -1,0 +1,10 @@
+{"id":"user-shen-s08-m01","session_id":"user-shen-s08","timestamp":"2030-06-19T09:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"这周交付前我有点临时发怵。"}
+{"id":"user-shen-s08-m02","session_id":"user-shen-s08","timestamp":"2030-06-19T09:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"我会把它当成这周的临时状态。"}
+{"id":"user-shen-s08-m03","session_id":"user-shen-s08","timestamp":"2030-06-19T09:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"这是短期状态，不是长期性格。"}
+{"id":"user-shen-s08-m04","session_id":"user-shen-s08","timestamp":"2030-06-19T09:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"不会固化成人格标签。"}
+{"id":"user-shen-s08-m05","session_id":"user-shen-s08","timestamp":"2030-06-19T09:40:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"等周五交付结束就应该到期。"}
+{"id":"user-shen-s08-m06","session_id":"user-shen-s08","timestamp":"2030-06-19T09:50:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"周五后应关闭或复核。"}
+{"id":"user-shen-s08-m07","session_id":"user-shen-s08","timestamp":"2030-06-19T10:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"现在陪我把最小一步说清楚就好。"}
+{"id":"user-shen-s08-m08","session_id":"user-shen-s08","timestamp":"2030-06-19T10:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"最小一步是先列出今天唯一要确认的风险。"}
+{"id":"user-shen-s08-m09","session_id":"user-shen-s08","timestamp":"2030-06-19T10:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-shen-s08-m10","session_id":"user-shen-s08","timestamp":"2030-06-19T10:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

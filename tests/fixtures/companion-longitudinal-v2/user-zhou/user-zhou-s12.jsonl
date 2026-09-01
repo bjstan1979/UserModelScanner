@@ -1,0 +1,10 @@
+{"id":"user-zhou-s12-m01","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"长篇资料的媒介偏好没有变化。"}
+{"id":"user-zhou-s12-m02","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"收到，偏好保持不变。"}
+{"id":"user-zhou-s12-m03","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"当前仍然首选带章节的电子书。"}
+{"id":"user-zhou-s12-m04","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"当前仍是带章节的电子书。"}
+{"id":"user-zhou-s12-m05","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"这只是再次确认，不要制造一次偏好变更。"}
+{"id":"user-zhou-s12-m06","session_id":"user-zhou-s12","timestamp":"2030-11-24T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"不会制造虚假的变化历史。"}
+{"id":"user-zhou-s12-m07","session_id":"user-zhou-s12","timestamp":"2030-11-24T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"另外，今天写下想守住规律散步，但这不是固定仪式的一次发生。"}
+{"id":"user-zhou-s12-m08","session_id":"user-zhou-s12","timestamp":"2030-11-24T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"只作为今天的普通记录，不关联长期仪式。"}
+{"id":"user-zhou-s12-m09","session_id":"user-zhou-s12","timestamp":"2030-11-24T10:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-zhou-s12-m10","session_id":"user-zhou-s12","timestamp":"2030-11-24T10:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

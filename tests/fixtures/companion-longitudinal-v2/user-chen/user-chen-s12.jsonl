@@ -1,0 +1,8 @@
+{"id":"user-chen-s12-m01","session_id":"user-chen-s12","timestamp":"2030-11-30T09:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"长篇资料的媒介偏好变了。"}
+{"id":"user-chen-s12-m02","session_id":"user-chen-s12","timestamp":"2030-11-30T09:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"收到偏好更新。"}
+{"id":"user-chen-s12-m03","session_id":"user-chen-s12","timestamp":"2030-11-30T09:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"现在首选离线电子书。"}
+{"id":"user-chen-s12-m04","session_id":"user-chen-s12","timestamp":"2030-11-30T09:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"当前改为离线电子书。"}
+{"id":"user-chen-s12-m05","session_id":"user-chen-s12","timestamp":"2030-11-30T09:40:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"网页长文只算过去的偏好，请保留变化历史。"}
+{"id":"user-chen-s12-m06","session_id":"user-chen-s12","timestamp":"2030-11-30T09:50:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"旧的网页长文只保留为历史。"}
+{"id":"user-chen-s12-m07","session_id":"user-chen-s12","timestamp":"2030-11-30T10:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"另外，这次周日潮汐复盘里我想守住规律散步，愿意松手的是囤积旧票据。"}
+{"id":"user-chen-s12-m08","session_id":"user-chen-s12","timestamp":"2030-11-30T10:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"这次记录为：守住规律散步，松手囤积旧票据；长期仪式规则不变。"}

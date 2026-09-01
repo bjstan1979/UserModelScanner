@@ -1,0 +1,817 @@
+{
+  "metadata": {
+    "fixtureId": "blind-holdout-v4",
+    "language": "zh-CN",
+    "ontologyVersion": "companion-memory/v1",
+    "status": "post-freeze-blind-v4",
+    "createdAfterEngineCommit": "04ab5777d358a4df55858d9a2def7119c87dc594",
+    "canonicalizerFreezeCommit": "31a6bc74580cceb4cb3b04badafe1dddde6a579c",
+    "engineMutableAfterCreation": false,
+    "authorDidNotInspectEngine": true,
+    "sessionCount": 12,
+    "independentDialogueCount": 7,
+    "expectedOperationCount": 17,
+    "finalStateAssertionCount": 18,
+    "forbiddenSnapshotAssertionCount": 6,
+    "deletionCheckCount": 4,
+    "subjectPatternConvention": "Dot-separated conceptual subjects; * matches any substring.",
+    "assertionSemantics": {
+      "eq": "The conceptual value equals value.",
+      "contains_all": "The conceptual scalar, object, or array contains every item in value.",
+      "contains_any": "The conceptual scalar, object, or array contains at least one item in value.",
+      "not_contains": "The conceptual value contains none of the items in value; a missing value passes.",
+      "array_object_match": "The conceptual array contains an object matching every key-value pair in value."
+    },
+    "predecessorFixture": "blind-holdout-v3c"
+  },
+  "sessions": [
+    {
+      "sessionId": "bv4-s01-profile-relation",
+      "dialogueId": "bv4-d01-relation-correction",
+      "sessionDate": "2026-09-03",
+      "messages": [
+        {
+          "id": "bv4-m001",
+          "role": "user",
+          "content": "先记清归属：我叫闻砚。祁萝是我的房东，她住在霜荻埠，职业是旧琴弦定音师。霜荻埠和旧琴弦定音师都是祁萝的资料，不是我的。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s02-relation-corrected",
+      "dialogueId": "bv4-d01-relation-correction",
+      "sessionDate": "2026-09-11",
+      "messages": [
+        {
+          "id": "bv4-m002",
+          "role": "user",
+          "content": "更正一项旧关系：祁萝从来不是我的房东，她其实是我的堂姐。请让“房东”关系失效，当前关系只保留“堂姐”；她的住处和职业不变。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s03-plan-proposed",
+      "dialogueId": "bv4-d02-plan-cancel",
+      "sessionDate": "2026-09-20",
+      "messages": [
+        {
+          "id": "bv4-m003",
+          "role": "user",
+          "content": "我在考虑十二月去砚尾洲上五天的苔纹灯罩烧制课，目前只是备选计划，船位和课程席位都没有预订。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s04-plan-canceled",
+      "dialogueId": "bv4-d02-plan-cancel",
+      "sessionDate": "2026-10-02",
+      "messages": [
+        {
+          "id": "bv4-m004",
+          "role": "user",
+          "content": "砚尾洲的苔纹灯罩烧制课不去了，这个备选计划正式取消，也不会换日期或换地点，请关闭它。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s05-state-open",
+      "dialogueId": "bv4-d03-state-close",
+      "sessionDate": "2026-10-16",
+      "messages": [
+        {
+          "id": "bv4-m005",
+          "role": "user",
+          "content": "鲸骨剧场的纸幕首演明晚开始，我现在只是临时发怵；等首演结束这个状态就到期，不要当成长期性格。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s06-state-closed",
+      "dialogueId": "bv4-d03-state-close",
+      "sessionDate": "2026-10-18",
+      "messages": [
+        {
+          "id": "bv4-m006",
+          "role": "user",
+          "content": "纸幕首演已经顺利结束，我也恢复从容了。请把首演前那段临时发怵关闭，只留作已结束的记录。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s07-protocol",
+      "dialogueId": "bv4-d04-protocol",
+      "sessionDate": "2026-10-27",
+      "messages": [
+        {
+          "id": "bv4-m007",
+          "role": "user",
+          "content": "建立长期规则：只有我说“雁影校准”才执行固定三步。第一步说出目标，第二步列明不可逆风险，第三步给出最小试探。顺序必须锁定，不得插入额外步骤；没触发时只给一句判断。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s08-ritual",
+      "dialogueId": "bv4-d05-ritual",
+      "sessionDate": "2026-11-06",
+      "messages": [
+        {
+          "id": "bv4-m008",
+          "role": "user",
+          "content": "我们设一个长期重复仪式叫“月壳回声”：每个双数月最后一个周五二十一点二十五分，我说一件仍想守住的事和一件可以松手的事，你只分别标成“守住”和“松手”，不分析原因。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s09-ritual-occurrence",
+      "dialogueId": "bv4-d05-ritual",
+      "sessionDate": "2026-12-25",
+      "messages": [
+        {
+          "id": "bv4-m009",
+          "role": "user",
+          "content": "今天完成一次“月壳回声”：我想守住的是晨间磨墨，愿意松手的是收集裂釉票根。只记录这次发生，长期规则不变。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s10-medium-old",
+      "dialogueId": "bv4-d06-medium-change",
+      "sessionDate": "2027-01-09",
+      "messages": [
+        {
+          "id": "bv4-m010",
+          "role": "user",
+          "content": "接收长篇资料时，我目前首选可搜索的网页长文，方便直接查词。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s11-medium-new",
+      "dialogueId": "bv4-d06-medium-change",
+      "sessionDate": "2027-02-14",
+      "messages": [
+        {
+          "id": "bv4-m011",
+          "role": "user",
+          "content": "长篇资料的媒介偏好更新了：现在首选装订纸册，可搜索网页长文只算过去的偏好。保留变化历史，但当前按纸册。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv4-s12-timeline",
+      "dialogueId": "bv4-d07-dated-timeline",
+      "sessionDate": "2027-03-01",
+      "messages": [
+        {
+          "id": "bv4-m012",
+          "role": "user",
+          "content": "请按顺序记录琉砂温度册的三步时间线：2026-01-17完成霜点刻度校准；2026-01-23收齐七组炉温拓片；2026-02-02封装温度册并交给回声材料馆，项目至此完成。"
+        }
+      ]
+    }
+  ],
+  "messageExpectations": [
+    {
+      "messageId": "bv4-m001",
+      "expectedOperationCount": 4,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "identity.full_name",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "闻砚" }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "房东" }],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.current_location",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "霜荻埠" }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.occupation",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "旧琴弦定音师" }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["close", "supersede", "record_event"],
+      "finalStateAssertionIds": ["bv4-f01", "bv4-f02", "bv4-f03", "bv4-f04"]
+    },
+    {
+      "messageId": "bv4-m002",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "堂姐" }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": ["close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f02", "bv4-f03", "bv4-f04", "bv4-f05"]
+    },
+    {
+      "messageId": "bv4-m003",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "decision",
+          "subjectPattern": "decision.*.*",
+          "predicate": "decision.plan",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["十二月", "砚尾洲", "五天", "苔纹灯罩烧制课", "船位和课程席位未预订"]
+          }],
+          "scope": "candidate",
+          "temporalStatus": "proposed",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f07"]
+    },
+    {
+      "messageId": "bv4-m004",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "decision",
+          "subjectPattern": "decision.*.*",
+          "predicate": "decision.plan",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["取消", "不去", "不换日期", "不换地点"]
+          }],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": ["upsert", "merge", "record_event"],
+      "finalStateAssertionIds": ["bv4-f06", "bv4-f07"]
+    },
+    {
+      "messageId": "bv4-m005",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.*.*",
+          "predicate": "context.stress_state",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["临时发怵", "鲸骨剧场纸幕首演", "首演结束到期"]
+          }],
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f08"]
+    },
+    {
+      "messageId": "bv4-m006",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "context",
+          "subjectPattern": "context.*.*",
+          "predicate": "context.stress_state",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["首演顺利结束", "恢复从容", "临时发怵关闭"]
+          }],
+          "scope": "temporary_history",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": ["upsert", "merge", "record_event"],
+      "finalStateAssertionIds": ["bv4-f08", "bv4-f09"]
+    },
+    {
+      "messageId": "bv4-m007",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "merge",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "relationship.ordered_protocol",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "array_object_match",
+            "value": {
+              "trigger": "雁影校准",
+              "steps": ["说出目标", "列明不可逆风险", "给出最小试探"],
+              "orderLocked": true,
+              "defaultBehavior": "只给一句判断"
+            }
+          }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f10"]
+    },
+    {
+      "messageId": "bv4-m008",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert_distinct",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "relationship.ritual",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["月壳回声", "双数月最后一个周五", "21:25", "一件仍想守住的事", "一件可以松手的事", "只分别标记", "不分析原因"]
+          }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f11"]
+    },
+    {
+      "messageId": "bv4-m009",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "episode.ritual_occurrence",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["月壳回声", "晨间磨墨", "收集裂釉票根", "2026-12-25"]
+          }],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close"],
+      "finalStateAssertionIds": ["bv4-f11", "bv4-f12"]
+    },
+    {
+      "messageId": "bv4-m010",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.medium",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "可搜索网页长文" }],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f13"]
+    },
+    {
+      "messageId": "bv4-m011",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.medium",
+          "valueAssertions": [{ "path": "$", "op": "eq", "value": "装订纸册" }],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": ["close", "record_event"],
+      "finalStateAssertionIds": ["bv4-f13", "bv4-f14"]
+    },
+    {
+      "messageId": "bv4-m012",
+      "expectedOperationCount": 3,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["第1步", "2026-01-17", "霜点刻度校准"]
+          }],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["第2步", "2026-01-23", "七组炉温拓片"]
+          }],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [{
+            "path": "$",
+            "op": "contains_all",
+            "value": ["第3步", "2026-02-02", "封装温度册", "回声材料馆", "项目完成"]
+          }],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": ["supersede", "close"],
+      "finalStateAssertionIds": ["bv4-f15", "bv4-f16", "bv4-f17", "bv4-f18"]
+    }
+  ],
+  "finalStateAssertions": [
+    {
+      "id": "bv4-f01",
+      "layer": "profile",
+      "subjectPattern": "profile.identity.*",
+      "predicate": "identity.full_name",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "闻砚" }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f02",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "房东" }],
+      "scope": "durable_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv4-f03",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.current_location",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "霜荻埠" }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f04",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "旧琴弦定音师" }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f05",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "堂姐" }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f06",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["取消", "不去", "不换日期", "不换地点"]
+      }],
+      "scope": "candidate_history",
+      "temporalStatus": "canceled"
+    },
+    {
+      "id": "bv4-f07",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["十二月", "砚尾洲", "五天", "苔纹灯罩烧制课", "未预订"]
+      }],
+      "scope": "candidate_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv4-f08",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.stress_state",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["临时发怵", "鲸骨剧场纸幕首演"]
+      }],
+      "scope": "temporary_history",
+      "temporalStatus": "closed"
+    },
+    {
+      "id": "bv4-f09",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.resolution",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["纸幕首演顺利结束", "恢复从容"]
+      }],
+      "scope": "temporary_history",
+      "temporalStatus": "closed"
+    },
+    {
+      "id": "bv4-f10",
+      "layer": "relationship",
+      "subjectPattern": "relationship.protocol.*",
+      "predicate": "relationship.ordered_protocol",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "array_object_match",
+        "value": {
+          "trigger": "雁影校准",
+          "steps": ["说出目标", "列明不可逆风险", "给出最小试探"],
+          "orderLocked": true,
+          "defaultBehavior": "只给一句判断"
+        }
+      }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f11",
+      "layer": "relationship",
+      "subjectPattern": "relationship.ritual.*",
+      "predicate": "relationship.ritual",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["月壳回声", "双数月最后一个周五", "21:25", "一件仍想守住的事", "一件可以松手的事", "只分别标记", "不分析原因"]
+      }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f12",
+      "layer": "episode",
+      "subjectPattern": "episode.event.*",
+      "predicate": "episode.ritual_occurrence",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["月壳回声", "晨间磨墨", "收集裂釉票根", "2026-12-25"]
+      }],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv4-f13",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "可搜索网页长文" }],
+      "scope": "durable_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv4-f14",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [{ "path": "$", "op": "eq", "value": "装订纸册" }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-f15",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["第1步", "2026-01-17", "霜点刻度校准"]
+      }],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv4-f16",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["第2步", "2026-01-23", "七组炉温拓片"]
+      }],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv4-f17",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "contains_all",
+        "value": ["第3步", "2026-02-02", "封装温度册", "回声材料馆", "项目完成"]
+      }],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv4-f18",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.ordered_timeline",
+      "valueAssertions": [{
+        "path": "$",
+        "op": "array_object_match",
+        "value": {
+          "dates": ["2026-01-17", "2026-01-23", "2026-02-02"],
+          "stepCount": 3,
+          "terminalOutcome": "封装温度册并交给回声材料馆，项目完成"
+        }
+      }],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    }
+  ],
+  "deletionChecks": [
+    {
+      "id": "bv4-dc01-corrected-relation-not-current",
+      "afterMessageId": "bv4-m002",
+      "description": "The explicitly invalidated landlord relation must leave current state while remaining in history.",
+      "mustBeAbsent": [{
+        "layer": "people",
+        "subjectPattern": "people.relation.*",
+        "predicate": "entity.relation",
+        "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["房东"] }],
+        "scope": "durable",
+        "temporalStatus": "current"
+      }],
+      "mustRemainFinalStateAssertionIds": ["bv4-f02", "bv4-f03", "bv4-f04", "bv4-f05"]
+    },
+    {
+      "id": "bv4-dc02-canceled-plan-not-proposed",
+      "afterMessageId": "bv4-m004",
+      "description": "The canceled island course must not remain proposed while its proposal and cancellation remain historical.",
+      "mustBeAbsent": [{
+        "layer": "decision",
+        "subjectPattern": "decision.*.*",
+        "predicate": "decision.plan",
+        "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["备选", "未预订", "proposed"] }],
+        "scope": "candidate",
+        "temporalStatus": "proposed"
+      }],
+      "mustRemainFinalStateAssertionIds": ["bv4-f06", "bv4-f07"]
+    },
+    {
+      "id": "bv4-dc03-closed-state-not-active",
+      "afterMessageId": "bv4-m006",
+      "description": "The resolved pre-premiere state must leave active context and remain only as closed temporary history.",
+      "mustBeAbsent": [{
+        "layer": "context",
+        "subjectPattern": "context.*.*",
+        "predicate": "context.stress_state",
+        "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["临时发怵", "active"] }],
+        "scope": "temporary",
+        "temporalStatus": "active"
+      }],
+      "mustRemainFinalStateAssertionIds": ["bv4-f08", "bv4-f09"]
+    },
+    {
+      "id": "bv4-dc04-old-medium-not-current",
+      "afterMessageId": "bv4-m011",
+      "description": "The superseded web medium must leave current preference while remaining durable history.",
+      "mustBeAbsent": [{
+        "layer": "preference",
+        "subjectPattern": "preference.*.*",
+        "predicate": "preference.medium",
+        "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["可搜索网页长文"] }],
+        "scope": "durable",
+        "temporalStatus": "current"
+      }],
+      "mustRemainFinalStateAssertionIds": ["bv4-f13", "bv4-f14"]
+    }
+  ],
+  "forbiddenSnapshotAssertions": [
+    {
+      "id": "bv4-x01-no-old-relation-current",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["房东"] }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-x02-no-third-party-place-on-user",
+      "layer": "profile",
+      "subjectPattern": "profile.residence.*",
+      "predicate": "entity.current_location",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["霜荻埠"] }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-x03-no-third-party-job-on-user",
+      "layer": "profile",
+      "subjectPattern": "profile.occupation.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["旧琴弦定音师"] }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv4-x04-no-canceled-plan-current",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["备选", "未预订", "proposed"] }],
+      "scope": "candidate",
+      "temporalStatus": "proposed"
+    },
+    {
+      "id": "bv4-x05-no-closed-state-current",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.stress_state",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["临时发怵", "active"] }],
+      "scope": "temporary",
+      "temporalStatus": "active"
+    },
+    {
+      "id": "bv4-x06-no-old-medium-current",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [{ "path": "$", "op": "not_contains", "value": ["可搜索网页长文"] }],
+      "scope": "durable",
+      "temporalStatus": "current"
+    }
+  ]
+}

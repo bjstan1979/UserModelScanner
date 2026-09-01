@@ -1,0 +1,10 @@
+{"id":"user-chen-s10-m01","session_id":"user-chen-s10","timestamp":"2030-08-09T09:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"我只是举例：“潮线检查”也许可以做触发词。"}
+{"id":"user-chen-s10-m02","session_id":"user-chen-s10","timestamp":"2030-08-09T09:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"明白，只是假设。"}
+{"id":"user-chen-s10-m03","session_id":"user-chen-s10","timestamp":"2030-08-09T09:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"先别建立规则，我还没决定。"}
+{"id":"user-chen-s10-m04","session_id":"user-chen-s10","timestamp":"2030-08-09T09:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"不会创建触发规则。"}
+{"id":"user-chen-s10-m05","session_id":"user-chen-s10","timestamp":"2030-08-09T09:40:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"后面的三步也只是草稿。"}
+{"id":"user-chen-s10-m06","session_id":"user-chen-s10","timestamp":"2030-08-09T09:50:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"草稿不作为正式步骤。"}
+{"id":"user-chen-s10-m07","session_id":"user-chen-s10","timestamp":"2030-08-09T10:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"这段讨论不要进入长期协议。"}
+{"id":"user-chen-s10-m08","session_id":"user-chen-s10","timestamp":"2030-08-09T10:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"不写入长期协议。"}
+{"id":"user-chen-s10-m09","session_id":"user-chen-s10","timestamp":"2030-08-09T10:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-chen-s10-m10","session_id":"user-chen-s10","timestamp":"2030-08-09T10:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

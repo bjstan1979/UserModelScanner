@@ -1,0 +1,65 @@
+{
+  "evaluation_kind": "LONGITUDINAL_MINIMAX_ROUTING_POSTCHECK",
+  "evaluation_status": "development_simulation",
+  "implementation_commit": "9e35065",
+  "corpus_version": "companion-longitudinal/v2",
+  "fixture": "tests/fixtures/companion-longitudinal-v2",
+  "run": {
+    "provider": "hybrid-semantic-MiniMax-M3-two-stage",
+    "runtime_seconds": 443.5,
+    "semantic_usage": {
+      "requests": 25,
+      "discoveryRequests": 14,
+      "decisionRequests": 11,
+      "discoveryCacheHits": 0,
+      "diskDiscoveryCacheHits": 0,
+      "extractionCacheHits": 0,
+      "retries": 0,
+      "failedRequests": 0
+    },
+    "routing_usage": {
+      "deterministicFirst": 57,
+      "definitiveNoop": 0,
+      "lowSignal": 322,
+      "stageAOrUnavailable": 0,
+      "semantic": 37
+    }
+  },
+  "quality": {
+    "summary": {
+      "tp": 25,
+      "fp": 8,
+      "fn": 4,
+      "precision": 0.7575757575757576,
+      "recall": 0.8620689655172413,
+      "f1": 0.8064516129032256,
+      "attribution_errors": 0
+    },
+    "operation_summary": {
+      "tp": 47,
+      "fp": 10,
+      "fn": 5,
+      "precision": 0.8245614035087719,
+      "recall": 0.9038461538461539,
+      "f1": 0.8623853211009175
+    }
+  },
+  "cache_rerun": {
+    "command": "same command without --full",
+    "expected": "processed=0, skipped=48, projected=0, semantic requests=0",
+    "status": "verified",
+    "observed": "processed=0, skipped=48, projected=0; no additional semantic network activity"
+  },
+  "verification": {
+    "npm_test": "passed previously at 114/114",
+    "build": "passed previously",
+    "canonicalizer_changed": false
+  },
+  "decision": "QUALITY_AND_COST_PASS_FOR_NEXT_SANITIZED_REALISTIC_PILOT",
+  "accepted_for_production": false,
+  "caveats": [
+    "The corpus is synthetic and remains development-only.",
+    "This is one cold network run, not a stability estimate.",
+    "OpenClaw historical sessions were rejected as unsuitable due to orchestration/tool-loop contamination and privacy risk."
+  ]
+}

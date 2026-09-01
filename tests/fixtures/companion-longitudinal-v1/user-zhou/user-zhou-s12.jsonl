@@ -1,0 +1,8 @@
+{"id":"user-zhou-s12-m01","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"长篇资料的媒介偏好变了。"}
+{"id":"user-zhou-s12-m02","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"收到偏好更新。"}
+{"id":"user-zhou-s12-m03","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"现在首选纸质活页册。"}
+{"id":"user-zhou-s12-m04","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"当前改为纸质活页册。"}
+{"id":"user-zhou-s12-m05","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"带章节的电子书只算过去的偏好，请保留变化历史。"}
+{"id":"user-zhou-s12-m06","session_id":"user-zhou-s12","timestamp":"2030-06-11T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"旧的带章节的电子书只保留为历史。"}
+{"id":"user-zhou-s12-m07","session_id":"user-zhou-s12","timestamp":"2030-06-11T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"另外，这次月末听记里我想守住规律散步，愿意松手的是囤积旧票据。"}
+{"id":"user-zhou-s12-m08","session_id":"user-zhou-s12","timestamp":"2030-06-11T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"这次记录为：守住规律散步，松手囤积旧票据；长期仪式规则不变。"}

@@ -1,0 +1,8 @@
+{"id":"user-lin-s09-m01","session_id":"user-lin-s09","timestamp":"2030-04-28T09:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"周五的交付已经顺利结束。"}
+{"id":"user-lin-s09-m02","session_id":"user-lin-s09","timestamp":"2030-04-28T09:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"太好了。"}
+{"id":"user-lin-s09-m03","session_id":"user-lin-s09","timestamp":"2030-04-28T09:20:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"我也恢复从容了。"}
+{"id":"user-lin-s09-m04","session_id":"user-lin-s09","timestamp":"2030-04-28T09:30:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"现在状态已恢复。"}
+{"id":"user-lin-s09-m05","session_id":"user-lin-s09","timestamp":"2030-04-28T09:40:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"请把之前那段临时发怵关闭。"}
+{"id":"user-lin-s09-m06","session_id":"user-lin-s09","timestamp":"2030-04-28T09:50:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"会关闭那段临时状态。"}
+{"id":"user-lin-s09-m07","session_id":"user-lin-s09","timestamp":"2030-04-28T10:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"它可以留作过去记录，但不要继续显示成当前状态。"}
+{"id":"user-lin-s09-m08","session_id":"user-lin-s09","timestamp":"2030-04-28T10:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"当前视图不再展示它。"}

@@ -1,0 +1,8 @@
+{"id":"user-lin-s11-m01","session_id":"user-lin-s11","timestamp":"2030-05-26T09:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"我们设一个长期重复的小仪式，叫“雨窗清单”。"}
+{"id":"user-lin-s11-m02","session_id":"user-lin-s11","timestamp":"2030-05-26T09:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"好，仪式叫“雨窗清单”。"}
+{"id":"user-lin-s11-m03","session_id":"user-lin-s11","timestamp":"2030-05-26T09:20:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"每个月最后一个周日晚上做一次。"}
+{"id":"user-lin-s11-m04","session_id":"user-lin-s11","timestamp":"2030-05-26T09:30:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"时间是每月最后一个周日晚上。"}
+{"id":"user-lin-s11-m05","session_id":"user-lin-s11","timestamp":"2030-05-26T09:40:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"我说一件想守住的事和一件愿意松手的事。"}
+{"id":"user-lin-s11-m06","session_id":"user-lin-s11","timestamp":"2030-05-26T09:50:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"你提供“守住”和“松手”各一项。"}
+{"id":"user-lin-s11-m07","session_id":"user-lin-s11","timestamp":"2030-05-26T10:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"你只分别标记，不分析原因。"}
+{"id":"user-lin-s11-m08","session_id":"user-lin-s11","timestamp":"2030-05-26T10:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"我只标记，不分析。"}

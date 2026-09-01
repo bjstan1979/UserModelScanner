@@ -1,0 +1,60 @@
+{
+  "evaluation_kind": "LONGITUDINAL_RUNTIME_ROUTING_REGRESSION",
+  "evaluation_status": "development_simulation",
+  "corpus_version": "companion-longitudinal/v2",
+  "implementation_commit": "bb73d96026a2c6b4a33964bb1c903594ab1cfc60",
+  "fixture": "tests/fixtures/companion-longitudinal-v2",
+  "fixture_tree_sha256": "72be2b5e16c612115a142df7b327d9c3182ce83821ab5b8b73ef371a4fe5ce68",
+  "routing_measurement": {
+    "user_messages": 208,
+    "semantic_messages": 37,
+    "routed_without_semantic": 171,
+    "semantic_message_reduction": 0.8221153846153846,
+    "routing_counts_all_roles": {
+      "deterministic_first": 57,
+      "definitive_noop": 0,
+      "low_signal": 322,
+      "stage_a_or_unavailable": 0,
+      "semantic": 37
+    },
+    "projected_two_stage_request_ceiling": 74,
+    "prior_five_run_requests_per_user_mean": 99.6
+  },
+  "quality_with_authoritative_noop_semantic_stub": {
+    "summary": {
+      "tp": 25,
+      "fp": 8,
+      "fn": 4,
+      "precision": 0.7575757575757576,
+      "recall": 0.8620689655172413,
+      "f1": 0.8064516129032258,
+      "attribution_errors": 0
+    },
+    "operation_summary": {
+      "tp": 47,
+      "fp": 10,
+      "fn": 5,
+      "precision": 0.8245614035087719,
+      "recall": 0.9038461538461539,
+      "f1": 0.8623853211009175
+    }
+  },
+  "persistent_cache": {
+    "scope": "discovery evidence",
+    "key": "session + message + conversation-prefix fingerprint",
+    "version": "discovery-evidence-v1",
+    "cross_provider_instance_test": "2 requests first instance; 1 decision request second instance; disk discovery hit=1"
+  },
+  "verification": {
+    "npm_test": "114/114",
+    "source_pollution": "24/24",
+    "canonicalizer_changed": false
+  },
+  "accepted_for_production": false,
+  "decision": "ACCEPT_RUNTIME_ROUTING_FOR_SANITIZED_REAL_SESSION_PILOT",
+  "caveats": [
+    "Routing measurement used an authoritative-NOOP semantic stub, not a paid network run.",
+    "Actual request count depends on how many routed messages produce discovery claims and decisions.",
+    "Synthetic v2 remains development-only and must not be used as fresh generalization evidence."
+  ]
+}

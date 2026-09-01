@@ -1,0 +1,10 @@
+{"id":"user-chen-s01-m01","session_id":"user-chen-s01","timestamp":"2030-01-15T09:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"先正式认识一下，我叫陈屿。"}
+{"id":"user-chen-s01-m02","session_id":"user-chen-s01","timestamp":"2030-01-15T09:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"你好，陈屿，我是澄灯。"}
+{"id":"user-chen-s01-m03","session_id":"user-chen-s01","timestamp":"2030-01-15T09:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"我现在住在青岛，已经两年了。"}
+{"id":"user-chen-s01-m04","session_id":"user-chen-s01","timestamp":"2030-01-15T09:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"记住了，你目前在青岛。"}
+{"id":"user-chen-s01-m05","session_id":"user-chen-s01","timestamp":"2030-01-15T09:40:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"工作是产品设计师，最近项目有点密。"}
+{"id":"user-chen-s01-m06","session_id":"user-chen-s01","timestamp":"2030-01-15T09:50:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"忙的时候我们可以把事情拆小一点。"}
+{"id":"user-chen-s01-m07","session_id":"user-chen-s01","timestamp":"2030-01-15T10:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"这些是我的基本资料，以后相关时可以记得。"}
+{"id":"user-chen-s01-m08","session_id":"user-chen-s01","timestamp":"2030-01-15T10:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"好，我只在相关场景使用这些信息。"}
+{"id":"user-chen-s01-m09","session_id":"user-chen-s01","timestamp":"2030-01-15T10:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-chen-s01-m10","session_id":"user-chen-s01","timestamp":"2030-01-15T10:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

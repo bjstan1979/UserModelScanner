@@ -1,0 +1,8 @@
+{"id":"user-lin-s01-m01","session_id":"user-lin-s01","timestamp":"2030-01-06T09:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"先正式认识一下，我叫林澈。"}
+{"id":"user-lin-s01-m02","session_id":"user-lin-s01","timestamp":"2030-01-06T09:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"你好，林澈，我是澄灯。"}
+{"id":"user-lin-s01-m03","session_id":"user-lin-s01","timestamp":"2030-01-06T09:20:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"我现在住在杭州，已经两年了。"}
+{"id":"user-lin-s01-m04","session_id":"user-lin-s01","timestamp":"2030-01-06T09:30:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"记住了，你目前在杭州。"}
+{"id":"user-lin-s01-m05","session_id":"user-lin-s01","timestamp":"2030-01-06T09:40:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"工作是古建修复师，最近项目有点密。"}
+{"id":"user-lin-s01-m06","session_id":"user-lin-s01","timestamp":"2030-01-06T09:50:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"忙的时候我们可以把事情拆小一点。"}
+{"id":"user-lin-s01-m07","session_id":"user-lin-s01","timestamp":"2030-01-06T10:00:00.000Z","cwd":"/simulated-companion/user-lin","role":"user","content":"这些是我的基本资料，以后相关时可以记得。"}
+{"id":"user-lin-s01-m08","session_id":"user-lin-s01","timestamp":"2030-01-06T10:10:00.000Z","cwd":"/simulated-companion/user-lin","role":"assistant","content":"好，我只在相关场景使用这些信息。"}

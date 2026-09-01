@@ -1,0 +1,8 @@
+{"id":"user-zhou-s10-m01","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"我们建立一个长期规则，触发词是“回声检查”。"}
+{"id":"user-zhou-s10-m02","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"记住“回声检查”这个触发词。"}
+{"id":"user-zhou-s10-m03","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"触发后第一步说目标，第二步列不可逆风险，第三步给最小试探。"}
+{"id":"user-zhou-s10-m04","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"目标、不可逆风险、最小试探。"}
+{"id":"user-zhou-s10-m05","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"顺序固定，不要插入额外步骤。"}
+{"id":"user-zhou-s10-m06","session_id":"user-zhou-s10","timestamp":"2030-05-14T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"会保持三步顺序。"}
+{"id":"user-zhou-s10-m07","session_id":"user-zhou-s10","timestamp":"2030-05-14T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"没有触发时，只给一句普通判断。"}
+{"id":"user-zhou-s10-m08","session_id":"user-zhou-s10","timestamp":"2030-05-14T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"未触发时不展开协议。"}

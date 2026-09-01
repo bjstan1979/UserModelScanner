@@ -1,0 +1,10 @@
+{"id":"user-chen-s07-m01","session_id":"user-chen-s07","timestamp":"2030-05-16T09:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"之前考虑的厦门海图绘制课确定要去了。"}
+{"id":"user-chen-s07-m02","session_id":"user-chen-s07","timestamp":"2030-05-16T09:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"收到。"}
+{"id":"user-chen-s07-m03","session_id":"user-chen-s07","timestamp":"2030-05-16T09:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"名额和车票已经订好。"}
+{"id":"user-chen-s07-m04","session_id":"user-chen-s07","timestamp":"2030-05-16T09:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"该计划已经确认。"}
+{"id":"user-chen-s07-m05","session_id":"user-chen-s07","timestamp":"2030-05-16T09:40:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"这不再是候选，请更新成当前计划。"}
+{"id":"user-chen-s07-m06","session_id":"user-chen-s07","timestamp":"2030-05-16T09:50:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"会从候选更新为当前安排。"}
+{"id":"user-chen-s07-m07","session_id":"user-chen-s07","timestamp":"2030-05-16T10:00:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"如果之后再变我会明确告诉你。"}
+{"id":"user-chen-s07-m08","session_id":"user-chen-s07","timestamp":"2030-05-16T10:10:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"之后按新变化继续更新。"}
+{"id":"user-chen-s07-m09","session_id":"user-chen-s07","timestamp":"2030-05-16T10:20:00.000Z","cwd":"/simulated-companion/user-chen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-chen-s07-m10","session_id":"user-chen-s07","timestamp":"2030-05-16T10:30:00.000Z","cwd":"/simulated-companion/user-chen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

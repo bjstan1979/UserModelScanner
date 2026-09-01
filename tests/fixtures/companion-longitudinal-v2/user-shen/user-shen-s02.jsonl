@@ -1,0 +1,10 @@
+{"id":"user-shen-s02-m01","session_id":"user-shen-s02","timestamp":"2030-01-20T09:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"顾青是我的表姐，我们刚聊完。"}
+{"id":"user-shen-s02-m02","session_id":"user-shen-s02","timestamp":"2030-01-20T09:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"明白，顾青是你的表姐。"}
+{"id":"user-shen-s02-m03","session_id":"user-shen-s02","timestamp":"2030-01-20T09:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"顾青住在宁波，那是顾青的所在地，不是我的。"}
+{"id":"user-shen-s02-m04","session_id":"user-shen-s02","timestamp":"2030-01-20T09:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"所以你现在住在宁波，对吗？"}
+{"id":"user-shen-s02-m05","session_id":"user-shen-s02","timestamp":"2030-01-20T09:40:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"不是我住在宁波，我仍然住在苏州。"}
+{"id":"user-shen-s02-m06","session_id":"user-shen-s02","timestamp":"2030-01-20T09:50:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"抱歉，我刚才归属错了：你住苏州，顾青住宁波。"}
+{"id":"user-shen-s02-m07","session_id":"user-shen-s02","timestamp":"2030-01-20T10:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"今天只是随口提到，关系本身可以记住。"}
+{"id":"user-shen-s02-m08","session_id":"user-shen-s02","timestamp":"2030-01-20T10:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好。"}
+{"id":"user-shen-s02-m09","session_id":"user-shen-s02","timestamp":"2030-01-20T10:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-shen-s02-m10","session_id":"user-shen-s02","timestamp":"2030-01-20T10:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

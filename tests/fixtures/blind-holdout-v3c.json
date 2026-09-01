@@ -1,0 +1,1617 @@
+{
+  "metadata": {
+    "fixtureId": "blind-holdout-v3c",
+    "language": "zh-CN",
+    "ontologyVersion": "companion-memory/v1",
+    "status": "post-freeze-blind-v3c",
+    "createdAfterEngineCommit": "04ab5777d358a4df55858d9a2def7119c87dc594",
+    "engineMutableAfterCreation": false,
+    "authorDidNotInspectEngine": true,
+    "sessionCount": 13,
+    "independentDialogueCount": 8,
+    "expectedOperationCount": 24,
+    "finalStateAssertionCount": 25,
+    "forbiddenSnapshotAssertionCount": 10,
+    "deletionCheckCount": 5,
+    "subjectPatternConvention": "Dot-separated conceptual subjects; * matches any substring.",
+    "assertionSemantics": {
+      "eq": "The conceptual value equals value.",
+      "contains_all": "The conceptual scalar, object, or array contains every item in value.",
+      "contains_any": "The conceptual scalar, object, or array contains at least one item in value.",
+      "not_contains": "The conceptual value contains none of the items in value; a missing value passes.",
+      "array_object_match": "The conceptual array contains an object matching every key-value pair in value."
+    },
+    "predecessorFixture": "blind-holdout-v3"
+  },
+  "sessions": [
+    {
+      "sessionId": "bv3-s01-attribution",
+      "dialogueId": "bv3-d01-attribution-correction",
+      "sessionDate": "2026-01-08",
+      "messages": [
+        {
+          "id": "bv3-m001",
+          "role": "user",
+          "content": "分清两个人的口味：我叫宿澄，我自己偏爱低亮度星图；我同事缪澈偏爱会发出清脆声的铜叶风铃。铜叶风铃是他的喜好，不是我的。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s02-correction",
+      "dialogueId": "bv3-d01-attribution-correction",
+      "sessionDate": "2026-01-15",
+      "messages": [
+        {
+          "id": "bv3-m002",
+          "role": "user",
+          "content": "纠正上次的称呼：缪澈不是我的同事，他是我舅舅。旧的“同事”关系请作废，以“舅舅”为准；他的铜叶风铃偏好没有变化。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s03-same-name",
+      "dialogueId": "bv3-d02-same-name",
+      "sessionDate": "2026-02-04",
+      "messages": [
+        {
+          "id": "bv3-m003",
+          "role": "user",
+          "content": "我认识两个同名的商屿，请建成两个人。一个商屿是我表弟，住在砾湾市，做潮声地图绘制；另一个商屿是我以前的工坊搭档，住在栖潮镇，职业是纸伞骨修复师。他们互不认识，资料不能串。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s04-plan-proposed",
+      "dialogueId": "bv3-d03-plan-cancel",
+      "sessionDate": "2026-02-19",
+      "messages": [
+        {
+          "id": "bv3-m004",
+          "role": "user",
+          "content": "我暂时设想十月去鹭针岛参加三天的潮纹陶片拓印营，只是候选安排，船票和名额都没订。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s05-plan-canceled",
+      "dialogueId": "bv3-d03-plan-cancel",
+      "sessionDate": "2026-03-01",
+      "messages": [
+        {
+          "id": "bv3-m005",
+          "role": "user",
+          "content": "鹭针岛的潮纹陶片拓印营已经取消，不去，也不挪到别的月份；请把那项候选安排关闭。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s06-temporary-open",
+      "dialogueId": "bv3-d04-temporary-close",
+      "sessionDate": "2026-03-12",
+      "messages": [
+        {
+          "id": "bv3-m006",
+          "role": "user",
+          "content": "穹灯馆的夜航布展明天验收，我今晚暂时心慌。这个状态只持续到验收结束，不代表我平时总是焦虑。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s07-temporary-closed",
+      "dialogueId": "bv3-d04-temporary-close",
+      "sessionDate": "2026-03-13",
+      "messages": [
+        {
+          "id": "bv3-m007",
+          "role": "user",
+          "content": "穹灯馆夜航布展已验收通过，我现在安定了。把昨晚那段临时心慌标记为结束。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s08-protocol",
+      "dialogueId": "bv3-d05-protocol",
+      "sessionDate": "2026-04-02",
+      "messages": [
+        {
+          "id": "bv3-m008",
+          "role": "user",
+          "content": "以后只有我说“折镜指令”时才启用这套固定顺序：第一步复述约束，第二步标出可逆项，第三步只给一个低风险动作。不能调换，也不能多加第四步；没说触发词时只回答核心结论。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s09-ritual",
+      "dialogueId": "bv3-d06-ritual",
+      "sessionDate": "2026-04-12",
+      "messages": [
+        {
+          "id": "bv3-m009",
+          "role": "user",
+          "content": "我们定个长期仪式叫“潮汐书签”：每月第二个星期日十九点十分，我说一个本月放下的念头和一个留下的念头，你只原样映照，不提建议。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s10-ritual-occurrence",
+      "dialogueId": "bv3-d06-ritual",
+      "sessionDate": "2026-05-10",
+      "messages": [
+        {
+          "id": "bv3-m010",
+          "role": "user",
+          "content": "今晚的“潮汐书签”完成：我放下了铜丝风铃草图，留下了窗影拼贴册的想法。请只记录这次发生，不改仪式规则。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s11-medium-old",
+      "dialogueId": "bv3-d07-medium-change",
+      "sessionDate": "2026-06-06",
+      "messages": [
+        {
+          "id": "bv3-m011",
+          "role": "user",
+          "content": "现在接收长篇材料时，我优先听骨传导耳机里的音频版，不想先看文字。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s12-medium-new",
+      "dialogueId": "bv3-d07-medium-change",
+      "sessionDate": "2026-07-21",
+      "messages": [
+        {
+          "id": "bv3-m012",
+          "role": "user",
+          "content": "长篇材料的媒介偏好变了：现在以离线文字稿为首选，骨传导音频只是过去的偏好。请保留前后变化，但当前只按文字稿。"
+        }
+      ]
+    },
+    {
+      "sessionId": "bv3-s13-dated-timeline",
+      "dialogueId": "bv3-d08-dated-timeline",
+      "sessionDate": "2026-08-03",
+      "messages": [
+        {
+          "id": "bv3-m013",
+          "role": "user",
+          "content": "请把雾盐标本盒归档按四个 ISO 日期分别记下：2025-11-03贴完耐盐编码片；2025-11-07拍完全部偏光纹理；2025-11-12编好抽屉索引；2025-11-19把整套标本盒交给北岬民俗库，归档到此完成。"
+        }
+      ]
+    }
+  ],
+  "messageExpectations": [
+    {
+      "messageId": "bv3-m001",
+      "expectedOperationCount": 4,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "profile",
+          "subjectPattern": "profile.identity.*",
+          "predicate": "identity.full_name",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "宿澄"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "同事"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.value",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "低亮度星图"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "preference.value",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "铜叶风铃",
+                "清脆声"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "close",
+        "supersede",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f01",
+        "bv3-f02",
+        "bv3-f03",
+        "bv3-f04"
+      ]
+    },
+    {
+      "messageId": "bv3-m002",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "舅舅",
+                "同事关系作废"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f02",
+        "bv3-f04",
+        "bv3-f05"
+      ]
+    },
+    {
+      "messageId": "bv3-m003",
+      "expectedOperationCount": 6,
+      "expectedOperations": [
+        {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "表弟"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.current_location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "砾湾市"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "潮声地图绘制"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "upsert_distinct",
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "以前的工坊搭档",
+                "互不认识"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.current_location",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "栖潮镇"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "merge",
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "纸伞骨修复师"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f06",
+        "bv3-f07",
+        "bv3-f08",
+        "bv3-f09",
+        "bv3-f10",
+        "bv3-f11"
+      ]
+    },
+    {
+      "messageId": "bv3-m004",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "decision",
+          "subjectPattern": "decision.*.*",
+          "predicate": "decision.plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "十月",
+                "鹭针岛",
+                "三天",
+                "潮纹陶片拓印营",
+                "船票和名额未订"
+              ]
+            }
+          ],
+          "scope": "candidate",
+          "temporalStatus": "proposed",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f13"
+      ]
+    },
+    {
+      "messageId": "bv3-m005",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "decision",
+          "subjectPattern": "decision.*.*",
+          "predicate": "decision.plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "取消",
+                "不去",
+                "不改期"
+              ]
+            }
+          ],
+          "scope": "candidate_history",
+          "temporalStatus": "canceled",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "upsert",
+        "merge",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f12",
+        "bv3-f13"
+      ]
+    },
+    {
+      "messageId": "bv3-m006",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "context",
+          "subjectPattern": "context.*.*",
+          "predicate": "context.stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "暂时心慌",
+                "夜航布展验收",
+                "验收结束"
+              ]
+            }
+          ],
+          "scope": "temporary",
+          "temporalStatus": "active",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f14"
+      ]
+    },
+    {
+      "messageId": "bv3-m007",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "close",
+          "layer": "context",
+          "subjectPattern": "context.*.*",
+          "predicate": "context.stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "验收通过",
+                "已经安定",
+                "临时心慌结束"
+              ]
+            }
+          ],
+          "scope": "temporary_history",
+          "temporalStatus": "closed",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "upsert",
+        "merge",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f14",
+        "bv3-f15"
+      ]
+    },
+    {
+      "messageId": "bv3-m008",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "merge",
+          "layer": "relationship",
+          "subjectPattern": "relationship.protocol.*",
+          "predicate": "relationship.ordered_protocol",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "array_object_match",
+              "value": {
+                "trigger": "折镜指令",
+                "steps": [
+                  "复述约束",
+                  "标出可逆项",
+                  "一个低风险动作"
+                ],
+                "orderLocked": true,
+                "defaultBehavior": "只回答核心结论"
+              }
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f16"
+      ]
+    },
+    {
+      "messageId": "bv3-m009",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert_distinct",
+          "layer": "relationship",
+          "subjectPattern": "relationship.ritual.*",
+          "predicate": "relationship.ritual",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "每月第二个星期日",
+                "19:10",
+                "一个放下的念头",
+                "一个留下的念头",
+                "只原样映照",
+                "不提建议"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f17"
+      ]
+    },
+    {
+      "messageId": "bv3-m010",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "episode.event.*",
+          "predicate": "episode.ritual_occurrence",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "铜丝风铃草图",
+                "窗影拼贴册",
+                "2026-05-10"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f17",
+        "bv3-f18"
+      ]
+    },
+    {
+      "messageId": "bv3-m011",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "upsert",
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "骨传导耳机音频版"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current_at_message",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f19"
+      ]
+    },
+    {
+      "messageId": "bv3-m012",
+      "expectedOperationCount": 1,
+      "expectedOperations": [
+        {
+          "action": "supersede",
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "eq",
+              "value": "离线文字稿"
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current",
+          "requiresSupersedes": true
+        }
+      ],
+      "forbiddenActions": [
+        "close",
+        "record_event"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f19",
+        "bv3-f20"
+      ]
+    },
+    {
+      "messageId": "bv3-m013",
+      "expectedOperationCount": 4,
+      "expectedOperations": [
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第1步",
+                "2025-11-03",
+                "耐盐编码片"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第2步",
+                "2025-11-07",
+                "偏光纹理"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第3步",
+                "2025-11-12",
+                "抽屉索引"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        },
+        {
+          "action": "record_event",
+          "layer": "episode",
+          "subjectPattern": "event.timeline.*",
+          "predicate": "event.timeline_step",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "contains_all",
+              "value": [
+                "第4步",
+                "2025-11-19",
+                "北岬民俗库",
+                "归档完成"
+              ]
+            }
+          ],
+          "scope": "episodic",
+          "temporalStatus": "occurred",
+          "requiresSupersedes": false
+        }
+      ],
+      "forbiddenActions": [
+        "supersede",
+        "close"
+      ],
+      "finalStateAssertionIds": [
+        "bv3-f21",
+        "bv3-f22",
+        "bv3-f23",
+        "bv3-f24",
+        "bv3-f25"
+      ]
+    }
+  ],
+  "finalStateAssertions": [
+    {
+      "id": "bv3-f01",
+      "layer": "profile",
+      "subjectPattern": "profile.identity.*",
+      "predicate": "identity.full_name",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "宿澄"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f02",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "同事",
+            "已纠正"
+          ]
+        }
+      ],
+      "scope": "durable_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv3-f03",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.value",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "低亮度星图"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f04",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "preference.value",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "铜叶风铃",
+            "清脆声"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f05",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "舅舅"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f06",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "表弟"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f07",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.current_location",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "砾湾市"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f08",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "潮声地图绘制"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f09",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "以前的工坊搭档",
+            "互不认识"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f10",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.current_location",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "栖潮镇"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f11",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "纸伞骨修复师"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f12",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "取消",
+            "不去",
+            "不改期"
+          ]
+        }
+      ],
+      "scope": "candidate_history",
+      "temporalStatus": "canceled"
+    },
+    {
+      "id": "bv3-f13",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "十月",
+            "鹭针岛",
+            "三天",
+            "潮纹陶片拓印营",
+            "未订"
+          ]
+        }
+      ],
+      "scope": "candidate_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv3-f14",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.stress_state",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "暂时心慌",
+            "夜航布展验收"
+          ]
+        }
+      ],
+      "scope": "temporary_history",
+      "temporalStatus": "closed"
+    },
+    {
+      "id": "bv3-f15",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.resolution",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "array_object_match",
+          "value": {
+            "state": "夜航布展验收前心慌",
+            "resolution": "验收通过且已经安定"
+          }
+        }
+      ],
+      "scope": "temporary_history",
+      "temporalStatus": "closed"
+    },
+    {
+      "id": "bv3-f16",
+      "layer": "relationship",
+      "subjectPattern": "relationship.protocol.*",
+      "predicate": "relationship.ordered_protocol",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "array_object_match",
+          "value": {
+            "trigger": "折镜指令",
+            "steps": [
+              "复述约束",
+              "标出可逆项",
+              "一个低风险动作"
+            ],
+            "orderLocked": true,
+            "defaultBehavior": "只回答核心结论"
+          }
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f17",
+      "layer": "relationship",
+      "subjectPattern": "relationship.ritual.*",
+      "predicate": "relationship.ritual",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "每月第二个星期日",
+            "19:10",
+            "一个放下的念头",
+            "一个留下的念头",
+            "只原样映照",
+            "不提建议"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f18",
+      "layer": "episode",
+      "subjectPattern": "episode.event.*",
+      "predicate": "episode.ritual_occurrence",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "铜丝风铃草图",
+            "窗影拼贴册",
+            "2026-05-10"
+          ]
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv3-f19",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "骨传导耳机音频版"
+        }
+      ],
+      "scope": "durable_history",
+      "temporalStatus": "historical"
+    },
+    {
+      "id": "bv3-f20",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "eq",
+          "value": "离线文字稿"
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-f21",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "第1步",
+            "2025-11-03",
+            "耐盐编码片"
+          ]
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv3-f22",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "第2步",
+            "2025-11-07",
+            "偏光纹理"
+          ]
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv3-f23",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "第3步",
+            "2025-11-12",
+            "抽屉索引"
+          ]
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv3-f24",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.timeline_step",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "contains_all",
+          "value": [
+            "第4步",
+            "2025-11-19",
+            "北岬民俗库",
+            "归档完成"
+          ]
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    },
+    {
+      "id": "bv3-f25",
+      "layer": "episode",
+      "subjectPattern": "event.timeline.*",
+      "predicate": "event.ordered_timeline",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "array_object_match",
+          "value": {
+            "dates": [
+              "2025-11-03",
+              "2025-11-07",
+              "2025-11-12",
+              "2025-11-19"
+            ],
+            "stepCount": 4,
+            "terminalOutcome": "交给北岬民俗库并完成归档"
+          }
+        }
+      ],
+      "scope": "episodic",
+      "temporalStatus": "occurred"
+    }
+  ],
+  "deletionChecks": [
+    {
+      "id": "bv3-dc01-corrected-relation-not-current",
+      "afterMessageId": "bv3-m002",
+      "description": "The explicitly corrected coworker relation must leave current state while remaining as correction history.",
+      "mustBeAbsent": [
+        {
+          "layer": "people",
+          "subjectPattern": "people.relation.*",
+          "predicate": "entity.relation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "同事"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        }
+      ],
+      "mustRemainFinalStateAssertionIds": [
+        "bv3-f02",
+        "bv3-f04",
+        "bv3-f05"
+      ]
+    },
+    {
+      "id": "bv3-dc02-canceled-plan-not-proposed",
+      "afterMessageId": "bv3-m005",
+      "description": "The canceled island workshop must not remain an active proposal, while its proposal and cancellation history remain.",
+      "mustBeAbsent": [
+        {
+          "layer": "decision",
+          "subjectPattern": "decision.*.*",
+          "predicate": "decision.plan",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "候选",
+                "待订",
+                "proposed"
+              ]
+            }
+          ],
+          "scope": "candidate",
+          "temporalStatus": "proposed"
+        }
+      ],
+      "mustRemainFinalStateAssertionIds": [
+        "bv3-f12",
+        "bv3-f13"
+      ]
+    },
+    {
+      "id": "bv3-dc03-resolved-state-not-active",
+      "afterMessageId": "bv3-m007",
+      "description": "The resolved exhibition anxiety must leave current context and survive only as closed temporary history.",
+      "mustBeAbsent": [
+        {
+          "layer": "context",
+          "subjectPattern": "context.*.*",
+          "predicate": "context.stress_state",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "暂时心慌",
+                "active"
+              ]
+            }
+          ],
+          "scope": "temporary",
+          "temporalStatus": "active"
+        }
+      ],
+      "mustRemainFinalStateAssertionIds": [
+        "bv3-f14",
+        "bv3-f15"
+      ]
+    },
+    {
+      "id": "bv3-dc04-old-medium-not-current",
+      "afterMessageId": "bv3-m012",
+      "description": "The former audio preference must not remain current but must remain in durable history.",
+      "mustBeAbsent": [
+        {
+          "layer": "preference",
+          "subjectPattern": "preference.*.*",
+          "predicate": "preference.medium",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "骨传导耳机音频版"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        }
+      ],
+      "mustRemainFinalStateAssertionIds": [
+        "bv3-f19",
+        "bv3-f20"
+      ]
+    },
+    {
+      "id": "bv3-dc05-same-name-records-not-merged",
+      "afterMessageId": "bv3-m003",
+      "description": "The two same-name people must retain separate relations, places, and occupations.",
+      "mustBeAbsent": [
+        {
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "纸伞骨修复师"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        },
+        {
+          "layer": "people",
+          "subjectPattern": "people.entity.*",
+          "predicate": "entity.occupation",
+          "valueAssertions": [
+            {
+              "path": "$",
+              "op": "not_contains",
+              "value": [
+                "潮声地图绘制"
+              ]
+            }
+          ],
+          "scope": "durable",
+          "temporalStatus": "current"
+        }
+      ],
+      "mustRemainFinalStateAssertionIds": [
+        "bv3-f06",
+        "bv3-f07",
+        "bv3-f08",
+        "bv3-f09",
+        "bv3-f10",
+        "bv3-f11"
+      ]
+    }
+  ],
+  "forbiddenSnapshotAssertions": [
+    {
+      "id": "bv3-x01-no-old-relation-current",
+      "layer": "people",
+      "subjectPattern": "people.relation.*",
+      "predicate": "entity.relation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "同事"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x02-no-third-party-wind-chime-on-user",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.value",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "铜叶风铃",
+            "清脆声"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x03-no-user-star-map-on-third-party",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "preference.value",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "低亮度星图"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x04-no-canceled-plan-current",
+      "layer": "decision",
+      "subjectPattern": "decision.*.*",
+      "predicate": "decision.plan",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "候选",
+            "待订",
+            "proposed"
+          ]
+        }
+      ],
+      "scope": "candidate",
+      "temporalStatus": "proposed"
+    },
+    {
+      "id": "bv3-x05-no-resolved-anxiety-current",
+      "layer": "context",
+      "subjectPattern": "context.*.*",
+      "predicate": "context.stress_state",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "暂时心慌",
+            "active"
+          ]
+        }
+      ],
+      "scope": "temporary",
+      "temporalStatus": "active"
+    },
+    {
+      "id": "bv3-x06-no-restorer-on-cousin",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "纸伞骨修复师"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x07-no-mapper-on-workshop-partner",
+      "layer": "people",
+      "subjectPattern": "people.entity.*",
+      "predicate": "entity.occupation",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "潮声地图绘制"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x08-no-old-medium-current",
+      "layer": "preference",
+      "subjectPattern": "preference.*.*",
+      "predicate": "preference.medium",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "骨传导耳机音频版"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x09-no-ritual-advice",
+      "layer": "relationship",
+      "subjectPattern": "relationship.ritual.*",
+      "predicate": "relationship.ritual",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "提建议",
+            "评价选择"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    },
+    {
+      "id": "bv3-x10-no-protocol-fourth-step",
+      "layer": "relationship",
+      "subjectPattern": "relationship.protocol.*",
+      "predicate": "relationship.ordered_protocol",
+      "valueAssertions": [
+        {
+          "path": "$",
+          "op": "not_contains",
+          "value": [
+            "第四步",
+            "调换顺序"
+          ]
+        }
+      ],
+      "scope": "durable",
+      "temporalStatus": "current"
+    }
+  ]
+}

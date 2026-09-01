@@ -1,0 +1,8 @@
+{"id":"user-zhou-s07-m01","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"之前考虑的大理田野录音营确定要去了。"}
+{"id":"user-zhou-s07-m02","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"收到。"}
+{"id":"user-zhou-s07-m03","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:20:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"名额和车票已经订好。"}
+{"id":"user-zhou-s07-m04","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:30:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"该计划已经确认。"}
+{"id":"user-zhou-s07-m05","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:40:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"这不再是候选，请更新成当前计划。"}
+{"id":"user-zhou-s07-m06","session_id":"user-zhou-s07","timestamp":"2030-05-10T09:50:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"会从候选更新为当前安排。"}
+{"id":"user-zhou-s07-m07","session_id":"user-zhou-s07","timestamp":"2030-05-10T10:00:00.000Z","cwd":"/simulated-companion/user-zhou","role":"user","content":"如果之后再变我会明确告诉你。"}
+{"id":"user-zhou-s07-m08","session_id":"user-zhou-s07","timestamp":"2030-05-10T10:10:00.000Z","cwd":"/simulated-companion/user-zhou","role":"assistant","content":"之后按新变化继续更新。"}

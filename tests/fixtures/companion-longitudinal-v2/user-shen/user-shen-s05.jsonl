@@ -1,0 +1,10 @@
+{"id":"user-shen-s05-m01","session_id":"user-shen-s05","timestamp":"2030-03-27T09:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"我在考虑下个月去景德镇参加植物釉色工作坊。"}
+{"id":"user-shen-s05-m02","session_id":"user-shen-s05","timestamp":"2030-03-27T09:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"记作候选计划：景德镇的植物釉色工作坊。"}
+{"id":"user-shen-s05-m03","session_id":"user-shen-s05","timestamp":"2030-03-27T09:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"目前只是候选，车票和名额都没订。"}
+{"id":"user-shen-s05-m04","session_id":"user-shen-s05","timestamp":"2030-03-27T09:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"状态是未预订。"}
+{"id":"user-shen-s05-m05","session_id":"user-shen-s05","timestamp":"2030-03-27T09:40:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"如果工作排不开就不去。"}
+{"id":"user-shen-s05-m06","session_id":"user-shen-s05","timestamp":"2030-03-27T09:50:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"是否成行以后再更新。"}
+{"id":"user-shen-s05-m07","session_id":"user-shen-s05","timestamp":"2030-03-27T10:00:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先保留成备选计划，不要说成已经决定。"}
+{"id":"user-shen-s05-m08","session_id":"user-shen-s05","timestamp":"2030-03-27T10:10:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"不会当成确定行程。"}
+{"id":"user-shen-s05-m09","session_id":"user-shen-s05","timestamp":"2030-03-27T10:20:00.000Z","cwd":"/simulated-companion/user-shen","role":"user","content":"先聊到这里，晚点有新情况我再告诉你。"}
+{"id":"user-shen-s05-m10","session_id":"user-shen-s05","timestamp":"2030-03-27T10:30:00.000Z","cwd":"/simulated-companion/user-shen","role":"assistant","content":"好，我不会替你补全还没发生的部分。"}

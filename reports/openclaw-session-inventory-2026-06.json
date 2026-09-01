@@ -1,0 +1,43 @@
+{
+  "inventory_kind": "OPENCLAW_LOCAL_SESSION_METADATA",
+  "inventory_status": "PRIVATE_SOURCE_NOT_COMMITTED",
+  "inventory_date": "2026-06-14",
+  "scope": {
+    "recursive_jsonl_and_log_files": 7314,
+    "total_bytes": 2642029877,
+    "agent_session_files_considered": 5400,
+    "stratified_sample_files": 800,
+    "additional_agent_session_roots_scanned": true
+  },
+  "schema_observation": {
+    "native_message_content": "array of typed text/toolCall/thinking blocks",
+    "adapter_gap": "current OpenClaw adapter accepts only string content",
+    "action": "normalize text blocks before creating the sanitized fixture"
+  },
+  "selection": {
+    "initial_companion_oriented_sample": {
+      "eligible_unique_sessions": 99,
+      "shortlist_sessions": 13,
+      "shortlist_user_messages": 147,
+      "observed_months": ["2026-05", "2026-06"]
+    },
+    "expanded_human_like_scan": {
+      "eligible_sessions": 39,
+      "secret_or_path_flagged": 20,
+      "non_secret_flagged_candidates": 19,
+      "agent_families_present": ["coder", "doctor", "main", "media", "news", "researcher", "warmth"],
+      "selection_rule": "at least four user and three assistant text messages; exclude internal steer/tool boilerplate; memory signal present"
+    },
+    "decision": "do not use the 19 candidates directly; apply complete sanitization and manual risk review first"
+  },
+  "privacy_screen": {
+    "patterns": ["email", "phone", "URL", "home or Windows path", "common API-token prefixes", "UUID", "long numeric identifiers", "health/trauma/financial terms"],
+    "limitations": [
+      "A regex screen is not proof of anonymity.",
+      "Names, places, employers, relationships, and indirect identifiers require contextual review.",
+      "Flagged sessions are not copied into the repository; raw content remains local/private."
+    ]
+  },
+  "next_action": "select at most 8 non-secret candidates across agent families, sanitize text blocks, then run residual-identifier and source-pollution audits before freezing a truth ledger",
+  "accepted_for_production": false
+}
