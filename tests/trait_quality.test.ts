@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { evaluateTraitQuality } from '../src/traits/quality.js';
+import { calibrateTraitAsPrior, evaluateTraitQuality } from '../src/traits/quality.js';
 import { renderUserModelMarkdown, scoreTraitForUserMd } from '../src/render/user-md.js';
 import { Trait } from '../src/traits/schema.js';
 
@@ -31,6 +31,10 @@ test('evaluateTraitQuality calibrates wording to prevent semantic overreach', ()
   const calibrated = evaluateTraitQuality('collaboration_style', overreachWording, 'USER_GLOBAL', 2);
   assert.ok(!calibrated.calibratedStatement.startsWith('Always require'));
   assert.ok(calibrated.calibratedStatement.startsWith('Prefers'));
+  assert.equal(calibrateTraitAsPrior('Agent must always run tests.'), 'Usually prefers the agent to run tests.');
+  assert.equal(calibrateTraitAsPrior('Always run tests.'), 'Shows a consistent tendency to run tests.');
+  assert.equal(calibrateTraitAsPrior('Never expose uncertain claims as facts.'), 'Shows a tendency to avoid: expose uncertain claims as facts.');
+  assert.equal(calibrateTraitAsPrior('必须先确认风险。'), '通常重视：先确认风险。');
 });
 
 test('renderUserModelMarkdown filters low utility traits and compresses duplicates', () => {
@@ -105,4 +109,7 @@ test('renderUserModelMarkdown filters low utility traits and compresses duplicat
   assert.ok(userMd.includes('autonomous progress'));
   // Low utility pleasantry should NOT be in USER.md!
   assert.ok(!userMd.includes('谢谢'));
+  assert.match(userMd, /improve understanding and collaboration, not increase control/);
+  assert.match(userMd, /current explicit instructions, current context, new evidence, and reality as higher priority/);
+  assert.doesNotMatch(userMd, /instructions or mandatory agent rules\.\n\n.*Agent must/is);
 });

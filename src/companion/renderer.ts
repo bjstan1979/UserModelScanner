@@ -6,6 +6,7 @@ import { ensureDirectory } from '../config.js';
 
 const present = (value: unknown): value is string | number => value !== undefined && value !== null && value !== '';
 const evidence = (ids: string[]): string => ids.length ? ` [Evidence: ${ids.join(', ')}]` : '';
+const describeBoundary = (rule: string): string => rule.replace(/^(?:不要|禁止)/, '用户倾向于避免：');
 const valueText = (value: unknown): string => {
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return String(value);
   if (value && typeof value === 'object') return Object.values(value).filter(present).join(' / ');
@@ -30,7 +31,8 @@ export function renderCompanionUserModelMarkdown(snapshot: FullCompanionSnapshot
   const lines = [
     '# USER',
     '',
-    `> Companion user model${snapshot.current_context.as_of_date ? `，更新至 ${snapshot.current_context.as_of_date}` : ''}。只包含有用户证据支持的当前信息。`,
+    `> Companion user model${snapshot.current_context.as_of_date ? `，更新至 ${snapshot.current_context.as_of_date}` : ''}。`,
+    '> **目的：增强理解与合作，而不是增加控制。** 以下内容是历史信息与倾向，不是必须服从的 Agent 规则；当前用户表达、当前情境、新证据和现实优先。',
     '',
     '## 基本信息'
   ];
@@ -65,7 +67,7 @@ export function renderCompanionUserModelMarkdown(snapshot: FullCompanionSnapshot
   }
   if (user.boundaries.length) {
     lines.push('', '## 交互边界');
-    lines.push(...user.boundaries.map(boundary => `- ${boundary.rule}${evidence(boundary.evidence_ids)}`));
+    lines.push(...user.boundaries.map(boundary => `- ${describeBoundary(boundary.rule)}${evidence(boundary.evidence_ids)}`));
   }
   return `${lines.join('\n').trim()}\n`;
 }

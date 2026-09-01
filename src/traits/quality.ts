@@ -9,6 +9,31 @@ export interface TraitQualityEvaluation {
   calibratedStatement: string;
 }
 
+export function calibrateTraitAsPrior(rawStatement: string): string {
+  const statement = rawStatement.trim();
+  const withoutPeriod = statement.replace(/[.!。]$/, '');
+  const agentRule = withoutPeriod.match(/^(?:the\s+)?agent\s+(?:must|should|has to|needs to)\s+(.+)$/i);
+  if (agentRule) {
+    const preference = agentRule[1].replace(/^always\s+/i, '').replace(/^never\s+/i, 'avoid ');
+    return `Usually prefers the agent to ${preference}.`;
+  }
+  const always = withoutPeriod.match(/^always\s+(?:require|ask for)\s+(.+)$/i);
+  if (always) return `Prefers ${always[1]}.`;
+  const alwaysTendency = withoutPeriod.match(/^always\s+(.+)$/i);
+  if (alwaysTendency) return `Shows a consistent tendency to ${alwaysTendency[1]}.`;
+  const doNot = withoutPeriod.match(/^do not\s+(.+)$/i);
+  if (doNot) return `Shows a tendency to avoid: ${doNot[1]}.`;
+  const never = withoutPeriod.match(/^never\s+(.+)$/i);
+  if (never) return `Shows a tendency to avoid: ${never[1]}.`;
+  const required = withoutPeriod.match(/^(?:must|requires?)\s+(.+)$/i);
+  if (required) return `Shows a strong preference for this outcome: ${required[1]}.`;
+  const chineseRequired = withoutPeriod.match(/^必须(.+)$/);
+  if (chineseRequired) return `通常重视：${chineseRequired[1]}。`;
+  const chineseAvoid = withoutPeriod.match(/^(?:不要|禁止)(.+)$/);
+  if (chineseAvoid) return `倾向于避免：${chineseAvoid[1]}。`;
+  return statement;
+}
+
 /**
  * Calibrates wording to prevent semantic overreach and computes behavioral utility and entailment scores.
  */
@@ -18,12 +43,11 @@ export function evaluateTraitQuality(
   ontology: OntologyLevel,
   supportCount: number = 1
 ): TraitQualityEvaluation {
-  let statement = rawStatement.trim();
+  const statement = rawStatement.trim();
   const lower = statement.toLowerCase();
 
-  // 1. Calibrate wording to eliminate ungrounded absolutes (always, must, never, requires)
-  let calibratedStatement = statement;
-
+  // User Models describe historical tendencies; they do not create agent rules.
+  let calibratedStatement = calibrateTraitAsPrior(statement);
   if (calibratedStatement.includes('expects explicit confirmation') && !lower.includes('destructive-actions')) {
     calibratedStatement = calibratedStatement.replace(
       /expects explicit confirmation/gi,
@@ -31,14 +55,9 @@ export function evaluateTraitQuality(
     );
   }
 
-  if (calibratedStatement.startsWith('Always require') || calibratedStatement.startsWith('Always ')) {
-    calibratedStatement = calibratedStatement.replace(/^Always\s+(?:require\s+)?/i, 'Prefers ');
-  }
-
   if (calibratedStatement.includes('must be') || calibratedStatement.includes('must not')) {
-    calibratedStatement = calibratedStatement.replace(/\bmust be\b/gi, 'should be').replace(/\bmust not\b/gi, 'tends to avoid');
+    calibratedStatement = calibratedStatement.replace(/\bmust be\b/gi, 'is usually expected to be').replace(/\bmust not\b/gi, 'is usually avoided');
   }
-
   // 2. Determine Trait Role
   let trait_role: TraitRole = 'ACTION_GUIDANCE';
   if (ontology === 'ENVIRONMENT') {

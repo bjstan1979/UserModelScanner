@@ -15,6 +15,27 @@
 - snapshot、discovery evidence 和 incremental index 支持跨运行复用。
 - Assistant 输出、system prompt、tool output 和已有 USER.md 不作为用户证据。
 
+## 核心设计原则：描述，不规定
+
+> **用户模型的目的是增强理解，而不是增加控制。**
+> **The purpose of a User Model is to improve understanding, not to increase control.**
+
+User Model 不是来自用户的隐藏 system prompt，也不是 Agent 必须服从的规则集。它描述历史中反复出现的倾向、背景和合作线索，帮助双方更好地理解彼此；当前用户表达、当前情境、新证据和现实始终具有更高优先级。
+
+- **Model the user; do not control the agent.**
+- **User Model is a prior, not a constraint.**
+- 用户可以改变偏好；模型必须保持可修订，不能冻结用户。
+- Agent 应结合当前任务作判断，而不是为了迎合历史画像而忽略必要解释、风险或事实。
+- 明确建立的安全边界和关系协议可以记录，但应保留适用范围与证据，不能无限外推。
+
+每条候选 trait 进入 `USER.md` 前应回答：
+
+1. 这是用户特征/倾向，还是伪装成 trait 的 Agent 行为命令？后者应改写或拒绝。
+2. 换一个任务或情境后仍然成立吗？若只适用于特定领域，应保留 scope，不能冒充全局人格。
+3. 删除它是否会让 Agent 失去对用户的重要理解？如果不会，就不应占用便携 User Model。
+
+因此推荐写法是 `Prefers...`、`Tends to...`、`Usually works best when...`，而不是 `Agent must...`、`Always...`、`Never...`。
+
 ## 快速开始
 
 ### 环境

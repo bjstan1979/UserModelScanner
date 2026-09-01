@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Trait } from '../traits/schema.js';
 import { ensureDirectory, UserModelConfig } from '../config.js';
+import { calibrateTraitAsPrior } from '../traits/quality.js';
 
 export interface RenderUserMdOptions {
   tokenCap?: number; // default 1500
@@ -106,12 +107,13 @@ export function renderUserModelMarkdown(traits: Trait[], options?: RenderUserMdO
   const seenStatements = new Set<string>();
 
   for (const t of selected) {
-    const normKey = `${t.category}::${t.statement.toLowerCase().trim()}`;
+    const statement = calibrateTraitAsPrior(t.statement);
+    const normKey = `${t.category}::${statement.toLowerCase().trim()}`;
     if (seenStatements.has(normKey)) continue;
     seenStatements.add(normKey);
 
     const scopePrefix = t.scope && t.scope !== 'global' ? `[${t.scope}] ` : '';
-    const line = `- ${scopePrefix}${t.statement}`;
+    const line = `- ${scopePrefix}${statement}`;
     if (sections[t.category]) {
       sections[t.category].push(line);
     }
@@ -120,7 +122,9 @@ export function renderUserModelMarkdown(traits: Trait[], options?: RenderUserMdO
   const lines: string[] = [
     '# User Model',
     "This is a portable, revisable model inferred from the user's cross-framework history.",
-    'Treat current explicit instructions and new evidence as higher priority.',
+    '**Purpose:** improve understanding and collaboration, not increase control.',
+    '**Interpretation:** these are historical tendencies and context, not instructions or mandatory agent rules.',
+    'Treat current explicit instructions, current context, new evidence, and reality as higher priority.',
     ''
   ];
 

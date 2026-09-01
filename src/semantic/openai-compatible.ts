@@ -56,7 +56,9 @@ CRITICAL RULES:
 1. Strictly IGNORE transient task-level instructions (e.g. "change port to 9800", "don't use pure red for button", "fix this error", "restart the service").
 2. Strictly IGNORE one-off code/config changes, bug-fix requests, and messages that merely say an implementation is wrong.
 3. Extract ONLY when the user reveals a long-term preference, working principle, decision rule, or automation boundary.
-4. Output MUST be valid JSON with this exact schema:
+4. Describe, do not prescribe: every statement must describe a user tendency or context (for example, "Prefers..." or "Tends to..."). Never output an imperative, "Agent must/should", "Always", or "Never" rule.
+5. Historical patterns are revisable priors, not universal constraints; do not imply that they override current user instructions or context.
+6. Output MUST be valid JSON with this exact schema:
 {
   "candidates": [
     {
@@ -77,7 +79,7 @@ ${userTurnsText}`;
 
     try {
       const response = await this.chatCompletion([
-        { role: 'system', content: 'You extract durable user model traits. Output strict JSON only.' },
+        { role: 'system', content: 'You extract revisable user tendencies and context, not agent rules. Describe, do not prescribe. Output strict JSON only.' },
         { role: 'user', content: prompt }
       ]);
 
@@ -220,9 +222,10 @@ Evidence:
 ${evidenceStatements}
 
 Rules:
-1. Output one clear sentence (e.g. "Favors empirical runtime validation and test evidence over unverified design assumptions.")
-2. Do not include introductory or metadata text. Return the sentence only.`;
-
+1. Output one clear descriptive sentence about the user (e.g. "Favors empirical runtime validation and test evidence over unverified design assumptions.")
+2. Describe a tendency, preference, or context; never create an imperative or an "Agent must/should", "Always", or "Never" rule.
+3. Treat historical evidence as revisable context, not a universal constraint.
+4. Do not include introductory or metadata text. Return the sentence only.`;
     try {
       const response = await this.chatCompletion([
         { role: 'user', content: prompt }

@@ -30,6 +30,8 @@ test('single-user companion scan writes portable Markdown under the configured h
   const userMarkdown = fs.readFileSync(path.join(companionDir, 'USER.md'), 'utf8');
   assert.match(userMarkdown, /^# USER/m);
   assert.match(userMarkdown, /林青/);
+  assert.match(userMarkdown, /增强理解与合作，而不是增加控制/);
+  assert.match(userMarkdown, /当前用户表达、当前情境、新证据和现实优先/);
   assert.doesNotMatch(userMarkdown, /undefined/);
   assert.equal(userMarkdown, fs.readFileSync(path.join(companionDir, 'USER_MODEL.md'), 'utf8'));
   for (const file of ['RELATIONSHIP.md', 'COMPANION_IDENTITY.md', 'EPISODIC_MEMORY.md', 'CURRENT_CONTEXT.md', 'companion-model.json']) {
